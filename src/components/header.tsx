@@ -11,7 +11,6 @@ export function Header() {
 		<div className="mx-auto flex items-center justify-between">
 			<div className="flex items-center gap-4">
 				<InfoFinance />
-				<SearchHeader />
 			</div>
 			<div className="flex items-center gap-3">
 				<ThemeSwitcher />

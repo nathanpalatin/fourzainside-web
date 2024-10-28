@@ -22,9 +22,8 @@ export default function AppLayout({
 
 	return (
 		<div className="flex h-screen">
-			<SidebarToggle />
 			<div className="flex-1 overflow-y-hidden">
-				<div className="px-10 pt-6">
+				<div className="px-6 pt-6">
 					<Header />
 				</div>
 				<>

@@ -13,9 +13,8 @@ export function InfoFinance() {
 
 	return (
 		<div className="flex items-center w-[600px] gap-2 ">
-			<h1 className="text-sm">Qualidade financeira</h1>
-			<Progress value={progress} className="dark:bg-zinc-600 w-[30%]" />
-			<h1 className="text-sm">65%</h1>
+			<h1 className="text-2xl font-semibold">Reset Intestino</h1>
+
 		</div>
 	)
 }
