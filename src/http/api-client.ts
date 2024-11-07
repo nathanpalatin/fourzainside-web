@@ -56,6 +56,7 @@ export const api = ky.create({
 						if (!refreshToken) {
 							throw new Error('No refresh token available')
 						}
+
 						try {
 							const refreshResponse = await ky
 								.patch(`${process.env.NEXT_PUBLIC_API_URL}/users/token/refresh`, {

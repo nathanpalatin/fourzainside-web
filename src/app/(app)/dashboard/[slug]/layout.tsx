@@ -15,7 +15,7 @@ export default function SettingsLayout({
 	return (
 		<>
 			<Tabs />
-			<div className="p-10">{children}</div>
+			<div className="p-6">{children}</div>
 		</>
 	)
 }

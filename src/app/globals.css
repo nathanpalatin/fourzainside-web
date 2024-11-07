@@ -21,3 +21,35 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+.yt-embed-holder {
+  width: 100% !important;
+  overflow: hidden !important;
+  aspect-ratio: 16/9 !important;
+  pointer-events: none !important;
+}
+
+.yt-embed-holder iframe {
+  width: 300% !important;
+  height: 100% !important;
+  margin-left: -100% !important;
+}
+
+
+
+.custom-video-player .vjs-control-bar {
+  background-color: transparent !important;
+}
+.custom-video-player .vjs-play-progress {
+  background-color: #f700b1 !important;
+}
+
+.custom-video-player .vjs-play-control .vjs-icon-play:before {
+  color: #FFFFFF !important;
+  height: 10px !important;
+  width: 100px !important;
+}
+
+.custom-video-player .vjs-control {
+  color: #FFFFFF !important;
+}

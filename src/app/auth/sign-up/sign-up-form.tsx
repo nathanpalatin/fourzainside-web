@@ -38,7 +38,7 @@ export function SignUpForm() {
 				)}
 
 				<Image
-					alt="logo fourzainsider"
+					alt="logo fourzainside"
 					className="mx-auto mb-10 block md:hidden"
 					width={200}
 					priority

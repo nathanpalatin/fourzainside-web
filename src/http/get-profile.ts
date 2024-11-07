@@ -6,7 +6,7 @@ interface GetProfileResponse {
 	user: {
 		id: string
 		name: string | null
-		role: string
+		role: 'ADMIN' | 'MENTOR' | 'USER'
 		avatar: string | null
 	}
 }

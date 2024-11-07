@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-	title: 'Fourza Insider - Educação para a vida'
+	title: 'Fourza Inside - Educação para a vida'
 }
 
 export default function RootLayout({

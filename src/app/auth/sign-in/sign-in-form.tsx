@@ -40,14 +40,16 @@ export function SignInForm() {
 					</Alert>
 				)}
 
-				<Image
-					alt="logo mentor"
-					className="mx-auto mb-10 block md:hidden"
-					width={200}
-					priority
-					height={100}
-					src={theme === 'dark' ? logo : logoLight}
-				/>
+				{theme && (
+					<Image
+						alt="logo mentor"
+						className="mx-auto mb-10 block md:hidden"
+						width={200}
+						priority
+						height={100}
+						src={theme === 'dark' ? logo : logoLight}
+					/>
+				)}
 
 				<h1 className="text-lg font-bold text-zinc-800 dark:text-white">Olá, seja bem vindo</h1>
 				<div className="items-center justify-center">

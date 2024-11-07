@@ -21,7 +21,7 @@ export default function ForgotPasswordPage() {
 				<div className="flex flex-1 flex-col items-center justify-center">
 					<form action={forgotPassword} className="space-y-4">
 						<Image
-							alt="logo fourzainsider"
+							alt="logo fourzainside"
 							className="mx-auto mb-10 block md:hidden"
 							width={200}
 							height={100}

@@ -63,7 +63,7 @@ export function BlurImageWithText({
 							className={`object-cover transition-all mb-10 opacity-0 duration-1000 text-6xl font-semibold ${isAnimating ? 'opacity-0' : 'opacity-100'
 								}`}
 						>
-							Fourza Insider
+							Fourza Inside
 						</h1>
 						<h1
 							className={` opacity-0 text-white transition-opacity duration-1000 ${isAnimating ? 'opacity-0' : 'opacity-100 '
