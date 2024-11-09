@@ -1,14 +1,14 @@
-import { Separator } from "./ui/separator"
+import Link from "next/link"
 
 interface HeaderProps {
 	title: string
 }
-export function InfoHeader({ title }: HeaderProps) {
-
+export async function InfoHeader({ title }: HeaderProps) {
 	return (
-		<div className="flex items-center w-[600px] gap-2 ">
-			<h1 className="text-2xl font-medium">{title}</h1>
-			<Separator orientation="vertical" className="h-8 mx-2 bg-muted-foreground/30" />
-		</div>
+		<Link href={`/`}>
+			<div className="flex items-center w-[600px] ">
+				<h1 className="text-2xl font-medium">{title}</h1>
+			</div>
+		</Link>
 	)
 }

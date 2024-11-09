@@ -12,7 +12,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 export async function ProfileButton() {
 	const { user } = await auth()
 
-
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger className="flex group items-center gap-3 outline-none">
@@ -22,18 +21,16 @@ export async function ProfileButton() {
 				</div>
 				<Avatar className="size-8">
 					{user.avatar && <AvatarImage src={user.avatar} />}
-					{user.name && (
-						<AvatarFallback className="border border-zinc-500">{getInitials(user.name)}</AvatarFallback>
-					)}
+					<AvatarFallback className="border border-zinc-500">{getInitials(user.name)}</AvatarFallback>
 				</Avatar>
 				<ChevronDown
 					className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
 					aria-hidden="true"
 				/>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end" className="mt-2 border border-zinc-700">
+			<DropdownMenuContent align="end" className="mt-2 border bg-zinc-900 border-zinc-800">
 				<DropdownMenuItem asChild>
-					<a href="/dashboard/org/maiagiacomelli/settings">
+					<a href="/dashboard/account">
 						<Settings className="mr-2 size-4" />
 						Minha conta
 					</a>

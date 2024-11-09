@@ -11,12 +11,10 @@ export function ButtonProgress() {
   function handleProgress() {
     toast("Progresso atulizado!", {
       description: "Parabéns, continue assim...",
-      classNames: {
-        actionButton: "group-[.toast]:bg-green-500 group-[.toast]:text-white",
-      },
+
       action: {
         label: "OK!",
-        onClick: () => console.log("Undo"),
+        onClick: () => { },
       },
 
     })

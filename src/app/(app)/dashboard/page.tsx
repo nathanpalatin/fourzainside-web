@@ -1,7 +1,17 @@
-export default async function Dashboard() {
+import { CoinsIcon } from 'lucide-react'
+import { CardInfo } from '../components/card-info'
+
+export default function Dashboard() {
 	return (
-		<div className="space-y-4 py-4 px-6">
-			<h1 className="font-medium text-2xl">Dashboard</h1>
+		<div className='overflow-y-auto'>
+			<div className='w-full mt-4 flex gap-3 items-center'>
+				<CardInfo title="Vendas hoje" icon={<CoinsIcon />} />
+				<CardInfo title="Saldo disponível" icon={<CoinsIcon />} />
+				<CardInfo title="Pendente" icon={<CoinsIcon />} />
+				<CardInfo title="VENDAS" icon={<CoinsIcon />} />
+			</div>
+
+
 		</div>
 	)
 }

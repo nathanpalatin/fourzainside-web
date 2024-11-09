@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Fourza Inside - Admin area'
+	title: 'Fourza Inside - Member area %s'
 }
 
 export default async function AppLayout({
@@ -16,17 +16,14 @@ export default async function AppLayout({
 	sheet: React.ReactNode
 }>) {
 
-
 	if (!isAuthenticated()) {
 		redirect('/auth/sign-in')
 	}
 
-
-
 	return (
-		<div className="flex h-screen">
-			<div className="flex-1 ">
-				<div className="px-6 pt-6">
+		<div className="flex h-screen overflow-y-hidden">
+			<div className="flex-1">
+				<div className="px-6 pt-3">
 					<Header />
 				</div>
 				<>

@@ -12,7 +12,12 @@ interface GetCourseResponse {
 		level: string
 		duration: string
 		type: string
-	}
+		user: {
+			name: string
+			username: string
+			avatar: string
+		}
+	}[]
 }
 
 export async function getCourses() {

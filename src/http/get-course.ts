@@ -11,10 +11,16 @@ interface GetCourseResponse {
 		level: string
 		duration: string
 		type: string
+		user: {
+			name: string
+			username: string
+			avatar: string
+			role: string
+		}
 	}
 }
 
 export async function getCourseInfo(slug: string) {
-	const course = await api.get(`courses/${slug}`).json<GetCourseResponse>()
+	const course = await api.get(`courses/c/${slug}`).json<GetCourseResponse>()
 	return course
 }

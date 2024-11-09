@@ -8,9 +8,9 @@ export function middleware(request: NextRequest) {
 	if (pathname.startsWith('/dashboard')) {
 		const [, , , slug] = pathname.split('/')
 
-		response.cookies.set('org', slug)
+		response.cookies.set('platform', slug)
 	} else {
-		response.cookies.delete('org')
+		response.cookies.delete('platform')
 	}
 
 	return response

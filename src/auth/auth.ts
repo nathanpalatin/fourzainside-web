@@ -1,4 +1,3 @@
-import { getMembership } from '@/http/get-membership'
 import { getProfile } from '@/http/get-profile'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
@@ -8,21 +7,9 @@ export async function isAuthenticated() {
 	return cookieStore.get('token')?.value
 }
 
-export async function getCurrentOrg() {
-	const cookieStore = await cookies()
-	return cookieStore.get('org')?.value ?? null
-}
-
-export async function getCurrentMembership() {
-	const org = getCurrentOrg()
-
-	if (!org) {
-		return null
-	}
-
-	const { user } = await getMembership()
-
-	return user
+export async function isAdmin() {
+	const { user } = await getProfile()
+	if (user.role === 'ADMIN' || user.role === 'MENTOR') return true
 }
 
 export async function auth() {
