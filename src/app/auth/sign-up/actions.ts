@@ -11,6 +11,7 @@ const signUpSchema = z
 			message: 'Por favor, insira seu nome completo'
 		}),
 		email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
+		phone: z.string().min(10, { message: 'Por favor, insira um telefone válido.' }),
 		password: z.string().min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
 		password_confirmation: z.string()
 	})
@@ -28,12 +29,13 @@ export async function signUpAction(data: FormData) {
 		return { success: false, message: null, errors }
 	}
 
-	const { name, email, password } = result.data
+	const { name, email, phone, password } = result.data
 
 	try {
 		await signUp({
 			name,
 			email,
+			phone,
 			password
 		})
 	} catch (err) {

@@ -15,7 +15,7 @@ import { useFormState } from '@/hooks/use-form-state'
 
 import { signInWithEmailAndPassword } from './actions'
 
-export function SignInForm() {
+export function EmailForm() {
 	const router = useRouter()
 
 	const { theme } = useTheme()
@@ -51,6 +51,7 @@ export function SignInForm() {
 					/>
 				)} */}
 
+				<h1 className="text-lg font-bold text-zinc-800 dark:text-white">Olá, seja bem vindo</h1>
 				<div className="items-center justify-center">
 					<Input
 						name="credential"
@@ -87,11 +88,11 @@ export function SignInForm() {
 				</Button>
 
 				<Button
-					className=" w-full rounded bg-indigo-600  hover:bg-zinc-200 dark:hover:bg-indigo-900 "
+					className=" w-full rounded border-2 border-zinc-800 bg-zinc-100  hover:bg-zinc-200 dark:hover:bg-zinc-900 "
 					variant="link"
 					asChild
 				>
-					<Link href="/auth/sign-up" className="text-zinc-100 hover:no-underline dark:hover:text-zinc-200">
+					<Link href="/auth/sign-up" className="text-zinc-700 hover:no-underline dark:hover:text-zinc-200">
 						Criar uma conta
 					</Link>
 				</Button>

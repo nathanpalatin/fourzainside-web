@@ -1,10 +1,11 @@
 import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 
+import Image from 'next/image'
+
 import { SignUpForm } from './sign-up-form'
 import { BlurImageWithText } from '@/components/background-home'
-
 import backgroundHome from '@/assets/background-home.png'
-import logo from '@/assets/logo-home.png'
+/* import logo from '@/assets/logo-home.png' */
 
 export default function SignInPage() {
 	return (
@@ -17,13 +18,21 @@ export default function SignInPage() {
 			</div>
 
 			<div className="hidden h-full w-8/12 md:block">
-				<BlurImageWithText
+				<Image
+					alt="background"
+					className="h-screen w-screen object-cover"
+					quality={100}
+					width={500}
+					height={500}
+					src={backgroundHome}
+				/>
+				{/* <BlurImageWithText
 					logo={logo.src}
 					src={backgroundHome.src}
 					alt="Background Image"
 					initialBlurDelay={1200}
 					textAppearDelay={2000}
-				/>
+				/> */}
 			</div>
 		</div>
 	)

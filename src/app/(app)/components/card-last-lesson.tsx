@@ -19,7 +19,7 @@ export function CardLastLesson({ course, link, instructorName, instructorAvatar 
             <Image alt={instructorName} className='bg-zinc-700 rounded-3xl border border-zinc-600 size-20' src={instructorAvatar} width={100} height={100} />
             <div className="flex-1 flex-col mt-2 gap-px p-2">
               <h1 className="text-zinc-200 font-medium">{course}</h1>
-              <span className="text-zinc-400 text-sm">Módulo 2</span>
+              <span className="text-zinc-400 text-sm">{instructorName}</span>
             </div>
           </div>
           <PlayIcon className="bg-indigo-500 size-12 mt-4 rounded-full p-3 hidden group-hover:flex  transition-all " />

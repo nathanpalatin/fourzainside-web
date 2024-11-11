@@ -1,6 +1,6 @@
 import { getCourses } from '@/http/get-courses'
 import { CardLastLesson } from './components/card-last-lesson'
-import { GiftIcon, Ticket, TicketIcon, TrophyIcon, Users2Icon } from 'lucide-react'
+import { GiftIcon, TicketIcon, TrophyIcon, Users2Icon } from 'lucide-react'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 

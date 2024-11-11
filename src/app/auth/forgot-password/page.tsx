@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 
 import backgroundHome from '@/assets/background-home.png'
-import logo from '@/assets/logo.png'
-import logoLight from '@/assets/logo-light.png'
+/* import logo from '@/assets/logo.png' */
+/* import logoLight from '@/assets/logo-light.png' */
 import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,14 +20,14 @@ export default function ForgotPasswordPage() {
 			<div className="flex h-screen w-full flex-col justify-center bg-zinc-100 dark:bg-zinc-950 md:w-4/12">
 				<div className="flex flex-1 flex-col items-center justify-center">
 					<form action={forgotPassword} className="space-y-4">
-						<Image
+						{/* <Image
 							alt="logo fourzainside"
 							className="mx-auto mb-10 block md:hidden"
 							width={200}
 							height={100}
 							priority
 							src={theme === 'dark' ? logo : logoLight}
-						/>
+						/> */}
 						<div className="space-y-1">
 							<Input
 								placeholder="E-mail cadastrado"
@@ -52,7 +52,6 @@ export default function ForgotPasswordPage() {
 						</Button>
 					</form>
 				</div>
-				{/* Colocando o ThemeSwitcher no footer com margem inferior */}
 				<div className="mb-10 flex justify-center">
 					<ThemeSwitcher />
 				</div>

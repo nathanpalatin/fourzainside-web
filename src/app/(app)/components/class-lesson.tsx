@@ -15,7 +15,7 @@ interface CourseProps {
 export function ClassLesson({ slug }: CourseProps) {
 
   const { data, isLoading } = useQuery({
-    queryKey: ['course'],
+    queryKey: ['course', slug],
     queryFn: () => getCourseInfo(slug)
   })
 
@@ -27,17 +27,13 @@ export function ClassLesson({ slug }: CourseProps) {
         {isLoading ? (
           <Skeleton className='w-14 h-14  rounded-full' />
         ) : (
-          <Image alt="mentor profile" className='w-14 h-14 object-cover rounded-full' width={150} height={150} src={data.course.user.avatar} />
+          <Image alt="mentor profile" className='w-14 h-14 object-cover rounded-full' width={150} height={150} src={data?.course.user.avatar} />
 
         )}
         <div className='flex-1'>
-          <p className='font-semibold text-lg'>Maiara Giacomelli</p>
+          <p className='font-semibold text-lg'>{data?.course.user.name}</p>
           <p className='font-medium text-zinc-500 text-sm'>Educadora</p>
-          <p className='pt-2'>Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eos suscipit recusandae. Magni, culpa dolor expedita dolorem odit autem sequi dicta debitis? Id natus harum ipsam voluptatum ipsa dicta. Assumenda.</p>
-          <p className='pt-2'>Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eos suscipit recusandae. Magni, culpa dolor expedita dolorem odit autem sequi dicta debitis? Id natus harum ipsam voluptatum ipsa dicta. Assumenda.</p>
-          <p className='pt-2'>Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eos suscipit recusandae. Magni, culpa dolor expedita dolorem odit autem sequi dicta debitis? Id natus harum ipsam voluptatum ipsa dicta. Assumenda.</p>
-          <p className='pt-2'>Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eos suscipit recusandae. Magni, culpa dolor expedita dolorem odit autem sequi dicta debitis? Id natus harum ipsam voluptatum ipsa dicta. Assumenda.</p>
-          <p className='pt-2'>Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium eos suscipit recusandae. Magni, culpa dolor expedita dolorem odit autem sequi dicta debitis? Id natus harum ipsam voluptatum ipsa dicta. Assumenda.</p>
+          <p className='pt-2'>{data?.course.description}</p>
         </div>
         <div>
           <ButtonProgress />

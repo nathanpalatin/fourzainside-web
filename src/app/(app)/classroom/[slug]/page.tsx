@@ -1,4 +1,4 @@
-
+'use client'
 import {
 	Tabs,
 	TabsContent,
@@ -27,14 +27,14 @@ interface ProductParams {
 	}
 }
 
-export default async function ClassRoom({ params }: ProductParams) {
+export default function ClassRoom({ params }: ProductParams) {
 
 	return (
 		<div className="space-y-4 py-4">
 
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-9/12 flex flex-col gap-4 ">
-					<ClassLesson slug={params.slug} />
+					<ClassLesson slug={'reset-intestino'} />
 				</div>
 				<div className="w-3/12 gap-5 flex flex-col">
 					<div className=" bg-zinc-200 dark:bg-zinc-900  ">

@@ -1,5 +1,6 @@
 'use server'
 
+import { env } from '@/env/env'
 import { getCookie, setCookie } from 'cookies-next'
 import ky from 'ky'
 import { cookies } from 'next/headers'
@@ -18,7 +19,7 @@ function onRefreshed(token: string) {
 }
 
 export const api = ky.create({
-	prefixUrl: process.env.NEXT_PUBLIC_API_URL,
+	prefixUrl: env.NEXT_PUBLIC_API_URL,
 	hooks: {
 		beforeRequest: [
 			async request => {
@@ -59,7 +60,7 @@ export const api = ky.create({
 
 						try {
 							const refreshResponse = await ky
-								.patch(`${process.env.NEXT_PUBLIC_API_URL}/users/token/refresh`, {
+								.patch(`${env.NEXT_PUBLIC_API_URL}/users/token/refresh`, {
 									json: { refreshToken }
 								})
 								.json<RefreshTokenResponse>()
