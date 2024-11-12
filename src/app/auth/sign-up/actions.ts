@@ -4,9 +4,6 @@ import { HTTPError } from 'ky'
 import { z } from 'zod'
 
 import { signUp } from '@/http/sign-up'
-import { cookies } from 'next/headers'
-import { generateCode, generateShortCode } from '@/lib/functions'
-import { isValidPhoneNumber } from 'react-phone-number-input'
 
 const signUpSchema = z
 	.object({
@@ -14,7 +11,7 @@ const signUpSchema = z
 			message: 'Por favor, insira seu nome completo'
 		}),
 		email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
-		phone: z.string().refine(isValidPhoneNumber, { message: 'Invalid phone number' }),
+		phone: z.string().min(10, { message: 'Por favor, insira um telefone válido.' }),
 		password: z.string().min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
 		password_confirmation: z.string()
 	})
@@ -33,20 +30,13 @@ export async function signUpAction(data: FormData) {
 	}
 
 	const { name, email, phone, password } = result.data
-	const cookieStore = await cookies()
 
 	try {
-		const { userId } = await signUp({
+		await signUp({
 			name,
 			email,
 			phone,
 			password
-		})
-
-		const randomToken = generateShortCode()
-
-		const token = cookieStore.set('tokenEmail', randomToken, {
-			path: '/auth/email-validation'
 		})
 
 		/* 	await registerCodeValidation({

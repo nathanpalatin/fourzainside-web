@@ -1,13 +1,9 @@
 'use client'
 
-import { AlertTriangle, FlagIcon, Loader2 } from 'lucide-react'
-import Image from 'next/image'
+import { AlertTriangle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useTheme } from 'next-themes'
 
-/* import logo from '@/assets/logo.png'
-import logoLight from '@/assets/logo-light.png' */
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -16,13 +12,13 @@ import { useFormState } from '@/hooks/use-form-state'
 import { signUpAction } from './actions'
 import { PhoneInput } from '@/components/ui/phone-input'
 
-
 export function SignUpForm() {
 	const router = useRouter()
 
 	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(signUpAction, () => {
 		router.push('/auth/email-validation')
 	})
+
 
 	return (
 		<div className="space-y-4 w-[320px]">
@@ -37,15 +33,6 @@ export function SignUpForm() {
 					</Alert>
 				)}
 
-				{/* 	<Image
-					alt="logo fourzainside"
-					className="mx-auto mb-10 block md:hidden"
-					width={200}
-					priority
-					height={100}
-					src={theme === 'dark' ? logo : logoLight}
-				/>
- */}
 				<div className="space-y-1">
 					<Input
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
@@ -72,7 +59,7 @@ export function SignUpForm() {
 				</div>
 
 				<div className="space-y-1">
-					<PhoneInput name='phone' id='phone' placeholder="Seu melhor telefone" className='border-none' />
+					<PhoneInput defaultCountry='BR' maxLength={15} name='phone' id='phone' placeholder="Seu melhor telefone" className='border-none' />
 					{errors?.phone && (
 						<p className="text-xs font-medium text-red-500">{errors.phone[0]}</p>
 					)}
