@@ -9,10 +9,12 @@ interface SignUpRequest {
 	password: string
 }
 
-type SignUpResponse = void
+interface SignUpResponse {
+	userId: string
+}
 
 export async function signUp({ name, email, phone, password }: SignUpRequest): Promise<SignUpResponse> {
-	await api.post('users', {
+	const response = await api.post('users', {
 		json: {
 			name,
 			email,
@@ -20,4 +22,5 @@ export async function signUp({ name, email, phone, password }: SignUpRequest): P
 			password
 		}
 	})
+	return response.json()
 }

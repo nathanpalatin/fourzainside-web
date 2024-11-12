@@ -22,7 +22,7 @@ export function ClassLesson({ slug }: CourseProps) {
 
   return (
     <>
-      {!isLoading && <VideoPlayerYT options={videoJsOptions} />}
+      <VideoPlayerYT options={videoJsOptions} />
       <div className='flex gap-3 pl-4'>
         {isLoading ? (
           <Skeleton className='w-14 h-14  rounded-full' />

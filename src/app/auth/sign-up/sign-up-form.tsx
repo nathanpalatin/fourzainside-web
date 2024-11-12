@@ -1,6 +1,6 @@
 'use client'
 
-import { AlertTriangle, Loader2 } from 'lucide-react'
+import { AlertTriangle, FlagIcon, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -14,6 +14,8 @@ import { Input } from '@/components/ui/input'
 import { useFormState } from '@/hooks/use-form-state'
 
 import { signUpAction } from './actions'
+import { PhoneInput } from '@/components/ui/phone-input'
+
 
 export function SignUpForm() {
 	const router = useRouter()
@@ -70,14 +72,7 @@ export function SignUpForm() {
 				</div>
 
 				<div className="space-y-1">
-					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
-						name="phone"
-						placeholder="Seu melhor telefone"
-						type="tel"
-						id="phone"
-					/>
-
+					<PhoneInput name='phone' id='phone' placeholder="Seu melhor telefone" className='border-none' />
 					{errors?.phone && (
 						<p className="text-xs font-medium text-red-500">{errors.phone[0]}</p>
 					)}

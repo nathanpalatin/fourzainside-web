@@ -8,12 +8,12 @@ import 'videojs-youtube';
 export const videoJsOptions = {
   autoplay: true,
   controls: true,
-  responsive: true,
+  responsive: false,
   fluid: true,
   techOrder: ['youtube'],
   sources: [
     {
-      src: 'https://www.youtube.com/watch?v=M11PBJbFApw',
+      src: 'https://www.youtube.com/watch?v=5DnEg170vFg',
       type: 'video/youtube'
     }
   ],
@@ -71,7 +71,7 @@ export function VideoPlayerYT(props) {
 
   return (
     <div data-vjs-player className="ml-4 custom-video-player" style={{ position: 'relative' }}>
-      {!loading ? (
+      {loading ? (
         <Skeleton className="bg-zinc-800 w-full rounded-xl h-[600px]" />
       ) : (
         <div ref={videoRef} className="bg-black rounded-xl overflow-hidden" />
