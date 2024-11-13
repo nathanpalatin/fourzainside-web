@@ -28,8 +28,10 @@ export function NotificationsBadge() {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" size="icon">
-					{data.notifications.length > 0 && <div className="w-2 h-2 bg-green-600 rounded-full" />}
-					<BellIcon size={20} />
+					<div className='flex'>
+						<BellIcon size={23} />
+						{data.notifications.length > 0 && <div className="w-2 h-2 bg-indigo-600 top-0 right-0 rounded-full" />}
+					</div>
 				</Button>
 			</DropdownMenuTrigger>
 
@@ -39,7 +41,7 @@ export function NotificationsBadge() {
 					<p className="text-muted-foreground text-xs p-2">Nenhuma notificação no momento.</p>
 				)}
 				{data.notifications.map(notification => (
-					<DropdownMenuItem key={notification.id} className="gap-2" onClick={() => {}}>
+					<DropdownMenuItem key={notification.id} className="gap-2" onClick={() => { }}>
 						<div className="flex w-full items-start border-b pb-2 border-muted-foreground gap-2">
 							<Avatar className="size-8">
 								<AvatarImage src={notification.senderUserId.avatar} />

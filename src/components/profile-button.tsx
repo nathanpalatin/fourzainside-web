@@ -5,9 +5,8 @@ import { auth } from '@/auth/auth'
 import { getGreeting, getInitials } from '@/lib/functions'
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
-
-
 
 export async function ProfileButton() {
 	const { user } = await auth()
@@ -30,13 +29,13 @@ export async function ProfileButton() {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="mt-2 border bg-zinc-900 border-zinc-800">
 				<DropdownMenuItem asChild>
-					<a href="/dashboard/account">
+					<a href="/dashboard/account" className='cursor-pointer'>
 						<Settings className="mr-2 size-4" />
 						Minha conta
 					</a>
 				</DropdownMenuItem>
 				<DropdownMenuItem asChild>
-					<a href="/api/auth/sign-out">
+					<a href="/api/auth/sign-out" className='cursor-pointer'>
 						<LogOut className="mr-2 size-4" />
 						Sair
 					</a>

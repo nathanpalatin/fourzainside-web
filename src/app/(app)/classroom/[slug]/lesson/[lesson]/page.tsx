@@ -1,4 +1,3 @@
-'use client'
 import {
 	Tabs,
 	TabsContent,
@@ -7,34 +6,34 @@ import {
 } from "@/components/ui/tabs"
 
 import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion"
+
+import {
 	Card,
 	CardContent,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card"
 
-import { File, FileQuestion, PlayCircleIcon, ScrollText } from 'lucide-react'
+import { File, FileQuestion, PlayCircleIcon, ScrollText, VideoIcon } from 'lucide-react'
 
-import { CardLesson } from '../../components/card-lesson'
-import { CardFileLesson } from '../../components/card-file-lesson'
-import { CardHelpLesson } from '../../components/card-help-lesson'
-import { LoadingTranscription } from '../../components/loading-transcription'
+import { CardLesson } from '../../../../components/card-lesson'
+import { CardFileLesson } from '../../../../components/card-file-lesson'
+import { CardHelpLesson } from '../../../../components/card-help-lesson'
+import { LoadingTranscription } from '../../../../components/loading-transcription'
 import { ClassLesson } from '@/app/(app)/components/class-lesson'
 
-interface ProductParams {
-	params: {
-		slug: string
-	}
-}
-
-export default function ClassRoom({ params }: ProductParams) {
+export default function ClassRoom() {
 
 	return (
 		<div className="space-y-4 py-4">
-
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-9/12 flex flex-col gap-4 ">
-					<ClassLesson slug={'reset-intestino'} />
+					<ClassLesson />
 				</div>
 				<div className="w-3/12 gap-5 flex flex-col">
 					<div className=" bg-zinc-200 dark:bg-zinc-900  ">
@@ -46,17 +45,24 @@ export default function ClassRoom({ params }: ProductParams) {
 								<TabsTrigger value="help"><FileQuestion /> </TabsTrigger>
 							</TabsList>
 							<TabsContent value="lessons">
-								<Card>
-									<CardHeader>
-										<CardTitle>Conteúdo</CardTitle>
-									</CardHeader>
-									<CardContent className="w-full">
-										<CardLesson title='Modulação intestinal' lessons={4} totalTime='03:30' />
-										<CardLesson title='Modulação intestinal' lessons={8} totalTime='05:42' />
-										<CardLesson title='Modulação intestinal' lessons={2} totalTime='02:30' />
-										<CardLesson title='Modulação intestinal' lessons={9} totalTime='10:38' />
-									</CardContent>
-								</Card>
+								<Accordion type="multiple" className="w-full">
+									<AccordionItem value="item-1">
+										<AccordionTrigger>
+											<CardLesson title='Modulação intestinal' lessons={4} totalTime='03:30' />
+										</AccordionTrigger>
+										<AccordionContent>
+											<div className="flex items-center justify-between">
+												<div className="flex flex-1 gap-2 items-center">
+													<VideoIcon /> <h1>Módulação intestinal</h1>
+												</div>
+												<h1>02:35</h1>
+											</div>
+										</AccordionContent>
+									</AccordionItem>
+
+
+								</Accordion>
+
 							</TabsContent>
 							<TabsContent value="materials">
 								<Card>

@@ -79,7 +79,7 @@ export function SignInForm() {
 				</div>
 
 				<Button
-					className="w-full rounded bg-zinc-800 text-zinc-200 hover:bg-zinc-900"
+					className="w-full rounded-xl bg-zinc-800 text-zinc-200 hover:bg-zinc-900"
 					type="submit"
 					disabled={isPending}
 				>
@@ -87,7 +87,7 @@ export function SignInForm() {
 				</Button>
 
 				<Button
-					className=" w-full rounded bg-indigo-600  hover:bg-zinc-200 dark:hover:bg-indigo-900 "
+					className=" w-full rounded-xl bg-indigo-600  hover:bg-zinc-200 dark:hover:bg-indigo-900 "
 					variant="link"
 					asChild
 				>

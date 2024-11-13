@@ -20,14 +20,7 @@ export default function ForgotPasswordPage() {
 			<div className="flex h-screen w-full flex-col justify-center bg-zinc-100 dark:bg-zinc-950 md:w-4/12">
 				<div className="flex flex-1 flex-col items-center justify-center">
 					<form action={forgotPassword} className="space-y-4">
-						{/* <Image
-							alt="logo fourzainside"
-							className="mx-auto mb-10 block md:hidden"
-							width={200}
-							height={100}
-							priority
-							src={theme === 'dark' ? logo : logoLight}
-						/> */}
+
 						<div className="space-y-1">
 							<Input
 								placeholder="E-mail cadastrado"
@@ -39,7 +32,7 @@ export default function ForgotPasswordPage() {
 						</div>
 
 						<Button
-							className=" w-full rounded-lg border-2 border-zinc-800/50 bg-zinc-800 p-2 transition-colors hover:bg-zinc-200  dark:bg-zinc-800 dark:text-zinc-200 "
+							className=" w-full rounded-xl border-2 border-zinc-800/50 bg-zinc-800 p-2 transition-colors hover:bg-zinc-200  dark:bg-zinc-800 dark:text-zinc-200 "
 							type="submit"
 						>
 							Enviar

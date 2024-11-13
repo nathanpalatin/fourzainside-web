@@ -38,12 +38,6 @@ export async function signUpAction(data: FormData) {
 			phone,
 			password
 		})
-
-		/* 	await registerCodeValidation({
-			userId,
-			code: generateCode(),
-			token
-		}) */
 	} catch (err) {
 		if (err instanceof HTTPError) {
 			const { message } = await err.response.json()
@@ -55,7 +49,7 @@ export async function signUpAction(data: FormData) {
 
 		return {
 			success: false,
-			message: 'Unexpected error, try again in a few minutes.',
+			message: 'Ocorreu um erro inesperado, tente novamente mais tarde.',
 			errors: null
 		}
 	}

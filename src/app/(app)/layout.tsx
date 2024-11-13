@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Fourza Inside - Member area %s'
+	title: 'Fourza Inside'
 }
 
 export default async function AppLayout({
@@ -21,7 +21,7 @@ export default async function AppLayout({
 	}
 
 	return (
-		<div className="flex h-screen overflow-y-hidden">
+		<div className="flex h-screen">
 			<div className="flex-1">
 				<div className="px-6 pt-3">
 					<Header />

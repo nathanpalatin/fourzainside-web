@@ -9,7 +9,7 @@ export default async function Home() {
 	const { courses } = await getCourses()
 
 	return (
-		<div className="space-y-4 py-4 px-6 h-screen bg-[url(/assets/header-thumb.png)] bg-no-repeat bg-right">
+		<div className="space-y-4 py-4 px-6 bg-no-repeat bg-right">
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-8/12 flex flex-col gap-4 overflow-y-auto">
 					<h1 className="text-sm font-semibold">Continuar de onde parou</h1>
@@ -87,7 +87,7 @@ export default async function Home() {
 								<div className='flex flex-col'>
 									<h1 className='font-normal text-zinc-400 text-[12px]'>Meu objetivo</h1>
 									<h1 className='font-normal text-zinc-100 text-sm'>Conquistar a tão sonhada independência financeira</h1>
-									<h1 className='font-normal text-zinc-500 pt-1 text-[10px]'>até 10/10/2024</h1>
+									<h1 className='font-normal text-zinc-500 pt-1 text-[10px]'>até 20/11/2024</h1>
 								</div>
 							</div>
 							<div className='flex items-center gap-3 mb-10'>
