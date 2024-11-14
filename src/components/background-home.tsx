@@ -44,13 +44,15 @@ export function BlurImageWithText({
 	return (
 		<div className="relative h-full w-full">
 			<div
-				className={`absolute inset-0 bg-zinc-900 transition-opacity duration-1000 ${isBlurred ? 'opacity-80' : 'opacity-0'
-					}`}
+				className={`absolute inset-0 bg-zinc-900 transition-opacity duration-1000 ${
+					isBlurred ? 'opacity-80' : 'opacity-0'
+				}`}
 			/>
 			<Image
 				alt={alt}
-				className={`h-full w-full object-cover transition-all duration-1000 ${isBlurred ? 'blur-md opacity-30' : 'blur-0'
-					}`}
+				className={`h-full w-full object-cover transition-all duration-1000 ${
+					isBlurred ? 'blur-md opacity-30' : 'blur-0'
+				}`}
 				quality={100}
 				fill
 				priority
@@ -60,22 +62,25 @@ export function BlurImageWithText({
 				<div className="absolute inset-0 flex flex-col items-center justify-center gap-20">
 					<div className="flex flex-col mt-52 items-center text-center">
 						<h1
-							className={`object-cover transition-all mb-10 opacity-0 duration-1000 text-6xl font-semibold ${isAnimating ? 'opacity-0' : 'opacity-100'
-								}`}
+							className={`object-cover transition-all mb-10 opacity-0 duration-1000 text-6xl font-semibold ${
+								isAnimating ? 'opacity-0' : 'opacity-100'
+							}`}
 						>
 							Fourza Inside
 						</h1>
 						<h1
-							className={` opacity-0 text-white transition-opacity duration-1000 ${isAnimating ? 'opacity-0' : 'opacity-100 '
-								}`}
+							className={` opacity-0 text-white transition-opacity duration-1000 ${
+								isAnimating ? 'opacity-0' : 'opacity-100 '
+							}`}
 						>
 							educação para a vida.
 						</h1>
 					</div>
 					<div className="mt-52">
 						<p
-							className={`text-sm  text-zinc-400 transition-all opacity-0 duration-1000 ${isAnimating ? ' opacity-0' : 'opacity-100'
-								}`}
+							className={`text-sm  text-zinc-400 transition-all opacity-0 duration-1000 ${
+								isAnimating ? ' opacity-0' : 'opacity-100'
+							}`}
 						>
 							ACG Business
 						</p>

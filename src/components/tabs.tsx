@@ -14,7 +14,6 @@ export async function Tabs() {
 				>
 					<NavLink href={`/dashboard/${currentOrg}/settings`}>Configurações</NavLink>
 				</Button>
-
 			</nav>
 		</div>
 	)

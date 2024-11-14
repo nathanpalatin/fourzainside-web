@@ -16,12 +16,9 @@ interface TokenProps {
 export function EmailForm({ token }: TokenProps) {
 	const router = useRouter()
 
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-		validateCodeEmail,
-		() => {
-			router.push('/')
-		}
-	)
+	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(validateCodeEmail, () => {
+		router.push('/')
+	})
 
 	return (
 		<div className="w-[260px]">
@@ -36,7 +33,10 @@ export function EmailForm({ token }: TokenProps) {
 					</Alert>
 				)}
 
-				<h1 className="text-sm font-normal text-zinc-800 dark:text-zinc-400">Enviamos um código para o <span className='text-zinc-100'>seu e-mail</span> para validarmos a sua conta.</h1>
+				<h1 className="text-sm font-normal text-zinc-800 dark:text-zinc-400">
+					Enviamos um código para o <span className="text-zinc-100">seu e-mail</span> para validarmos a sua
+					conta.
+				</h1>
 				<div className="items-center justify-center">
 					<Input
 						name="code"
@@ -45,7 +45,7 @@ export function EmailForm({ token }: TokenProps) {
 						maxLength={4}
 						className="rounded-xl border-2 text-center text-sm border-zinc-500/40 bg-zinc-200/60 px-4 py-5  text-zinc-700 dark:bg-transparent dark:text-white"
 					/>
-					<input type='hidden' value={token} name='userId' />
+					<input type="hidden" value={token} name="userId" />
 					{errors?.code && (
 						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">{errors.code[0]}</p>
 					)}

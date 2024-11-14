@@ -20,7 +20,6 @@ export default function ForgotPasswordPage() {
 			<div className="flex h-screen w-full flex-col justify-center bg-zinc-100 dark:bg-zinc-950 md:w-4/12">
 				<div className="flex flex-1 flex-col items-center justify-center">
 					<form action={forgotPassword} className="space-y-4">
-
 						<div className="space-y-1">
 							<Input
 								placeholder="E-mail cadastrado"

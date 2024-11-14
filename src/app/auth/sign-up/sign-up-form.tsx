@@ -50,23 +50,19 @@ export function SignUpForm() {
 						type="email"
 						id="email"
 					/>
-					{errors?.email && (
-						<p className="text-xs font-medium text-red-500">{errors.email[0]}</p>
-					)}
+					{errors?.email && <p className="text-xs font-medium text-red-500">{errors.email[0]}</p>}
 				</div>
 
 				<div className="space-y-1">
 					<PhoneInput
-						defaultCountry='BR'
+						defaultCountry="BR"
 						maxLength={15}
-						name='phone'
-						id='phone'
+						name="phone"
+						id="phone"
 						placeholder="Seu melhor telefone"
-						className='border-none'
+						className="border-none"
 					/>
-					{errors?.phone && (
-						<p className="text-xs font-medium text-red-500">{errors.phone[0]}</p>
-					)}
+					{errors?.phone && <p className="text-xs font-medium text-red-500">{errors.phone[0]}</p>}
 				</div>
 
 				<div className="space-y-1">
@@ -78,9 +74,7 @@ export function SignUpForm() {
 						id="password"
 					/>
 
-					{errors?.password && (
-						<p className="text-xs font-medium text-red-500 ">{errors.password[0]}</p>
-					)}
+					{errors?.password && <p className="text-xs font-medium text-red-500 ">{errors.password[0]}</p>}
 				</div>
 
 				<div className="space-y-1">
@@ -97,7 +91,13 @@ export function SignUpForm() {
 					)}
 				</div>
 
-				<p className='text-xs font-light text-muted-foreground py-4'>Ao criar sua conta, você confirma que leu e concorda com os <a href="terms-of-use" className='text-zinc-200 hover:underline' target='_new'>termos de uso</a> da Fourza Inside.</p>
+				<p className="text-xs font-light text-muted-foreground py-4">
+					Ao criar sua conta, você confirma que leu e concorda com os{' '}
+					<a href="terms-of-use" className="text-zinc-200 hover:underline" target="_new">
+						termos de uso
+					</a>{' '}
+					da Fourza Inside.
+				</p>
 
 				<Button
 					className="w-full rounded-xl bg-zinc-800 text-zinc-200 hover:bg-zinc-950 dark:hover:bg-zinc-900"
@@ -117,7 +117,6 @@ export function SignUpForm() {
 						Já tem conta? Entrar
 					</Link>
 				</Button>
-
 			</form>
 		</div>
 	)

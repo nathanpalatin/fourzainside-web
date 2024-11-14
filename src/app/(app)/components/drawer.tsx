@@ -1,4 +1,5 @@
-{/* <Drawer>
+{
+	/* <Drawer>
 <DrawerTrigger asChild>
   <Button className="bg-zinc-800 flex gap-2 rounded">
     <Trash size={16} /> Opções
@@ -14,4 +15,5 @@
     <DrawerClose className="text-muted-foreground">fechar</DrawerClose>
   </DrawerFooter>
 </DrawerContent>
-</Drawer> */}
+</Drawer> */
+}

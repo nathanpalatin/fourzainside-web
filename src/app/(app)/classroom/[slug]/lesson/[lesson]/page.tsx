@@ -1,23 +1,8 @@
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { File, FileQuestion, PlayCircleIcon, ScrollText, VideoIcon } from 'lucide-react'
 
@@ -28,7 +13,6 @@ import { LoadingTranscription } from '../../../../components/loading-transcripti
 import { ClassLesson } from '@/app/(app)/components/class-lesson'
 
 export default function ClassRoom() {
-
 	return (
 		<div className="space-y-4 py-4">
 			<div className="flex items-start justify-between gap-4">
@@ -37,23 +21,32 @@ export default function ClassRoom() {
 				</div>
 				<div className="w-3/12 gap-5 flex flex-col">
 					<div className=" bg-zinc-200 dark:bg-zinc-900">
-						<Tabs defaultValue="lessons" className='mt-2 h-screen' >
+						<Tabs defaultValue="lessons" className="mt-2 h-screen">
 							<TabsList className=" mb-8 grid w-full grid-cols-4">
-								<TabsTrigger value="lessons"><PlayCircleIcon /></TabsTrigger>
-								<TabsTrigger value="materials"><File /></TabsTrigger>
-								<TabsTrigger value="transcription"><ScrollText /></TabsTrigger>
-								<TabsTrigger value="help"><FileQuestion /></TabsTrigger>
+								<TabsTrigger value="lessons">
+									<PlayCircleIcon />
+								</TabsTrigger>
+								<TabsTrigger value="materials">
+									<File />
+								</TabsTrigger>
+								<TabsTrigger value="transcription">
+									<ScrollText />
+								</TabsTrigger>
+								<TabsTrigger value="help">
+									<FileQuestion />
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="lessons">
 								<Accordion type="single" collapsible className="w-full">
 									<AccordionItem value="item-1" className="px-4 mx-1 py-1 border rounded border-zinc-700">
 										<AccordionTrigger className="hover:no-underline">
-											<CardLesson module="1" title='Modulação intestinal' lessons={4} totalTime='01:03:30' />
+											<CardLesson module="1" title="Modulação intestinal" lessons={4} totalTime="01:03:30" />
 										</AccordionTrigger>
 										<AccordionContent>
 											<div className="flex border-t border-zinc-600 pt-4 items-center justify-between">
 												<div className="flex flex-1 gap-2 items-center truncate">
-													<VideoIcon size={18} className="text-zinc-400" /> <h1 className="truncate pr-4 text-zinc-400">Orientações Gerais</h1>
+													<VideoIcon size={18} className="text-zinc-400" />
+													<h1 className="truncate pr-4 text-zinc-400">Orientações Gerais</h1>
 												</div>
 												<h1 className="text-xs text-zinc-500">02:35</h1>
 											</div>
@@ -67,17 +60,17 @@ export default function ClassRoom() {
 										<CardTitle>Material complementar</CardTitle>
 									</CardHeader>
 									<CardContent className="w-full">
-										<CardFileLesson title='Aula 01' type={'PDF'} />
+										<CardFileLesson title="Aula 01" type={'PDF'} />
 									</CardContent>
 								</Card>
 							</TabsContent>
 							<TabsContent value="transcription">
 								<Card>
 									<CardHeader>
-										<CardTitle className=' focus-visible:text-red-500 '>Transcrição</CardTitle>
+										<CardTitle className=" focus-visible:text-red-500 ">Transcrição</CardTitle>
 									</CardHeader>
 									<CardContent className="w-full h-[600px] overflow-y-auto">
-										<div className='px-3 space-y-2'>
+										<div className="px-3 space-y-2">
 											<LoadingTranscription />
 										</div>
 									</CardContent>
@@ -90,18 +83,14 @@ export default function ClassRoom() {
 										<CardTitle>Dúvidas</CardTitle>
 									</CardHeader>
 									<CardContent className="w-full">
-										<CardHelpLesson title='Não entendi essa parte....' time='há 3 horas' />
+										<CardHelpLesson title="Não entendi essa parte...." time="há 3 horas" />
 									</CardContent>
 								</Card>
 							</TabsContent>
-
 						</Tabs>
-
 					</div>
-
 				</div>
 			</div>
-
 		</div>
 	)
 }

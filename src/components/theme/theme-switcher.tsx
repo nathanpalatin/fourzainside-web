@@ -19,7 +19,10 @@ export function ThemeSwitcher() {
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent align="center" className="dark:border-zinc-800 backdrop-blur-lg dark:bg-zinc-800/70">
+			<DropdownMenuContent
+				align="center"
+				className="dark:border-zinc-800 backdrop-blur-lg dark:bg-zinc-800/70"
+			>
 				<DropdownMenuItem className="gap-2" onClick={() => setTheme('light')}>
 					<Sun className="size-5" /> Light
 				</DropdownMenuItem>

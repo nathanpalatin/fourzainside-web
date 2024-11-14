@@ -9,22 +9,19 @@ export const metadata: Metadata = {
 }
 
 export default async function AppLayout({
-	children,
+	children
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-
-
 	if (!isAdmin()) {
 		redirect('/')
 	}
-
 
 	return (
 		<div className="flex h-screen  ">
 			<div className="flex-1">
 				<>
-					<div className='flex gap-3'>
+					<div className="flex gap-3">
 						<Sidebar />
 						{children}
 					</div>
