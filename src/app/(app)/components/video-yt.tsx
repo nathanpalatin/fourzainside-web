@@ -7,10 +7,9 @@ import 'videojs-youtube'
 
 interface VideoProps {
   video: string
-  cover: string
 }
 
-export function VideoPlayerYT({ video, cover }: VideoProps) {
+export function VideoPlayerYT({ video }: VideoProps) {
   const videoJsOptions = {
     autoplay: true,
     controls: true,
