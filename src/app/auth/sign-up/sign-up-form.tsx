@@ -23,7 +23,7 @@ export function SignUpForm() {
 	)
 
 	return (
-		<div className="space-y-4 w-[320px]">
+		<div className="space-y-4 w-[340px]">
 			<form onSubmit={handleSubmit} className="space-y-4">
 				{success === false && message && (
 					<Alert variant="destructive">
@@ -125,14 +125,14 @@ export function SignUpForm() {
 				</p>
 
 				<Button
-					className="w-full rounded-xl bg-zinc-800 text-zinc-200 hover:bg-zinc-950 dark:hover:bg-zinc-900"
+					className="w-full rounded-xl bg-indigo-700 text-zinc-200 hover:bg-zinc-900 dark:hover:bg-indigo-900"
 					type="submit"
 					disabled={isPending}
 				>
 					{isPending ? (
 						<Loader2 className="size-4 animate-spin" />
 					) : (
-						'Criar conta grátis'
+						'Criar conta'
 					)}
 				</Button>
 

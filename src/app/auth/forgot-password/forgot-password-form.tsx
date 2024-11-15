@@ -2,7 +2,6 @@
 import Link from 'next/link'
 
 import { AlertTriangle, Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -13,17 +12,20 @@ import { useFormState } from '@/hooks/use-form-state'
 import { forgotPassword } from './actions'
 
 export function ForgetPasswordForm() {
-	const router = useRouter()
-
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-		forgotPassword,
-		() => {
-			router.push('/auth/reset-password')
-		}
-	)
+	const [{ errors, message, success }, handleSubmit, isPending] =
+		useFormState(forgotPassword)
 
 	return (
 		<div className="w-[340px] text-center">
+			{success && (
+				<Alert variant="success" className="mb-4">
+					<AlertTriangle className="size-4" />
+					<AlertTitle>E-mail enviado com sucesso!</AlertTitle>
+					<AlertDescription>
+						<p>Por favor, verifique seu e-mail para redefinir sua senha.</p>
+					</AlertDescription>
+				</Alert>
+			)}
 			<form onSubmit={handleSubmit} className="mb-5 space-y-4">
 				{!success && message && (
 					<Alert variant="destructive">

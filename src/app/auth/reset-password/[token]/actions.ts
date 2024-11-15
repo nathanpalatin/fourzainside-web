@@ -3,17 +3,11 @@
 import { HTTPError } from 'ky'
 import { z } from 'zod'
 
-import { signUp } from '@/http/sign-up'
+import { changePassword } from '@/http/change-password'
 
-const signUpSchema = z
+const resetPassswordSchema = z
 	.object({
-		name: z.string().refine(value => value.split(' ').length > 1, {
-			message: 'Por favor, insira seu nome completo'
-		}),
-		email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
-		phone: z
-			.string()
-			.min(10, { message: 'Por favor, insira um telefone válido.' }),
+		credential: z.string(),
 		password: z
 			.string()
 			.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
@@ -24,8 +18,8 @@ const signUpSchema = z
 		path: ['password_confirmation']
 	})
 
-export async function signUpAction(data: FormData) {
-	const result = signUpSchema.safeParse(Object.fromEntries(data))
+export async function ResetPasswordAction(data: FormData) {
+	const result = resetPassswordSchema.safeParse(Object.fromEntries(data))
 
 	if (!result.success) {
 		const errors = result.error.flatten().fieldErrors
@@ -33,13 +27,11 @@ export async function signUpAction(data: FormData) {
 		return { success: false, message: null, errors }
 	}
 
-	const { name, email, phone, password } = result.data
+	const { credential, password } = result.data
 
 	try {
-		await signUp({
-			name,
-			email,
-			phone,
+		await changePassword({
+			credential,
 			password
 		})
 	} catch (err) {

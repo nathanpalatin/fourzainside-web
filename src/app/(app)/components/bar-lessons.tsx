@@ -31,7 +31,7 @@ export function BarLessons() {
 				<AccordionTrigger className="hover:no-underline">
 					<CardLesson
 						module="1"
-						title="Modulação intestinal"
+						title="Modulação Intestinal"
 						lessons={4}
 						totalTime="01:03:30"
 					/>
