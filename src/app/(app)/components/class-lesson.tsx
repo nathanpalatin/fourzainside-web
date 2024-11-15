@@ -56,13 +56,13 @@ export function ClassLesson() {
 				<div>
 					<ButtonProgress watch={data?.lesson.watched} />
 					<div className="mt-4">
-						<h1 className="text-sm text-zinc-400">O que voce achou da aula?</h1>
-						<div className="flex gap-1 py-3">
-							<StarIcon />
-							<StarIcon />
-							<StarIcon />
-							<StarIcon />
-							<StarHalf />
+						<h1 className="text-xs text-right text-zinc-400">O que voce achou da aula?</h1>
+						<div className="flex justify-end gap-3 py-2">
+							<StarIcon size={20} />
+							<StarIcon size={20} />
+							<StarIcon size={20} />
+							<StarIcon size={20} />
+							<StarIcon size={20} />
 						</div>
 					</div>
 				</div>

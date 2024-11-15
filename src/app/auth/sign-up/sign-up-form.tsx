@@ -15,9 +15,12 @@ import { PhoneInput } from '@/components/ui/phone-input'
 export function SignUpForm() {
 	const router = useRouter()
 
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(signUpAction, () => {
-		router.push('/auth/email-validation')
-	})
+	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
+		signUpAction,
+		() => {
+			router.push('/auth/email-validation')
+		}
+	)
 
 	return (
 		<div className="space-y-4 w-[320px]">
@@ -39,7 +42,11 @@ export function SignUpForm() {
 						placeholder="Seu nome"
 						id="name"
 					/>
-					{errors?.name && <p className="text-xs font-medium text-red-500 ">{errors.name[0]}</p>}
+					{errors?.name && (
+						<p className="text-xs font-medium text-red-500 ">
+							{errors.name[0]}
+						</p>
+					)}
 				</div>
 
 				<div className="space-y-1">
@@ -50,7 +57,11 @@ export function SignUpForm() {
 						type="email"
 						id="email"
 					/>
-					{errors?.email && <p className="text-xs font-medium text-red-500">{errors.email[0]}</p>}
+					{errors?.email && (
+						<p className="text-xs font-medium text-red-500">
+							{errors.email[0]}
+						</p>
+					)}
 				</div>
 
 				<div className="space-y-1">
@@ -62,7 +73,11 @@ export function SignUpForm() {
 						placeholder="Seu melhor telefone"
 						className="border-none"
 					/>
-					{errors?.phone && <p className="text-xs font-medium text-red-500">{errors.phone[0]}</p>}
+					{errors?.phone && (
+						<p className="text-xs font-medium text-red-500">
+							{errors.phone[0]}
+						</p>
+					)}
 				</div>
 
 				<div className="space-y-1">
@@ -74,7 +89,11 @@ export function SignUpForm() {
 						id="password"
 					/>
 
-					{errors?.password && <p className="text-xs font-medium text-red-500 ">{errors.password[0]}</p>}
+					{errors?.password && (
+						<p className="text-xs font-medium text-red-500 ">
+							{errors.password[0]}
+						</p>
+					)}
 				</div>
 
 				<div className="space-y-1">
@@ -87,13 +106,19 @@ export function SignUpForm() {
 					/>
 
 					{errors?.password_confirmation && (
-						<p className="text-xs font-medium text-red-500 ">{errors.password_confirmation[0]}</p>
+						<p className="text-xs font-medium text-red-500 ">
+							{errors.password_confirmation[0]}
+						</p>
 					)}
 				</div>
 
 				<p className="text-xs font-light text-muted-foreground py-4">
 					Ao criar sua conta, você confirma que leu e concorda com os{' '}
-					<a href="terms-of-use" className="text-zinc-200 hover:underline" target="_new">
+					<a
+						href="terms-of-use"
+						className="text-zinc-200 hover:underline"
+						target="_new"
+					>
 						termos de uso
 					</a>{' '}
 					da Fourza Inside.
@@ -104,7 +129,11 @@ export function SignUpForm() {
 					type="submit"
 					disabled={isPending}
 				>
-					{isPending ? <Loader2 className="size-4 animate-spin" /> : 'Criar conta grátis'}
+					{isPending ? (
+						<Loader2 className="size-4 animate-spin" />
+					) : (
+						'Criar conta grátis'
+					)}
 				</Button>
 
 				<Button
@@ -113,7 +142,7 @@ export function SignUpForm() {
 					size="sm"
 					asChild
 				>
-					<Link href="/auth/sign-in" className=" text-sm hover:no-underline">
+					<Link href="/auth/sign-in" className=" text-xs hover:no-underline">
 						Já tem conta? Entrar
 					</Link>
 				</Button>

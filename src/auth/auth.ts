@@ -7,11 +7,6 @@ export async function isAuthenticated() {
 	return cookieStore.get('token')?.value
 }
 
-export async function isAdmin() {
-	const { user } = await getProfile()
-	if (user.role === 'ADMIN' || user.role === 'MENTOR') return true
-}
-
 export async function auth() {
 	const cookieStore = await cookies()
 	const token = cookieStore.get('token')?.value

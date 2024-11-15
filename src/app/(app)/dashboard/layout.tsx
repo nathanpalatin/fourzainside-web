@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation'
-import { isAdmin } from '@/auth/auth'
 import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 import { Sidebar } from '../components/sidebar'
+import { auth } from '@/auth/auth'
 
 export const metadata: Metadata = {
 	title: 'Fourza Inside - Admin area'
@@ -13,12 +13,14 @@ export default async function AppLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	if (!isAdmin()) {
+	const { user } = await auth()
+
+	if (user.role === 'USER') {
 		redirect('/')
 	}
 
 	return (
-		<div className="flex h-screen  ">
+		<div className="flex h-screen">
 			<div className="flex-1">
 				<>
 					<div className="flex gap-3">

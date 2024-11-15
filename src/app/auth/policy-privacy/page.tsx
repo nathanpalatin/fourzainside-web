@@ -1,7 +1,6 @@
 import {
 	AlertDialog,
 	AlertDialogAction,
-	AlertDialogCancel,
 	AlertDialogContent,
 	AlertDialogDescription,
 	AlertDialogFooter,
@@ -12,14 +11,13 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { SmileIcon } from 'lucide-react'
-import Link from 'next/link'
 
-export default function TermsOfUse() {
+export default function PolicyPrivacy() {
 	return (
 		<div className=" bg-zinc-950 h-auto w-screen">
 			<div className="mx-auto w-[700px] py-20">
 				<h1 className="text-5xl w-[450px] text-white font-semibold">
-					Termos e condições de uso da nossa plataforma
+					Termos de política e privacidade da nossa plataforma
 				</h1>
 
 				<p className="pt-10 text-xl text-zinc-400">

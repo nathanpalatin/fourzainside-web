@@ -11,6 +11,7 @@ import { CardFileLesson } from '../../../../components/card-file-lesson'
 import { CardHelpLesson } from '../../../../components/card-help-lesson'
 import { LoadingTranscription } from '../../../../components/loading-transcription'
 import { ClassLesson } from '@/app/(app)/components/class-lesson'
+import { BarLessons } from '@/app/(app)/components/bar-lessons'
 
 export default function ClassRoom() {
 	return (
@@ -37,22 +38,7 @@ export default function ClassRoom() {
 								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="lessons">
-								<Accordion type="single" collapsible className="w-full">
-									<AccordionItem value="item-1" className="px-4 mx-1 py-1 border rounded border-zinc-700">
-										<AccordionTrigger className="hover:no-underline">
-											<CardLesson module="1" title="Modulação intestinal" lessons={4} totalTime="01:03:30" />
-										</AccordionTrigger>
-										<AccordionContent>
-											<div className="flex border-t border-zinc-600 pt-4 items-center justify-between">
-												<div className="flex flex-1 gap-2 items-center truncate">
-													<VideoIcon size={18} className="text-zinc-400" />
-													<h1 className="truncate pr-4 text-zinc-400">Orientações Gerais</h1>
-												</div>
-												<h1 className="text-xs text-zinc-500">02:35</h1>
-											</div>
-										</AccordionContent>
-									</AccordionItem>
-								</Accordion>
+								<BarLessons />
 							</TabsContent>
 							<TabsContent value="materials">
 								<Card>

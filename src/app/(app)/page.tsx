@@ -1,8 +1,14 @@
 import { getCourses } from '@/http/get-courses'
-import { CardLastLesson } from './components/card-last-lesson'
-import { GiftIcon, TicketIcon, TrophyIcon, Users2Icon } from 'lucide-react'
+import {
+	GiftIcon,
+	PlayCircleIcon,
+	TicketIcon,
+	TrophyIcon,
+	Users2Icon
+} from 'lucide-react'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 export default async function Home() {
 	const { courses } = await getCourses()
@@ -10,22 +16,38 @@ export default async function Home() {
 	return (
 		<div className="space-y-4 py-4 px-6 bg-no-repeat bg-right">
 			<div className="flex items-start justify-between gap-4">
-				<div className="w-8/12 flex flex-col gap-4 overflow-y-auto">
-					<h1 className="text-sm font-semibold">Continuar de onde parou</h1>
-					<div className="flex gap-4 overflow-x-hidden">
-						{courses.map((course, index) => (
-							<CardLastLesson
-								key={index}
-								link={course.slug}
-								course={course.title}
-								instructorName={course.user.name}
-								instructorAvatar={course.user.avatar}
+				<div className="w-9/12 flex flex-col gap-4 overflow-y-auto">
+					<div className="grid grid-cols-3 gap-3">
+						<div className="w-full h-[500px] rounded-xl hover:cursor-pointer group overflow-hidden">
+							<Image
+								alt=""
+								className="overflow-hidden w-full h-full object-cover group-hover:rotate-3 transition-all duration-700 group-hover:scale-125"
+								width={400}
+								height={600}
+								src={
+									'https://static.wixstatic.com/media/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png/v1/fill/w_625,h_880,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png'
+								}
 							/>
-						))}
+							<div className="relative bg-gradient-to-t leading-4 from-black to-transparent -bottom-1 group-hover:bottom-16 opacity-0 transition-all group-hover:opacity-100">
+								<div className="flex items-center px-4 pb-4 justify-between">
+									<div className="flex flex-col flex-1">
+										<h1 className="text-white text-lg font-bold">
+											Reset Intestino
+										</h1>
+										<p className="text-zinc-200 text-sm font-normal">
+											Maiara Giacomelli
+										</p>
+									</div>
+									<PlayCircleIcon size={40} />
+								</div>
+							</div>
+						</div>
 					</div>
 					<div className="mt-4">
 						<h1 className="text-sm font-semibold ">Veja o que vem por ai</h1>
-						<span className="text-sm text-zinc-500">Descubra as novidades da nossa plataforma.</span>
+						<span className="text-sm text-zinc-500">
+							Descubra as novidades da nossa plataforma.
+						</span>
 						<div className="flex items-center gap-3 mt-4">
 							<div className="bg-zinc-900 rounded-full border-zinc-700 border">
 								<span className="text-xs p-4">TODOS OS LEMBRETES</span>
@@ -58,9 +80,11 @@ export default async function Home() {
 											</span>
 										</h1>
 										<p className="text-zinc-400 text-sm">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eaque odio delectus.
-											Consectetur fugit, saepe corporis excepturi dolor, quo est nostrum voluptatibus
-											inventore iusto nisi, tempora cumque libero neque necessitatibus?
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Laudantium eaque odio delectus. Consectetur fugit, saepe
+											corporis excepturi dolor, quo est nostrum voluptatibus
+											inventore iusto nisi, tempora cumque libero neque
+											necessitatibus?
 										</p>
 									</div>
 								</div>
@@ -79,9 +103,11 @@ export default async function Home() {
 											</span>
 										</h1>
 										<p className="text-zinc-400 text-sm">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eaque odio delectus.
-											Consectetur fugit, saepe corporis excepturi dolor, quo est nostrum voluptatibus
-											inventore iusto nisi, tempora cumque libero neque necessitatibus?
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Laudantium eaque odio delectus. Consectetur fugit, saepe
+											corporis excepturi dolor, quo est nostrum voluptatibus
+											inventore iusto nisi, tempora cumque libero neque
+											necessitatibus?
 										</p>
 									</div>
 								</div>
@@ -100,9 +126,11 @@ export default async function Home() {
 											</span>
 										</h1>
 										<p className="text-zinc-400 text-sm">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eaque odio delectus.
-											Consectetur fugit, saepe corporis excepturi dolor, quo est nostrum voluptatibus
-											inventore iusto nisi, tempora cumque libero neque necessitatibus?
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Laudantium eaque odio delectus. Consectetur fugit, saepe
+											corporis excepturi dolor, quo est nostrum voluptatibus
+											inventore iusto nisi, tempora cumque libero neque
+											necessitatibus?
 										</p>
 									</div>
 								</div>
@@ -120,11 +148,15 @@ export default async function Home() {
 									</div>
 								</div>
 								<div className="flex flex-col">
-									<h1 className="font-normal text-zinc-400 text-[12px]">Meu objetivo</h1>
+									<h1 className="font-normal text-zinc-400 text-[12px]">
+										Meu objetivo
+									</h1>
 									<h1 className="font-normal text-zinc-100 text-sm">
 										Conquistar a tão sonhada independência financeira
 									</h1>
-									<h1 className="font-normal text-zinc-500 pt-1 text-[10px]">até 20/11/2024</h1>
+									<h1 className="font-normal text-zinc-500 pt-1 text-[10px]">
+										até 20/11/2024
+									</h1>
 								</div>
 							</div>
 							<div className="flex items-center gap-3 mb-10">

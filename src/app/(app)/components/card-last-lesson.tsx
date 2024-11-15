@@ -9,7 +9,12 @@ interface CardProps {
 	instructorAvatar: string
 }
 
-export function CardLastLesson({ course, link, instructorName, instructorAvatar }: CardProps) {
+export function CardLastLesson({
+	course,
+	link,
+	instructorName,
+	instructorAvatar
+}: CardProps) {
 	return (
 		<Link href={`/classroom/${link}`}>
 			<div className="relative border border-zinc-800 rounded bg-zinc-900 w-[350px] hover:border-indigo-700 transition-all h-28 group cursor-pointer overflow-hidden">

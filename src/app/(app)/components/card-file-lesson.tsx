@@ -13,7 +13,9 @@ export function CardFileLesson({ title, type }: CardLessonProps) {
 					<FileBoxIcon />
 					<div className="flex-1 flex-col leading-5">
 						<p>{title}</p>
-						<span className="font-normal text-zinc-400 text-xs">{type} - 74KB</span>
+						<span className="font-normal text-zinc-400 text-xs">
+							{type} - 74KB
+						</span>
 					</div>
 					<DownloadIcon size={16} />
 				</div>
