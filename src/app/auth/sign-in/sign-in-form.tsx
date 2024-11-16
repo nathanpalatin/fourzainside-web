@@ -2,8 +2,7 @@
 
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useTheme } from 'next-themes'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -15,6 +14,10 @@ import { signInWithEmailAndPassword } from './actions'
 export function SignInForm() {
 	const router = useRouter()
 
+	const params = useSearchParams()
+
+	const confirmAccount = params.get('confirm')
+
 	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
 		signInWithEmailAndPassword,
 		() => {
@@ -25,6 +28,15 @@ export function SignInForm() {
 	return (
 		<div className="w-[340px] text-center">
 			<form onSubmit={handleSubmit} className="mb-5 space-y-4">
+				{confirmAccount && (
+					<Alert variant="success" className="mb-4">
+						<AlertTriangle className="size-4" />
+						<AlertTitle>Conta confirmada com sucesso!</AlertTitle>
+						<AlertDescription>
+							<p>Você pode acessar sua conta normalmente.</p>
+						</AlertDescription>
+					</Alert>
+				)}
 				{!success && message && (
 					<Alert variant="destructive">
 						<AlertTriangle className="size-4" />

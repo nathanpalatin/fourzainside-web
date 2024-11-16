@@ -68,8 +68,16 @@ export const api = ky.create({
 							const newToken = refreshResponse.token
 							const newRefreshToken = refreshResponse.refreshToken
 
-							setCookie('token', newToken, { sameSite: true, httpOnly: true, secure: true })
-							setCookie('refreshToken', newRefreshToken, { sameSite: true, httpOnly: true, secure: true })
+							setCookie('token', newToken, {
+								sameSite: true,
+								httpOnly: true,
+								secure: true
+							})
+							setCookie('refreshToken', newRefreshToken, {
+								sameSite: true,
+								httpOnly: true,
+								secure: true
+							})
 
 							onRefreshed(newToken)
 

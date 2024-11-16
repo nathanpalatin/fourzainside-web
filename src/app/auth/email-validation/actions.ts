@@ -2,17 +2,15 @@
 
 import { validateCode } from '@/http/validate-code'
 import { HTTPError } from 'ky'
-import { cookies } from 'next/headers'
 import { z } from 'zod'
 
 const codeValidationSchema = z.object({
-	code: z.string().min(4, {
-		message: 'O código tem no mínimo 4 dígitos'
-	}),
-	userId: z.string()
+	code: z.coerce.number(),
+	email: z.string()
 })
 
 export async function validateCodeEmail(data: FormData) {
+	console.log(data)
 	const result = codeValidationSchema.safeParse(Object.fromEntries(data))
 
 	if (!result.success) {
@@ -20,10 +18,10 @@ export async function validateCodeEmail(data: FormData) {
 		return { success: false, message: null, errors }
 	}
 
-	const { code, userId } = result.data
+	const { code, email } = result.data
 
 	try {
-		await validateCode({ code, userId })
+		await validateCode({ code, email })
 	} catch (err) {
 		if (err instanceof HTTPError) {
 			const { message } = await err.response.json()

@@ -11,19 +11,22 @@ import { Input } from '@/components/ui/input'
 
 import { useFormState } from '@/hooks/use-form-state'
 import { PhoneInput } from '@/components/ui/phone-input'
+import { useState } from 'react'
 
 export function SignUpForm() {
 	const router = useRouter()
 
+	const [email, setEmail] = useState('')
+
 	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
 		signUpAction,
 		() => {
-			router.push('/auth/email-validation')
+			router.push(`/auth/email-validation?confirmation=${email}`)
 		}
 	)
 
 	return (
-		<div className="space-y-4 w-[340px]">
+		<div className="space-y-4 w-full max-w-sm mx-auto">
 			<form onSubmit={handleSubmit} className="space-y-4">
 				{success === false && message && (
 					<Alert variant="destructive">
@@ -41,21 +44,22 @@ export function SignUpForm() {
 						name="name"
 						placeholder="Seu nome"
 						id="name"
+						aria-label="Nome completo"
 					/>
 					{errors?.name && (
-						<p className="text-xs font-medium text-red-500 ">
-							{errors.name[0]}
-						</p>
+						<p className="text-xs font-medium text-red-500">{errors.name[0]}</p>
 					)}
 				</div>
 
 				<div className="space-y-1">
 					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent "
+						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
 						name="email"
+						onChange={e => setEmail(e.target.value)}
 						placeholder="Seu melhor e-mail"
 						type="email"
 						id="email"
+						aria-label="E-mail"
 					/>
 					{errors?.email && (
 						<p className="text-xs font-medium text-red-500">
@@ -72,6 +76,7 @@ export function SignUpForm() {
 						id="phone"
 						placeholder="Seu melhor telefone"
 						className="border-none"
+						aria-label="Telefone"
 					/>
 					{errors?.phone && (
 						<p className="text-xs font-medium text-red-500">
@@ -87,10 +92,10 @@ export function SignUpForm() {
 						placeholder="Sua senha"
 						type="password"
 						id="password"
+						aria-label="Senha"
 					/>
-
 					{errors?.password && (
-						<p className="text-xs font-medium text-red-500 ">
+						<p className="text-xs font-medium text-red-500">
 							{errors.password[0]}
 						</p>
 					)}
@@ -103,10 +108,10 @@ export function SignUpForm() {
 						type="password"
 						placeholder="Confirmar sua senha"
 						id="password_confirmation"
+						aria-label="Confirmação da senha"
 					/>
-
 					{errors?.password_confirmation && (
-						<p className="text-xs font-medium text-red-500 ">
+						<p className="text-xs font-medium text-red-500">
 							{errors.password_confirmation[0]}
 						</p>
 					)}
@@ -115,7 +120,7 @@ export function SignUpForm() {
 				<p className="text-xs font-light text-muted-foreground py-4">
 					Ao criar sua conta, você confirma que leu e concorda com os{' '}
 					<a
-						href="terms-of-use"
+						href="/terms-of-use"
 						className="text-zinc-200 hover:underline"
 						target="_new"
 					>
@@ -137,12 +142,12 @@ export function SignUpForm() {
 				</Button>
 
 				<Button
-					className="w-full rounded-lg text-zinc-500 hover:bg-transparent "
+					className="w-full rounded-lg text-zinc-500 hover:bg-transparent"
 					variant="link"
 					size="sm"
 					asChild
 				>
-					<Link href="/auth/sign-in" className=" text-xs hover:no-underline">
+					<Link href="/auth/sign-in" className="text-xs hover:no-underline">
 						Já tem conta? Entrar
 					</Link>
 				</Button>

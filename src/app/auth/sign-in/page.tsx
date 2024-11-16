@@ -1,10 +1,9 @@
-import { SignInForm } from './sign-in-form'
+import Image from 'next/image'
 
 import { ThemeSwitcher } from '@/components/theme/theme-switcher'
-import { BlurImageWithText } from '@/components/background-home'
-import Image from 'next/image'
 import backgroundHome from '@/assets/background-home.png'
-/* import logo from '@/assets/logo-home.png' */
+
+import { SignInForm } from './sign-in-form'
 
 export default function SignInPage() {
 	return (
@@ -24,13 +23,6 @@ export default function SignInPage() {
 					height={500}
 					src={backgroundHome}
 				/>
-				{/* 	<BlurImageWithText
-					logo={logo.src}
-					src={backgroundHome.src}
-					alt="Background Image"
-					initialBlurDelay={1200}
-					textAppearDelay={2000}
-				/> */}
 			</div>
 		</div>
 	)

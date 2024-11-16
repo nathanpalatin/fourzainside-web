@@ -1,7 +1,7 @@
 'use client'
 
 import { AlertTriangle, Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -9,19 +9,22 @@ import { Input } from '@/components/ui/input'
 import { useFormState } from '@/hooks/use-form-state'
 import { validateCodeEmail } from './actions'
 
-interface TokenProps {
-	token: string
-}
-
-export function EmailForm({ token }: TokenProps) {
+export function EmailForm() {
 	const router = useRouter()
 
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(validateCodeEmail, () => {
-		router.push('/')
-	})
+	const params = useSearchParams()
+
+	const confirmEmail = params.get('confirmation')
+
+	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
+		validateCodeEmail,
+		() => {
+			router.push('/auth/sign-in?confirm=true')
+		}
+	)
 
 	return (
-		<div className="w-[260px]">
+		<div className="w-[340px]">
 			<form onSubmit={handleSubmit} className="mb-5 space-y-4">
 				{!success && message && (
 					<Alert variant="destructive">
@@ -34,10 +37,12 @@ export function EmailForm({ token }: TokenProps) {
 				)}
 
 				<h1 className="text-sm font-normal text-zinc-800 dark:text-zinc-400">
-					Enviamos um código para o <span className="text-zinc-100">seu e-mail</span> para validarmos a sua
-					conta.
+					Enviamos um código para o{' '}
+					<span className="text-zinc-100">seu e-mail</span> para validarmos a
+					sua conta.
 				</h1>
 				<div className="items-center justify-center">
+					<input type="hidden" id="email" name="email" value={confirmEmail} />
 					<Input
 						name="code"
 						placeholder="Código enviado"
@@ -45,9 +50,11 @@ export function EmailForm({ token }: TokenProps) {
 						maxLength={4}
 						className="rounded-xl border-2 text-center text-sm border-zinc-500/40 bg-zinc-200/60 px-4 py-5  text-zinc-700 dark:bg-transparent dark:text-white"
 					/>
-					<input type="hidden" value={token} name="userId" />
+
 					{errors?.code && (
-						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">{errors.code[0]}</p>
+						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">
+							{errors.code[0]}
+						</p>
 					)}
 				</div>
 				<Button

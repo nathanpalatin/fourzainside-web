@@ -22,7 +22,7 @@ export async function signInWithEmailAndPassword(data: FormData) {
 		const errors = result.error.flatten().fieldErrors
 		return { success: false, message: null, errors }
 	}
-
+	const cookieStore = await cookies()
 	const { credential, password } = result.data
 
 	try {
@@ -31,7 +31,6 @@ export async function signInWithEmailAndPassword(data: FormData) {
 			password
 		})
 
-		const cookieStore = await cookies()
 		cookieStore.set('token', token, {
 			path: '/'
 		})

@@ -19,7 +19,10 @@ interface SignInWithPasswordResponse {
 	user: User
 }
 
-export async function signInWithPassword({ credential, password }: SignInWithPasswordRequest) {
+export async function signInWithPassword({
+	credential,
+	password
+}: SignInWithPasswordRequest) {
 	const result = await api
 		.post('users/login', { json: { credential, password } })
 		.json<SignInWithPasswordResponse>()

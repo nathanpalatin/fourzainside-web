@@ -1,19 +1,16 @@
 'use server'
 import { api } from './api-client'
 
-interface ValidadeCodeRequest {
-	code: string
-	userId: string
+interface ConfirmCodeEmailRequest {
+	code: number
+	email: string
 }
 
-interface ValidadeCodeResponse {
-	status: boolean
-}
-
-export async function validateCode({ code, userId }: ValidadeCodeRequest) {
-	/* const result = await api
-		.post('users/validation-email', { json: { code, userId } })
-		.json<ValidadeCodeResponse>()
-
-	return result */
+export const validateCode = async ({
+	code,
+	email
+}: ConfirmCodeEmailRequest): Promise<void> => {
+	await api.post('users/validate-account', {
+		json: { code, email }
+	})
 }
