@@ -23,6 +23,7 @@ import {
 	PopoverTrigger
 } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
+import { Switch } from '@/components/ui/switch'
 
 export function FormNewProduct() {
 	const [{ errors, message, success }, handleSubmit, isPending] =
@@ -32,6 +33,7 @@ export function FormNewProduct() {
 	const [tags, setTags] = useState<string[]>([])
 	const [tagInput, setTagInput] = useState<string>('')
 	const [open, setOpen] = useState(false)
+	const [switchT, setSwitch] = useState(false)
 	const [value, setValue] = useState('')
 
 	const options = [
@@ -222,7 +224,15 @@ export function FormNewProduct() {
 					</Button>
 				</div>
 
-				<div className="flex flex-col space-y-4 items-center">
+				<div className="flex flex-col space-y-4">
+					<div className="flex items-center space-x-3">
+						<Switch
+							name="private"
+							checked={switchT}
+							onCheckedChange={() => setSwitch(!switchT)}
+						/>
+						<h1 className="text-sm">{switchT ? 'Privado' : 'Público'}</h1>
+					</div>
 					<Input
 						name="image"
 						type="file"

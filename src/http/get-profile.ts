@@ -5,7 +5,12 @@ import { api } from './api-client'
 interface GetProfileResponse {
 	user: {
 		id: string
-		name: string | null
+		email: string
+		gender: string | null
+		birthdate: string | null
+		cpf: string | null
+		phone: string | null
+		name: string
 		role: 'ADMIN' | 'MENTOR' | 'USER'
 		avatar: string | null
 	}
