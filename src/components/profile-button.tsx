@@ -12,6 +12,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger
 } from './ui/dropdown-menu'
+import { env } from '@/env/env'
 
 export async function ProfileButton() {
 	const { user } = await auth()
@@ -26,7 +27,11 @@ export async function ProfileButton() {
 					<span className="text-xs font-medium">{user.name}</span>
 				</div>
 				<Avatar className="size-8">
-					{user.avatar && <AvatarImage src={user.avatar} />}
+					{user.avatar && (
+						<AvatarImage
+							src={`${env.NEXT_PUBLIC_CLOUDFLARE_URL}${user.avatar}`}
+						/>
+					)}
 					<AvatarFallback className="border border-zinc-500">
 						{getInitials(user.name)}
 					</AvatarFallback>
