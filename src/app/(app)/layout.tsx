@@ -27,10 +27,10 @@ export default async function AppLayout({
 				<div className="bg-zinc-900 border-b border-zinc-900 px-6 py-3">
 					<Header />
 				</div>
-
-				{children}
-				{sheet}
-
+				<>
+					{children}
+					{sheet}
+				</>
 				<Toaster />
 			</div>
 		</div>

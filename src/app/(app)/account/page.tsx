@@ -34,6 +34,9 @@ import {
 	XIcon
 } from 'lucide-react'
 import Image from 'next/image'
+import { DeleteAccount } from './components/delete-account'
+import { SocialIcon } from 'react-social-icons'
+import { Ensign } from './components/ensigns'
 
 export default async function Account() {
 	const { user } = await auth()
@@ -71,33 +74,37 @@ export default async function Account() {
 										</AlertDialog>
 									</div>
 									<div className="flex items-center gap-1 mt-3">
-										<Image
-											alt=""
-											className=" size-12 object-cover"
-											src="https://cdn.icon-icons.com/icons2/3042/PNG/512/instagram_logo_icon_189247.png"
-											width={80}
-											height={80}
+										<SocialIcon
+											fgColor="white"
+											bgColor="transparent"
+											className="rounded-full bg-zinc-700"
+											network="instagram"
+											url="https://instagram.com"
+											target="_new"
 										/>
-										<Image
-											alt=""
-											className=" size-12 object-cover"
-											src="https://cdn.icon-icons.com/icons2/3042/PNG/512/instagram_logo_icon_189247.png"
-											width={80}
-											height={80}
+										<SocialIcon
+											fgColor="white"
+											bgColor="transparent"
+											className="rounded-full bg-zinc-700"
+											network="facebook"
+											url="https://facebook.com"
+											target="_new"
 										/>
-										<Image
-											alt=""
-											className=" size-12 object-cover"
-											src="https://cdn.icon-icons.com/icons2/3042/PNG/512/instagram_logo_icon_189247.png"
-											width={80}
-											height={80}
+										<SocialIcon
+											fgColor="white"
+											bgColor="transparent"
+											className="rounded-full bg-zinc-700"
+											network="youtube"
+											url="https://youtube.com"
+											target="_new"
 										/>
-										<Image
-											alt=""
-											className=" size-12 object-cover"
-											src="https://cdn.icon-icons.com/icons2/3042/PNG/512/instagram_logo_icon_189247.png"
-											width={80}
-											height={80}
+										<SocialIcon
+											fgColor="white"
+											bgColor="transparent"
+											className="rounded-full bg-zinc-700"
+											network="tiktok"
+											url="https://tiktok.com"
+											target="_new"
 										/>
 									</div>
 								</div>
@@ -109,27 +116,7 @@ export default async function Account() {
 										<div className="size-1 bg-zinc-600 rounded-full" />3
 									</h1>
 									<div className="flex items-center gap-3 mt-3">
-										<Image
-											alt=""
-											className=" size-18 object-cover"
-											src="https://i.ibb.co/Svv8RRj/Badge-Conversion.png"
-											width={80}
-											height={80}
-										/>
-										<Image
-											alt=""
-											className=" size-18 object-cover"
-											src="https://i.ibb.co/Svv8RRj/Badge-Conversion.png"
-											width={80}
-											height={80}
-										/>
-										<Image
-											alt=""
-											className=" size-18 object-cover"
-											src="https://i.ibb.co/Svv8RRj/Badge-Conversion.png"
-											width={80}
-											height={80}
-										/>
+										<Ensign />
 									</div>
 								</div>
 							</div>
@@ -269,48 +256,7 @@ export default async function Account() {
 							</div>
 						</div>
 						<div className="h-px w-full my-6 bg-zinc-800" />
-						<h1 className="text-lg flex items-center gap-2 text-zinc-100">
-							<Skull className="text-zinc-500" size={24} /> Excluir conta
-						</h1>
-						<p className="pt-4">
-							Se você excluir sua conta, todos os dados relacionados a você
-							serão deletados e não será possível a restauração.
-						</p>
-						<span className="text-xs text-zinc-400">
-							A exclusão da conta não elimina o recebimento de e-mails da Fourza
-							Inside. Para que isso aconteça, peça no news@fourzainside.com.br.
-						</span>
-
-						<AlertDialog>
-							<AlertDialogTrigger asChild>
-								<Button className="flex mt-5 bg-red-700 rounded gap-2 text-xs hover:bg-red-800 transition-all">
-									Excluir conta
-								</Button>
-							</AlertDialogTrigger>
-							<AlertDialogContent className="bg-zinc-900 rounded border-zinc-800 ">
-								<AlertDialogHeader>
-									<AlertDialogTitle>Você tem certeza mesmo?</AlertDialogTitle>
-									<AlertDialogDescription>
-										<strong>Último aviso:</strong> Esta ação não pode ser
-										desfeita. Isso excluirá permanentemente sua conta e removerá
-										seus dados de nossos servidores.
-									</AlertDialogDescription>
-								</AlertDialogHeader>
-								<AlertDialogFooter>
-									<AlertDialogCancel className="border-none">
-										Não, cancelar.
-									</AlertDialogCancel>
-									<form action={deleteAccount}>
-										<AlertDialogAction
-											type="submit"
-											className="bg-red-600 hover:bg-red-700 rounded text-sm"
-										>
-											Sim, excluir.
-										</AlertDialogAction>
-									</form>
-								</AlertDialogFooter>
-							</AlertDialogContent>
-						</AlertDialog>
+						<DeleteAccount />
 					</div>
 				</div>
 			</div>

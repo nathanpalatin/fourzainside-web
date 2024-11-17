@@ -8,36 +8,43 @@ import {
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import Link from 'next/link'
+
+import { ChartHome } from '@/components/chart-home'
 
 export default function Home() {
 	return (
 		<div className="space-y-4 py-4 px-6 bg-no-repeat bg-right">
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-9/12 flex flex-col gap-4 overflow-y-auto">
+					<ChartHome />
+
 					<div className="grid grid-cols-3 gap-3">
 						<div className="w-full h-[500px] rounded-xl hover:cursor-pointer group overflow-hidden">
-							<Image
-								alt=""
-								className="overflow-hidden w-full h-full object-cover group-hover:rotate-3 transition-all duration-700 group-hover:scale-125"
-								width={400}
-								height={600}
-								src={
-									'https://static.wixstatic.com/media/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png/v1/fill/w_625,h_880,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png'
-								}
-							/>
-							<div className="relative bg-gradient-to-t leading-4 from-black to-transparent -bottom-1 group-hover:bottom-16 opacity-0 transition-all group-hover:opacity-100">
-								<div className="flex items-center px-4 pb-4 justify-between">
-									<div className="flex flex-col flex-1">
-										<h1 className="text-white text-lg font-bold">
-											Reset Intestino
-										</h1>
-										<p className="text-zinc-200 text-sm font-normal">
-											Maiara Giacomelli
-										</p>
+							<Link href={'/journey/reset-intestino'}>
+								<Image
+									alt=""
+									className="overflow-hidden w-full h-full object-cover group-hover:rotate-3 transition-all duration-700 group-hover:scale-125"
+									width={400}
+									height={600}
+									src={
+										'https://static.wixstatic.com/media/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png/v1/fill/w_625,h_880,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png'
+									}
+								/>
+								<div className="relative bg-gradient-to-t leading-4 from-black to-transparent -bottom-1 group-hover:bottom-16 opacity-0 transition-all group-hover:opacity-100">
+									<div className="flex items-center px-4 pb-4 justify-between">
+										<div className="flex flex-col flex-1">
+											<h1 className="text-white text-lg font-bold">
+												Reset Intestino
+											</h1>
+											<p className="text-zinc-200 text-sm font-normal">
+												Maiara Giacomelli
+											</p>
+										</div>
+										<PlayCircleIcon size={40} />
 									</div>
-									<PlayCircleIcon size={40} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 					<div className="mt-4">
@@ -45,6 +52,7 @@ export default function Home() {
 						<span className="text-sm text-zinc-500">
 							Descubra as novidades da nossa plataforma.
 						</span>
+
 						<div className="flex items-center gap-3 mt-4">
 							<div className="bg-zinc-900 rounded-full border-zinc-700 border">
 								<span className="text-xs p-4">TODOS OS LEMBRETES</span>
@@ -169,6 +177,9 @@ export default function Home() {
 								</Button>
 							</div>
 						</div>
+					</div>
+					<div className="bg-zinc-200 dark:bg-zinc-900 rounded min-h-52">
+						<div className="p-4"></div>
 					</div>
 				</div>
 			</div>

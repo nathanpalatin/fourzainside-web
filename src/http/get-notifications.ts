@@ -9,7 +9,7 @@ interface NotificationsType {
 		notificationType: string
 		createdAt: string
 		status: string
-		senderUserId: SenderUserId
+		sendUser: SenderUserId
 	}[]
 }
 interface SenderUserId {
