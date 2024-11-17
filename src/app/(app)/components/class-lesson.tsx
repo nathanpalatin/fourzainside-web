@@ -54,9 +54,14 @@ export function ClassLesson() {
 					<p className="pt-2 text-sm pr-20">{data?.lesson.description}</p>
 				</div>
 				<div>
-					<ButtonProgress watch={data?.lesson.watched} />
+					<ButtonProgress
+						lessonId={data.lesson.id}
+						watch={data?.lesson.watched}
+					/>
 					<div className="mt-4">
-						<h1 className="text-xs text-right text-zinc-400">O que voce achou da aula?</h1>
+						<h1 className="text-xs text-right text-zinc-400">
+							O que voce achou da aula?
+						</h1>
 						<div className="flex justify-end gap-3 py-2">
 							<StarIcon size={20} />
 							<StarIcon size={20} />

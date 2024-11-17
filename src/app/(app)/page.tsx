@@ -1,4 +1,3 @@
-import { getCourses } from '@/http/get-courses'
 import {
 	GiftIcon,
 	PlayCircleIcon,
@@ -10,9 +9,7 @@ import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
-export default async function Home() {
-	const { courses } = await getCourses()
-
+export default function Home() {
 	return (
 		<div className="space-y-4 py-4 px-6 bg-no-repeat bg-right">
 			<div className="flex items-start justify-between gap-4">

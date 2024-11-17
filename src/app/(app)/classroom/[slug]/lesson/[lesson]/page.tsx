@@ -1,12 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-import { File, FileQuestion, PlayCircleIcon, ScrollText, VideoIcon } from 'lucide-react'
+import { File, FileQuestion, PlayCircleIcon, ScrollText } from 'lucide-react'
 
-import { CardLesson } from '../../../../components/card-lesson'
 import { CardFileLesson } from '../../../../components/card-file-lesson'
 import { CardHelpLesson } from '../../../../components/card-help-lesson'
 import { LoadingTranscription } from '../../../../components/loading-transcription'
@@ -53,7 +50,9 @@ export default function ClassRoom() {
 							<TabsContent value="transcription">
 								<Card>
 									<CardHeader>
-										<CardTitle className=" focus-visible:text-red-500 ">Transcrição</CardTitle>
+										<CardTitle className=" focus-visible:text-red-500 ">
+											Transcrição
+										</CardTitle>
 									</CardHeader>
 									<CardContent className="w-full h-[600px] overflow-y-auto">
 										<div className="px-3 space-y-2">
@@ -69,7 +68,10 @@ export default function ClassRoom() {
 										<CardTitle>Dúvidas</CardTitle>
 									</CardHeader>
 									<CardContent className="w-full">
-										<CardHelpLesson title="Não entendi essa parte...." time="há 3 horas" />
+										<CardHelpLesson
+											title="Não entendi essa parte...."
+											time="há 3 horas"
+										/>
 									</CardContent>
 								</Card>
 							</TabsContent>

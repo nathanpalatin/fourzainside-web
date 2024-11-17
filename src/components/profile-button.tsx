@@ -1,4 +1,4 @@
-import { ChevronDown, LogOut, Settings } from 'lucide-react'
+import { ChevronDown, Database, LogOut, Settings } from 'lucide-react'
 
 import { auth } from '@/auth/auth'
 
@@ -45,6 +45,15 @@ export async function ProfileButton() {
 				align="end"
 				className="mt-2 border bg-zinc-900 border-zinc-800"
 			>
+				{user.role === 'MENTOR' && (
+					<DropdownMenuItem className="border-b border-zinc-800" asChild>
+						<a href="/dashboard/products" className="cursor-pointer">
+							<Database className="mr-2 size-4" />
+							Dashboard
+						</a>
+					</DropdownMenuItem>
+				)}
+
 				<DropdownMenuItem asChild>
 					<a href="/account" className="cursor-pointer">
 						<Settings className="mr-2 size-4" />

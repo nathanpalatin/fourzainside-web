@@ -22,12 +22,10 @@ export default async function AppLayout({
 	return (
 		<div className="flex h-screen">
 			<div className="flex-1">
-				<>
-					<div className="flex gap-3">
-						<Sidebar />
-						{children}
-					</div>
-				</>
+				<div className="flex gap-3">
+					<Sidebar />
+					{children}
+				</div>
 				<Toaster />
 			</div>
 		</div>
