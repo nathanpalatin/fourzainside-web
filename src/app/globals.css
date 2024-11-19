@@ -18,6 +18,11 @@
 		--sidebar-accent-foreground: 240 5.9% 10%;
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
+		--color-chrome: #4285f4;
+		--color-safari: #34a853;
+		--color-firefox: #ff9900;
+		--color-edge: #0078d7;
+		--color-other: #b0bec5;
 	}
 
 	.dark {
@@ -26,6 +31,11 @@
 		--chart-3: 30 80% 55%;
 		--chart-4: 280 65% 60%;
 		--chart-5: 340 75% 55%;
+		--color-chrome: #4285f4;
+		--color-safari: #34a853;
+		--color-firefox: #ff9900;
+		--color-edge: #0078d7;
+		--color-other: #b0bec5;
 		--sidebar-background: 240 5.9% 10%;
 		--sidebar-foreground: 240 4.8% 95.9%;
 		--sidebar-primary: 224.3 76.3% 48%;

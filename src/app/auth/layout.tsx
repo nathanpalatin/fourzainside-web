@@ -12,8 +12,11 @@ export default async function AuthLayout({
 	}
 
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center ">
-			<div className="w-full">{children}</div>
+		<div
+			className="flex min-h-screen flex-col items-center justify-center "
+			suppressHydrationWarning
+		>
+			{children}
 		</div>
 	)
 }

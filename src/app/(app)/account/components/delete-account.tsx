@@ -50,7 +50,7 @@ export function DeleteAccount() {
 						<form action={deleteAccount}>
 							<AlertDialogAction
 								type="submit"
-								className="bg-red-600 hover:bg-red-700 rounded text-sm"
+								className="bg-red-600 hover:bg-red-700 rounded-xl text-sm"
 							>
 								Sim, excluir.
 							</AlertDialogAction>

@@ -4,21 +4,24 @@ import { HTTPError } from 'ky'
 import { z } from 'zod'
 
 import { changePassword } from '@/http/change-password'
-import { resetPassword } from '@/http/reset-password'
 
-const resetPassswordSchema = z
+const changePassswordSchema = z
 	.object({
-		credential: z.string(),
-		password: z.string().min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
-		password_confirmation: z.string()
+		password: z
+			.string()
+			.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
+		newPassword: z
+			.string()
+			.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
+		confirmPassword: z.string()
 	})
-	.refine(data => data.password === data.password_confirmation, {
+	.refine(data => data.newPassword === data.confirmPassword, {
 		message: 'As senhas não conferem.',
-		path: ['password_confirmation']
+		path: ['confirmPassword']
 	})
 
-export async function ResetPasswordAction(data: FormData) {
-	const result = resetPassswordSchema.safeParse(Object.fromEntries(data))
+export async function ChangePasswordAction(data: FormData) {
+	const result = changePassswordSchema.safeParse(Object.fromEntries(data))
 
 	if (!result.success) {
 		const errors = result.error.flatten().fieldErrors
@@ -26,11 +29,11 @@ export async function ResetPasswordAction(data: FormData) {
 		return { success: false, message: null, errors }
 	}
 
-	const { credential, password } = result.data
+	const { newPassword, password } = result.data
 
 	try {
-		await resetPassword({
-			credential,
+		await changePassword({
+			newPassword,
 			password
 		})
 	} catch (err) {

@@ -42,6 +42,7 @@ export function SignUpForm() {
 					<Input
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
 						name="name"
+						disabled={isPending}
 						placeholder="Seu nome"
 						id="name"
 						aria-label="Nome completo"
@@ -55,11 +56,12 @@ export function SignUpForm() {
 					<Input
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
 						name="email"
+						disabled={isPending}
 						onChange={e => setEmail(e.target.value)}
 						placeholder="Seu melhor e-mail"
 						type="email"
 						id="email"
-						aria-label="E-mail"
+						autoComplete="false"
 					/>
 					{errors?.email && (
 						<p className="text-xs font-medium text-red-500">
@@ -72,6 +74,7 @@ export function SignUpForm() {
 					<PhoneInput
 						defaultCountry="BR"
 						maxLength={15}
+						disabled={isPending}
 						name="phone"
 						id="phone"
 						placeholder="Seu melhor telefone"
@@ -91,6 +94,7 @@ export function SignUpForm() {
 						name="password"
 						placeholder="Sua senha"
 						type="password"
+						disabled={isPending}
 						id="password"
 						aria-label="Senha"
 					/>
@@ -106,6 +110,7 @@ export function SignUpForm() {
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
 						name="password_confirmation"
 						type="password"
+						disabled={isPending}
 						placeholder="Confirmar sua senha"
 						id="password_confirmation"
 						aria-label="Confirmação da senha"
@@ -117,11 +122,11 @@ export function SignUpForm() {
 					)}
 				</div>
 
-				<p className="text-xs font-light text-muted-foreground py-4">
+				<p className="text-sm	 font-light text-zinc-400 py-4">
 					Ao criar sua conta, você confirma que leu e concorda com os{' '}
 					<a
-						href="/terms-of-use"
-						className="text-zinc-200 hover:underline"
+						href="/auth/terms-of-use"
+						className="text-zinc-200 font-semibold hover:underline"
 						target="_new"
 					>
 						termos de uso
@@ -142,13 +147,16 @@ export function SignUpForm() {
 				</Button>
 
 				<Button
-					className="w-full rounded-lg text-zinc-500 hover:bg-transparent"
+					className="w-full rounded-lg hover:bg-transparent"
 					variant="link"
 					size="sm"
 					asChild
 				>
-					<Link href="/auth/sign-in" className="text-xs hover:no-underline">
-						Já tem conta? Entrar
+					<Link
+						href="/auth/sign-in"
+						className=" text-zinc-100 hover:no-underline"
+					>
+						Já possui uma conta? Entrar
 					</Link>
 				</Button>
 			</form>

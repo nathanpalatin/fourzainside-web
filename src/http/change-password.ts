@@ -1,16 +1,16 @@
 'use server'
 import { api } from './api-client'
 
-interface ValidadeCodeRequest {
-	credential: string
+interface ChangePasswordRequest {
+	newPassword: string
 	password: string
 }
 
 export async function changePassword({
-	credential,
+	newPassword,
 	password
-}: ValidadeCodeRequest): Promise<void> {
-	await api.post('users/reset-password', {
-		json: { credential, password }
+}: ChangePasswordRequest): Promise<void> {
+	await api.patch('users/change-password', {
+		json: { newPassword, password }
 	})
 }

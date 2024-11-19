@@ -15,7 +15,7 @@ export function Ensign() {
 			<AlertDialogTrigger>
 				<Image
 					alt=""
-					className=" size-18 object-cover"
+					className="size-14 object-cover"
 					src="https://i.ibb.co/Svv8RRj/Badge-Conversion.png"
 					width={80}
 					height={80}
@@ -24,7 +24,7 @@ export function Ensign() {
 			<AlertDialogContent className="bg-zinc-900 rounded border-zinc-800 ">
 				<Image
 					alt=""
-					className=" z-50 mx-auto self-center size-18 object-cover"
+					className="z-50 mx-auto self-center size-18 object-cover"
 					src="https://i.ibb.co/Svv8RRj/Badge-Conversion.png"
 					width={240}
 					height={240}
@@ -35,7 +35,7 @@ export function Ensign() {
 				<AlertDialogHeader>
 					<AlertDialogTitle className="text-center">
 						Parabéns, você é um Maratonista Raiz!
-						<p className="text-sm text-zinc-300">
+						<p className="text-sm text-zinc-500">
 							Data do recebimento: 14.11.2024
 						</p>
 					</AlertDialogTitle>

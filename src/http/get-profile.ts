@@ -9,7 +9,7 @@ interface GetProfileResponse {
 		gender: string | null
 		birthdate: string | null
 		cpf: string | null
-		phone: string | null
+		phone: string
 		name: string
 		role: 'ADMIN' | 'MENTOR' | 'USER'
 		avatar: string | null

@@ -10,15 +10,14 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ChartHome } from '@/components/chart-home'
+import { ChartRounded } from '@/components/pie-chart'
+import { chartConfig, chartData } from './dashboard/actions/visitors-pie-charts'
 
 export default function Home() {
 	return (
 		<div className="space-y-4 py-4 px-6 bg-no-repeat bg-right">
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-9/12 flex flex-col gap-4 overflow-y-auto">
-					<ChartHome />
-
 					<div className="grid grid-cols-3 gap-3">
 						<div className="w-full h-[500px] rounded-xl hover:cursor-pointer group overflow-hidden">
 							<Link href={'/journey/reset-intestino'}>
@@ -27,6 +26,7 @@ export default function Home() {
 									className="overflow-hidden w-full h-full object-cover group-hover:rotate-3 transition-all duration-700 group-hover:scale-125"
 									width={400}
 									height={600}
+									priority
 									src={
 										'https://static.wixstatic.com/media/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png/v1/fill/w_625,h_880,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/13f834_ce98041e0e7f4fa2a054219e4a4b08c9~mv2.png'
 									}
@@ -179,7 +179,9 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="bg-zinc-200 dark:bg-zinc-900 rounded min-h-52">
-						<div className="p-4"></div>
+						<div className="p-4">
+							<ChartRounded chartConfig={chartConfig} chartData={chartData} />
+						</div>
 					</div>
 				</div>
 			</div>

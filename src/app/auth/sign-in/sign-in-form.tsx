@@ -47,11 +47,12 @@ export function SignInForm() {
 					</Alert>
 				)}
 
-				<div className="items-center justify-center">
+				<div className="w-full flex flex-col items-end space-y-3 ">
 					<Input
 						name="credential"
 						placeholder="E-mail"
 						id="credential"
+						disabled={isPending}
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5  text-zinc-700 dark:bg-transparent dark:text-white"
 					/>
 
@@ -60,16 +61,21 @@ export function SignInForm() {
 							{errors.credential[0]}
 						</p>
 					)}
-				</div>
 
-				<div className="items-center justify-center">
 					<Input
 						name="password"
 						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:bg-transparent dark:text-white"
 						type="password"
+						disabled={isPending}
 						placeholder="Senha"
 						id="password"
 					/>
+					<Link
+						href="/auth/forgot-password"
+						className="text-xs text-right font-normal text-indigo-400"
+					>
+						Esqueceu sua senha?
+					</Link>
 
 					{errors?.password && (
 						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">
@@ -77,38 +83,27 @@ export function SignInForm() {
 						</p>
 					)}
 				</div>
-
 				<Button
-					className="w-full rounded-xl bg-zinc-800 text-zinc-200 hover:bg-zinc-900"
+					className="w-full rounded-xl bg-indigo-600 text-zinc-200 hover:bg-indigo-700"
 					type="submit"
 					disabled={isPending}
 				>
 					{isPending ? (
 						<Loader2 className="size-4 animate-spin" />
 					) : (
-						'Acessar conta'
+						'Acessar minha conta'
 					)}
 				</Button>
 
-				<Button
-					className=" w-full rounded-xl bg-indigo-600  hover:bg-zinc-200 dark:hover:bg-indigo-900 "
-					variant="link"
-					asChild
-				>
+				<Button className=" w-full rounded-xl" variant="link" asChild>
 					<Link
 						href="/auth/sign-up"
-						className="text-zinc-100 hover:no-underline dark:hover:text-zinc-200"
+						className="text-zinc-100 text-left font-normal hover:no-underline dark:hover:text-zinc-200"
 					>
-						Criar uma conta
+						Não tem uma conta? Cadastre-se
 					</Link>
 				</Button>
 			</form>
-			<Link
-				href="/auth/forgot-password"
-				className="text-xs font-normal text-zinc-400/70"
-			>
-				Esqueci minha senha
-			</Link>
 		</div>
 	)
 }

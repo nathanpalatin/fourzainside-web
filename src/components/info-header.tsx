@@ -1,14 +1,18 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
-interface HeaderProps {
-	title: string
-}
-export async function InfoHeader({ title }: HeaderProps) {
+import logo from '@/assets/icon.png'
+
+export async function InfoHeader() {
 	return (
 		<Link href={`/`}>
-			<div className="flex items-center w-[600px] ">
-				<h1 className="text-2xl font-extrabold">{title}</h1>
-			</div>
+			<Image
+				alt="logo"
+				className="object-cover size-10 mix-blend-lighten"
+				src={logo}
+				width={40}
+				height={40}
+			/>
 		</Link>
 	)
 }

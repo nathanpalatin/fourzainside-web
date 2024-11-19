@@ -8,8 +8,8 @@ interface BoxProps {
 
 export function CardInfo({ title, icon }: BoxProps) {
 	return (
-		<div className="border border-zinc-700 bg-gradient-to-t  from-zinc-900 to-transparent rounded">
-			<div className="px-8 py-4">
+		<div className="border border-zinc-700 bg-zinc-900 rounded">
+			<div className="px-6 py-4">
 				<div className="flex justify-between items-center">
 					<p className="text-xs  text-zinc-400">{title}</p>
 					{icon}

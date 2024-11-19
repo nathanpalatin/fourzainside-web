@@ -3,11 +3,9 @@ import { isAuthenticated } from '@/auth/auth'
 import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
-import { AppSidebar } from './components/app-sidebar'
 
 export const metadata: Metadata = {
-	title: 'Fourza Inside'
+	title: 'Minha Plataforma - Fourza Inside'
 }
 
 export default async function AppLayout({

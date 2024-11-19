@@ -7,8 +7,8 @@ import { SearchHeader } from './search-header'
 
 export function Header() {
 	return (
-		<div className="flex  items-center justify-between">
-			<InfoHeader title={'FOURZA INSIDE'} />
+		<div className="flex items-center justify-between">
+			<InfoHeader />
 			<div className="flex items-center gap-3">
 				<SearchHeader />
 				<NotificationsBadge />

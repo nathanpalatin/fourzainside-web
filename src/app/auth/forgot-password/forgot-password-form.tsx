@@ -53,7 +53,7 @@ export function ForgetPasswordForm() {
 				</div>
 
 				<Button
-					className="w-full rounded-xl  bg-zinc-800 text-zinc-200 hover:bg-zinc-900"
+					className="w-full rounded-xl  bg-indigo-600 text-zinc-200 hover:bg-indigo-700"
 					type="submit"
 					disabled={isPending}
 				>
@@ -62,7 +62,7 @@ export function ForgetPasswordForm() {
 			</form>
 			<Link
 				href="/auth/sign-in"
-				className="text-xs font-normal text-zinc-400/70"
+				className="text-zinc-100 text-sm font-normal hover:no-underline dark:hover:text-zinc-200"
 			>
 				Lembrou a senha? Entrar
 			</Link>

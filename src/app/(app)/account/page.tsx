@@ -10,8 +10,6 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { deleteAccount } from '@/http/delete-account'
 import dayjs from 'dayjs'
 import {
 	BabyIcon,
@@ -21,22 +19,17 @@ import {
 	KeyIcon,
 	LockIcon,
 	MailIcon,
-	MapIcon,
 	MapPinIcon,
 	PersonStanding,
 	Phone,
-	PhoneCall,
 	Scroll,
 	Shell,
-	Skull,
-	User2,
-	XCircleIcon,
-	XIcon
+	User2
 } from 'lucide-react'
-import Image from 'next/image'
 import { DeleteAccount } from './components/delete-account'
 import { SocialIcon } from 'react-social-icons'
 import { Ensign } from './components/ensigns'
+import { PasswordChangeDialog } from './components/change-password'
 
 export default async function Account() {
 	const { user } = await auth()
@@ -201,12 +194,11 @@ export default async function Account() {
 						</div>
 						<div className="bg-zinc-900 border mt-4 border-zinc-800  rounded">
 							<div className="p-4">
-								<h1 className="text-xl flex items-center gap-3">
-									<KeyIcon size={20} /> Dados de acesso
-									<a href="" className="text-indigo-500 text-sm pt-1 pl-4">
-										Alterar
-									</a>
-								</h1>
+								<div className="flex items-center gap-3">
+									<KeyIcon size={20} />
+									<h1 className="text-xl ">Dados de acesso</h1>
+									<PasswordChangeDialog />
+								</div>
 								<div className="mt-4">
 									<h1 className="text-sm flex items-center gap-2 text-zinc-400">
 										<MailIcon size={16} /> {user.email}
@@ -255,6 +247,7 @@ export default async function Account() {
 								</div>
 							</div>
 						</div>
+
 						<div className="h-px w-full my-6 bg-zinc-800" />
 						<DeleteAccount />
 					</div>

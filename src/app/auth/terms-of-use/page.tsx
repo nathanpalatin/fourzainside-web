@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { SmileIcon } from 'lucide-react'
+import { SmileIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default function TermsOfUse() {
@@ -150,9 +150,14 @@ export default function TermsOfUse() {
 					</AlertDialogTrigger>
 					<AlertDialogContent className="bg-zinc-900 rounded-xl border border-zinc-700">
 						<AlertDialogHeader>
-							<AlertDialogTitle>
-								Como está sendo sua experiência no site?
-							</AlertDialogTitle>
+							<div className="flex justify-between items-center">
+								<AlertDialogTitle>
+									Como está sendo sua experiência no site?
+								</AlertDialogTitle>
+								<AlertDialogCancel className="border-none ">
+									<XIcon size={20} className="text-zinc-400 -mr-4" />
+								</AlertDialogCancel>
+							</div>
 							<AlertDialogDescription>
 								Seu feedback é muito importante para continuarmos evoluindo.
 							</AlertDialogDescription>

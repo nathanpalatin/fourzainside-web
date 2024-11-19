@@ -74,7 +74,15 @@ export function NotificationsBadge() {
 				<Tabs defaultValue="unread" className="w-full">
 					<TabsList className="w-full grid grid-cols-2">
 						<TabsTrigger value="unread">Não lidas</TabsTrigger>
-						<TabsTrigger value="read">Lidas</TabsTrigger>
+						<TabsTrigger
+							value="read"
+							disabled={
+								data.notifications.filter(item => item.status === 'read')
+									.length === 0
+							}
+						>
+							Lidas
+						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="unread">
 						<Card className="mt-7">

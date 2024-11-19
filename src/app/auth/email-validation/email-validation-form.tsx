@@ -38,8 +38,8 @@ export function EmailForm() {
 
 				<h1 className="text-sm font-normal text-zinc-800 dark:text-zinc-400">
 					Enviamos um código para o{' '}
-					<span className="text-zinc-100">seu e-mail</span> para validarmos a
-					sua conta.
+					<span className="text-zinc-100">seu e-mail</span> para confirmar a sua
+					conta.
 				</h1>
 				<div className="items-center justify-center">
 					<input type="hidden" id="email" name="email" value={confirmEmail} />
@@ -58,7 +58,7 @@ export function EmailForm() {
 					)}
 				</div>
 				<Button
-					className="w-full rounded bg-zinc-800 text-zinc-200 hover:bg-zinc-900"
+					className="w-full rounded bg-indigo-600 text-zinc-200 hover:bg-indigo-700"
 					type="submit"
 					disabled={isPending}
 				>
