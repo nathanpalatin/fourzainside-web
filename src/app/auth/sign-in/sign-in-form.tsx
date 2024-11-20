@@ -66,7 +66,7 @@ export function SignInForm() {
 							width={160}
 							className="mx-auto mb-10 animate-pulse-slow"
 							height={100}
-							src={theme === 'dark' ? logo : logoLight}
+							src={theme != 'light' ? logo : logoLight}
 						/>
 
 						<Input
