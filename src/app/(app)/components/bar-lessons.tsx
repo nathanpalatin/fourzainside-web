@@ -16,11 +16,9 @@ export function BarLessons() {
 	const { slug } = useParams<{ lesson: string; slug: string }>()
 	const { data, isLoading } = useQuery({
 		refetchOnWindowFocus: false,
-		queryKey: ['lesson', slug],
+		queryKey: ['lessons', slug],
 		queryFn: () => getLessonsFromCourse(slug)
 	})
-
-	console.log(slug)
 
 	return (
 		<Accordion type="single" collapsible className="mb-2 w-full">

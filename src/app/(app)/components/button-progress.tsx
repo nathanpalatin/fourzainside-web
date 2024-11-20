@@ -21,7 +21,7 @@ export function ButtonProgress({ watch }: WatchProps) {
 			onClick={handleProgress}
 			className={` ${
 				watched ? 'bg-green-800' : 'bg-zinc-800'
-			} text-sm rounded p-2 items-center flex gap-2`}
+			} text-sm rounded p-2 items-center mb-2 flex gap-2`}
 		>
 			{watched ? <CheckIcon /> : <Square />}
 			Marcar como assistida

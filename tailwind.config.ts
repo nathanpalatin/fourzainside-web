@@ -13,6 +13,9 @@ const config = {
 			}
 		},
 		extend: {
+			transitionDuration: {
+				'2000': '2000ms'
+			},
 			colors: {
 				cardprimary: '#95ACA6',
 				border: 'hsl(var(--border))',

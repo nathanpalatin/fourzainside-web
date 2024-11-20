@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { ButtonAction } from '../components/button'
 
@@ -46,10 +45,30 @@ export default function Journey() {
 			<div className="bg-zinc-950 h-full w-full">
 				<div className="pt-32 px-10 ">
 					<h1 className="text-2xl mb-6 font-semibold text-left">Módulo 1</h1>
-					<div className="flex items-center gap-4">
-						<div className="w-[260px] h-[400px] bg-zinc-900 rounded"></div>
-						<div className="w-[260px] h-[400px] bg-zinc-900 rounded"></div>
-						<div className="w-[260px] h-[400px] bg-zinc-900 rounded"></div>
+					<div className="mt-40 flex items-center gap-4">
+						<div className="hover:w-[700px] overflow-hidden group transition-all duration-1000 w-[260px] h-[400px] bg-zinc-900 rounded relative">
+							<Image
+								alt="banner"
+								quality={100}
+								className="object-cover transition-all duration-1000 w-full h-full group-hover:opacity-0"
+								width={260}
+								height={400}
+								src={'/babi.jpeg'}
+							/>
+
+							<video
+								width="100%"
+								height="400"
+								muted
+								autoPlay
+								loop
+								src="/video.mp4"
+								className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-2000 group-hover:opacity-100"
+							/>
+						</div>
+
+						<div className="hover:w-[700px] transition-all duration-1000  w-[260px] h-[400px] bg-zinc-900 rounded"></div>
+						<div className="hover:w-[700px] transition-all duration-1000  w-[260px] h-[400px] bg-zinc-900 rounded"></div>
 						<div className="w-[260px] h-[400px] bg-zinc-900 rounded"></div>
 					</div>
 				</div>

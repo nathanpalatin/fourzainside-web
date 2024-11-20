@@ -7,11 +7,12 @@ import 'videojs-youtube'
 
 interface VideoProps {
 	video: string
+	autoplay?: boolean
 }
 
-export function VideoPlayerYT({ video }: VideoProps) {
+export function VideoPlayerYT({ video, autoplay = false }: VideoProps) {
 	const videoJsOptions = {
-		autoplay: true,
+		autoplay,
 		controls: true,
 		responsive: false,
 		fluid: true,
@@ -66,7 +67,11 @@ export function VideoPlayerYT({ video }: VideoProps) {
 	}
 
 	return (
-		<div data-vjs-player className="custom-video-player" style={{ position: 'relative' }}>
+		<div
+			data-vjs-player
+			className="custom-video-player"
+			style={{ position: 'relative' }}
+		>
 			<div ref={videoRef} className="bg-black rounded-xl overflow-hidden" />
 			<div
 				onMouseDownCapture={togglePlayPause}

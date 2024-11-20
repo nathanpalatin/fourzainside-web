@@ -8,9 +8,9 @@ export async function InfoHeader() {
 		<Link href={`/`}>
 			<Image
 				alt="logo"
-				className="object-cover size-10 mix-blend-lighten"
+				className="object-cover w-full h-5"
 				src={logo}
-				width={40}
+				width={300}
 				height={40}
 			/>
 		</Link>

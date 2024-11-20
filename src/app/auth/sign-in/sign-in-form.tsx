@@ -10,6 +10,9 @@ import { Input } from '@/components/ui/input'
 import { useFormState } from '@/hooks/use-form-state'
 
 import { signInWithEmailAndPassword } from './actions'
+import Image from 'next/image'
+
+import logo from '@/assets/icon.png'
 
 export function SignInForm() {
 	const router = useRouter()
@@ -26,8 +29,8 @@ export function SignInForm() {
 	)
 
 	return (
-		<div className="w-[340px] text-center">
-			<form onSubmit={handleSubmit} className="mb-5 space-y-4">
+		<div className="w-[340px] z-50 text-center">
+			<form onSubmit={handleSubmit} className=" space-y-4 my-52">
 				{confirmAccount && (
 					<Alert variant="success" className="mb-4">
 						<AlertTriangle className="size-4" />
@@ -47,63 +50,61 @@ export function SignInForm() {
 					</Alert>
 				)}
 
-				<div className="w-full flex flex-col items-end space-y-3 ">
+				<div className="w-full flex flex-col space-y-3 ">
+					<Image
+						alt="logo vance"
+						width={160}
+						className="mx-auto mb-10"
+						height={100}
+						src={logo}
+					/>
 					<Input
 						name="credential"
-						placeholder="E-mail"
+						placeholder="Digite seu e-mail"
 						id="credential"
 						disabled={isPending}
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5  text-zinc-700 dark:bg-transparent dark:text-white"
+						className="rounded-full border-2 text-center bg-zinc-100 px-4 pt-3 pb-1.5 text-zinc-900 "
 					/>
 
 					{errors?.credential && (
-						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">
+						<p className="text-xs  font-medium text-red-500 dark:text-red-400">
 							{errors.credential[0]}
 						</p>
 					)}
 
 					<Input
 						name="password"
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:bg-transparent dark:text-white"
+						className="rounded-full text-center border-2 bg-zinc-100 px-4 pt-7 pb-6 text-zinc-900 "
 						type="password"
 						disabled={isPending}
-						placeholder="Senha"
+						placeholder="Digite sua senha"
 						id="password"
 					/>
-					<Link
-						href="/auth/forgot-password"
-						className="text-xs text-right font-normal text-indigo-400"
-					>
-						Esqueceu sua senha?
-					</Link>
 
 					{errors?.password && (
-						<p className="text-xs pt-1 font-medium text-red-500 dark:text-red-400">
+						<p className="text-xs  font-medium text-red-500 dark:text-red-400">
 							{errors.password[0]}
 						</p>
 					)}
 				</div>
 				<Button
-					className="w-full rounded-xl bg-indigo-600 text-zinc-200 hover:bg-indigo-700"
+					className="w-full mb-20 rounded-full pt-3 pb-2 border text-zinc-200 bg-transparent border-zinco-100"
 					type="submit"
 					disabled={isPending}
 				>
 					{isPending ? (
 						<Loader2 className="size-4 animate-spin" />
 					) : (
-						'Acessar minha conta'
+						'Acessar conta'
 					)}
 				</Button>
-
-				<Button className=" w-full rounded-xl" variant="link" asChild>
-					<Link
-						href="/auth/sign-up"
-						className="text-zinc-100 text-left font-normal hover:no-underline dark:hover:text-zinc-200"
-					>
-						Não tem uma conta? Cadastre-se
-					</Link>
-				</Button>
 			</form>
+			<Link
+				href="/auth/forgot-passwords"
+				className="text-zinc-400 text-sm font-light hover:no-underline dark:hover:text-zinc-200"
+			>
+				Esqueceu minha senha
+			</Link>
 		</div>
 	)
 }

@@ -11,7 +11,7 @@ import { CardHelpLesson } from '../../components/card-help-lesson'
 import { LoadingTranscription } from '../../components/loading-transcription'
 import { ClassLesson } from '@/app/(app)/components/class-lesson'
 
-export default function ClassRoom() {
+export default function ClassHome() {
 	return (
 		<div className="space-y-4 py-4">
 			<div className="flex items-start justify-between gap-4">

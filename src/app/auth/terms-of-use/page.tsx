@@ -129,15 +129,7 @@ export default function TermsOfUse() {
 				<p className="text-zinc-400">
 					Para dúvidas ou solicitações relacionadas a estes Termos de Uso, entre
 					em contato com nosso suporte ao cliente através do e-mail{' '}
-					<a href="mailto:suporte@fourzainside.com.br">
-						suporte@fourzainside.com.br
-					</a>
-					.
-				</p>
-
-				<p className="font-bold pt-10">
-					Ao prosseguir, você confirma que leu, entendeu e concorda com nossos
-					Termos de Uso e nossa Política de Privacidade.
+					<a href="mailto:suporte@vance.com">suporte@vance</a>.
 				</p>
 			</div>
 			<div className="fixed size-14 right-10 flex justify-center bottom-8 ">

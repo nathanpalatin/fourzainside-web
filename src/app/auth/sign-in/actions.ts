@@ -11,7 +11,7 @@ const signInSchema = z.object({
 		message: 'Por favor, digite seu login.'
 	}),
 	password: z.string().min(1, {
-		message: 'Por favor, digite sua senha'
+		message: 'Por favor, digite sua senha.'
 	})
 })
 

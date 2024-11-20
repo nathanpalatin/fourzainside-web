@@ -26,7 +26,7 @@ export function SignUpForm() {
 	)
 
 	return (
-		<div className="space-y-4 w-full max-w-sm mx-auto">
+		<div className="space-y-4 w-[340px] mx-auto">
 			<form onSubmit={handleSubmit} className="space-y-4">
 				{success === false && message && (
 					<Alert variant="destructive">
@@ -122,7 +122,7 @@ export function SignUpForm() {
 					)}
 				</div>
 
-				<p className="text-sm	 font-light text-zinc-400 py-4">
+				<p className="text-xs font-light text-zinc-400 py-4">
 					Ao criar sua conta, você confirma que leu e concorda com os{' '}
 					<a
 						href="/auth/terms-of-use"
@@ -131,7 +131,7 @@ export function SignUpForm() {
 					>
 						termos de uso
 					</a>{' '}
-					da Fourza Inside.
+					da nossa plataforma.
 				</p>
 
 				<Button

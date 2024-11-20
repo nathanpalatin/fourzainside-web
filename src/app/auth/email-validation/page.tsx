@@ -1,6 +1,5 @@
 import { EmailForm } from './email-validation-form'
 
-import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 import Image from 'next/image'
 import backgroundHome from '@/assets/background-home.png'
 
@@ -11,7 +10,7 @@ export default async function EmailValidation() {
 				<div className="flex h-full items-center justify-center">
 					<EmailForm />
 				</div>
-				<ThemeSwitcher />
+				<h1 className="text-xs text-zinc-400">© 2024 Fourza Inside</h1>
 			</div>
 			<div className="hidden h-full w-8/12 md:block">
 				<Image

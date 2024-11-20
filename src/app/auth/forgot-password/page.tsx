@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 import backgroundHome from '@/assets/background-home.png'
-import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 
 import { ForgetPasswordForm } from './forgot-password-form'
 
@@ -13,7 +12,7 @@ export default function ForgotPasswordPage() {
 					<ForgetPasswordForm />
 				</div>
 				<div className="mb-10 flex justify-center">
-					<ThemeSwitcher />
+					<h1 className="text-xs text-zinc-400">© 2024 Fourza Inside</h1>
 				</div>
 			</div>
 

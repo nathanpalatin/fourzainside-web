@@ -25,7 +25,7 @@ export function DeleteAccount() {
 			</p>
 			<span className="text-xs text-zinc-400">
 				A exclusão da conta não elimina o recebimento de e-mails da Fourza
-				Inside. Para que isso aconteça, peça no news@fourzainside.com.br.
+				Inside. Para que isso aconteça, peça no news@vance.com.
 			</span>
 
 			<AlertDialog>
