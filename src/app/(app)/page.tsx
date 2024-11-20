@@ -20,7 +20,7 @@ export default function Home() {
 				<div className="w-9/12 flex flex-col gap-4 overflow-y-auto">
 					<div className="grid grid-cols-3 gap-3">
 						<div className="w-full h-[500px] rounded-xl hover:cursor-pointer group overflow-hidden">
-							<Link href={'/journey/reset-intestino'}>
+							<Link href={'/journey/performa'}>
 								<Image
 									alt=""
 									className="overflow-hidden w-full h-full object-cover group-hover:rotate-3 transition-all duration-700 group-hover:scale-125"

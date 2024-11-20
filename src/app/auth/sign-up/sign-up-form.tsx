@@ -26,7 +26,7 @@ export function SignUpForm() {
 	)
 
 	return (
-		<div className="space-y-4 w-[340px] mx-auto">
+		<div className=" z-50 w-[340px]">
 			<form onSubmit={handleSubmit} className="space-y-4">
 				{success === false && message && (
 					<Alert variant="destructive">
@@ -131,11 +131,11 @@ export function SignUpForm() {
 					>
 						termos de uso
 					</a>{' '}
-					da nossa plataforma.
+					da Vance.
 				</p>
 
 				<Button
-					className="w-full rounded-xl bg-indigo-700 text-zinc-200 hover:bg-zinc-900 dark:hover:bg-indigo-900"
+					className="w-full rounded-full bg-indigo-700 text-zinc-200 hover:bg-zinc-900 dark:hover:bg-indigo-900"
 					type="submit"
 					disabled={isPending}
 				>

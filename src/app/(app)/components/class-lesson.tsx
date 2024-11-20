@@ -42,7 +42,7 @@ export function ClassLesson() {
 				) : (
 					<Avatar className="size-14">
 						<AvatarImage
-							src={`https://pub-bb90bc58e6e242419ef6a85b289daef5.r2.dev/${course?.course.user.avatar}`}
+							src={`https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/${course?.course.user.avatar}`}
 						/>
 						<AvatarFallback>{course?.course.user.name}</AvatarFallback>
 					</Avatar>

@@ -4,7 +4,12 @@ import { Moon, Settings, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '../ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger
+} from '../ui/dropdown-menu'
 
 export function ThemeSwitcher() {
 	const { setTheme } = useTheme()
@@ -20,7 +25,7 @@ export function ThemeSwitcher() {
 			</DropdownMenuTrigger>
 
 			<DropdownMenuContent
-				align="center"
+				align="end"
 				className="dark:border-zinc-800 backdrop-blur-lg dark:bg-zinc-800/70"
 			>
 				<DropdownMenuItem className="gap-2" onClick={() => setTheme('light')}>

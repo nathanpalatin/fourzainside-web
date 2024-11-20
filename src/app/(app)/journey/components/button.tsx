@@ -7,13 +7,13 @@ import { useRouter } from 'next/navigation'
 export function ButtonAction() {
 	const router = useRouter()
 	return (
-		<Button className="bg-green-700 hover:bg-green-800 text-lg rounded font-bold mt-10">
+		<Button className="bg-zinc-200  hover:bg-zinc-50 text-lg rounded-full text-black px-16 pt-6 pb-5 font-bold mt-10">
 			<Link
 				target="_new"
 				href="https://wa.me/5513997200757"
 				className="text-sm hover:no-underline"
 			>
-				Quero mais essa energia e disposição
+				Acessar conteúdo
 			</Link>
 		</Button>
 	)

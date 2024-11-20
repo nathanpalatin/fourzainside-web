@@ -6,25 +6,18 @@ import { ForgetPasswordForm } from './forgot-password-form'
 
 export default function ForgotPasswordPage() {
 	return (
-		<div className="flex h-screen w-screen">
-			<div className="flex h-screen w-full flex-col justify-center bg-zinc-100 dark:bg-zinc-950 md:w-4/12">
-				<div className="flex flex-1 flex-col items-center justify-center">
-					<ForgetPasswordForm />
-				</div>
-				<div className="mb-10 flex justify-center">
-					<h1 className="text-xs text-zinc-400">© 2024 Vance</h1>
-				</div>
-			</div>
-
-			<div className="hidden h-full w-8/12 md:block">
+		<div className="flex h-screen justify-center items-center w-screen">
+			<div className="flex w-full flex-col items-center justify-between ">
+				<div className="h-screen w-screen absolute top-0 -z-0 bg-zinc-900/95 backdrop-blur-sm" />
 				<Image
 					alt="background"
-					className="h-screen w-screen object-cover"
+					className="h-screen absolute top-0 left-0 w-screen object-cover -z-10"
 					quality={100}
 					width={500}
 					height={500}
 					src={backgroundHome}
 				/>
+				<ForgetPasswordForm />
 			</div>
 		</div>
 	)
