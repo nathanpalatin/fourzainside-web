@@ -90,7 +90,9 @@ const config = {
 					}
 				}
 			},
+
 			animation: {
+				'pulse-slow': 'pulse 3s linear',
 				'border-spin': 'border-spin 7s linear infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'

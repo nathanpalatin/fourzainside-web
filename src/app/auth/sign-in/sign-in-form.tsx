@@ -30,9 +30,9 @@ export function SignInForm() {
 
 	return (
 		<div className="w-[340px] z-50 text-center">
-			<form onSubmit={handleSubmit} className=" space-y-4 my-52">
+			<form onSubmit={handleSubmit} className="my-52">
 				{confirmAccount && (
-					<Alert variant="success" className="mb-4">
+					<Alert variant="success" className=" mb-4">
 						<AlertTriangle className="size-4" />
 						<AlertTitle>Conta confirmada com sucesso!</AlertTitle>
 						<AlertDescription>
@@ -40,30 +40,22 @@ export function SignInForm() {
 						</AlertDescription>
 					</Alert>
 				)}
-				{!success && message && (
-					<Alert variant="destructive">
-						<AlertTriangle className="size-4" />
-						<AlertTitle>Ops, algo deu errado!</AlertTitle>
-						<AlertDescription>
-							<p>{message}</p>
-						</AlertDescription>
-					</Alert>
-				)}
 
-				<div className="w-full flex flex-col space-y-3 ">
+				<div className="w-full flex flex-col space-y-2 ">
 					<Image
 						alt="logo vance"
 						width={160}
-						className="mx-auto mb-10"
+						className="mx-auto mb-10 animate-pulse-slow"
 						height={100}
 						src={logo}
 					/>
+
 					<Input
 						name="credential"
 						placeholder="Digite seu e-mail"
 						id="credential"
 						disabled={isPending}
-						className="rounded-full border-2 text-center bg-zinc-100 px-4 pt-3 pb-1.5 text-zinc-900 "
+						className="rounded-full border-2 text-center bg-zinc-100 pt-6 pb-5 text-zinc-900 "
 					/>
 
 					{errors?.credential && (
@@ -74,7 +66,7 @@ export function SignInForm() {
 
 					<Input
 						name="password"
-						className="rounded-full text-center border-2 bg-zinc-100 px-4 pt-7 pb-6 text-zinc-900 "
+						className="rounded-full text-center border-2 bg-zinc-100 pt-6 pb-5 text-zinc-900 "
 						type="password"
 						disabled={isPending}
 						placeholder="Digite sua senha"
@@ -88,7 +80,7 @@ export function SignInForm() {
 					)}
 				</div>
 				<Button
-					className="w-full mb-20 rounded-full pt-3 pb-2 border text-zinc-200 bg-transparent border-zinco-100"
+					className="w-full mt-5 rounded-full pt-6 pb-5 border text-zinc-200 bg-transparent border-zinco-100"
 					type="submit"
 					disabled={isPending}
 				>
@@ -98,12 +90,26 @@ export function SignInForm() {
 						'Acessar conta'
 					)}
 				</Button>
+				{!success && message && (
+					<Alert
+						variant="destructive"
+						className="bg-red-600 mt-4 pt-4 pb-3 w-[330px] mx-auto border-none rounded-full "
+					>
+						<AlertTitle className="text-zinc-100 font-semibold">
+							Ops, algo deu errado!
+						</AlertTitle>
+						<AlertDescription className="text-zinc-100">
+							{message}
+						</AlertDescription>
+					</Alert>
+				)}
 			</form>
+
 			<Link
-				href="/auth/forgot-passwords"
+				href="/auth/forgot-password"
 				className="text-zinc-400 text-sm font-light hover:no-underline dark:hover:text-zinc-200"
 			>
-				Esqueceu minha senha
+				Esqueci minha senha
 			</Link>
 		</div>
 	)
