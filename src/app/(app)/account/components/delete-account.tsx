@@ -24,8 +24,8 @@ export function DeleteAccount() {
 				deletados e não será possível a restauração.
 			</p>
 			<span className="text-xs text-zinc-400">
-				A exclusão da conta não elimina o recebimento de e-mails da Fourza
-				Inside. Para que isso aconteça, peça no news@vance.com.
+				A exclusão da conta não elimina o recebimento de e-mails da Vance. Para
+				que isso aconteça, peça no news@vance.com.
 			</span>
 
 			<AlertDialog>

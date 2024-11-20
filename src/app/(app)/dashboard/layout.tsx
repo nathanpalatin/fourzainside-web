@@ -5,7 +5,7 @@ import { Sidebar } from '../components/sidebar'
 import { auth } from '@/auth/auth'
 
 export const metadata: Metadata = {
-	title: 'Fourza Inside - Admin area'
+	title: 'Vance - Admin area'
 }
 
 export default async function AppLayout({

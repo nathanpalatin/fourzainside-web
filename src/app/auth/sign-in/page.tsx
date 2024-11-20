@@ -18,7 +18,7 @@ export default function SignInPage() {
 					src={backgroundHome}
 				/>
 				<SignInForm />
-				<h1 className="text-xs text-zinc-400">© 2024 Fourza Inside</h1>
+				<h1 className="text-xs text-zinc-400">© 2024 Vance</h1>
 			</div>
 		</div>
 	)

@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Minha Plataforma - Fourza Inside'
+	title: 'Vance'
 }
 
 export default async function AppLayout({

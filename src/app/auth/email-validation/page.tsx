@@ -10,7 +10,7 @@ export default async function EmailValidation() {
 				<div className="flex h-full items-center justify-center">
 					<EmailForm />
 				</div>
-				<h1 className="text-xs text-zinc-400">© 2024 Fourza Inside</h1>
+				<h1 className="text-xs text-zinc-400">© 2024 Vance</h1>
 			</div>
 			<div className="hidden h-full w-8/12 md:block">
 				<Image

@@ -66,7 +66,7 @@ export function BlurImageWithText({
 								isAnimating ? 'opacity-0' : 'opacity-100'
 							}`}
 						>
-							Fourza Inside
+							Vance
 						</h1>
 						<h1
 							className={` opacity-0 text-white transition-opacity duration-1000 ${

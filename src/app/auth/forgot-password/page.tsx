@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
 					<ForgetPasswordForm />
 				</div>
 				<div className="mb-10 flex justify-center">
-					<h1 className="text-xs text-zinc-400">© 2024 Fourza Inside</h1>
+					<h1 className="text-xs text-zinc-400">© 2024 Vance</h1>
 				</div>
 			</div>
 
