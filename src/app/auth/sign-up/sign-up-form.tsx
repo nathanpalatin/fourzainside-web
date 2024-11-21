@@ -1,20 +1,23 @@
 'use client'
-
-import { requestSignUpAction } from './actions'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useTheme } from 'next-themes'
 import { AlertTriangle, Loader2 } from 'lucide-react'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import Image from 'next/image'
-import { useFormState } from '@/hooks/use-form-state'
-import { PhoneInput } from '@/components/ui/phone-input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import backgroundHome from '@/assets/background-home.png'
 import logo from '@/assets/icon.png'
 import logoLight from '@/assets/icon-light.png'
-import { useTheme } from 'next-themes'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { PhoneInput } from '@/components/ui/phone-input'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+
+import { requestSignUpAction } from './actions'
+import { useFormState } from '@/hooks/use-form-state'
+
 export function SignUpForm() {
 	const [{ errors, message, success }, handleSubmit, isPending] =
 		useFormState(requestSignUpAction)
@@ -52,7 +55,7 @@ export function SignUpForm() {
 				</p>
 				<div className="w-[340px] mt-4 mx-auto">
 					<form onSubmit={handleSubmit} className="space-y-4">
-						{success === false && message && (
+						{!success && message && (
 							<Alert variant="destructive">
 								<AlertTriangle className="size-4" />
 								<AlertTitle>Op, algo deu errado!</AlertTitle>
@@ -114,15 +117,15 @@ export function SignUpForm() {
 						<p className="text-sm font-semibold text-center text-zinc-700 dark:text-zinc-100 py-3">
 							Qual tipo de conta você pretende criar?
 						</p>
-						<RadioGroup name="type" defaultValue="fisica">
+						<RadioGroup name="type" defaultValue="PERSONAL">
 							<div className="flex items-center justify-around">
 								<div className="flex items-end space-x-2">
-									<RadioGroupItem value="fisica" />
+									<RadioGroupItem value="PERSONAL" />
 									<Label htmlFor="r1">Conta Pessoa Física</Label>
 								</div>
 
 								<div className="flex items-end space-x-2">
-									<RadioGroupItem value="juridica" />
+									<RadioGroupItem value="COMPANY" />
 									<Label htmlFor="r3">Conta Pessoa Jurídica</Label>
 								</div>
 							</div>
@@ -154,6 +157,14 @@ export function SignUpForm() {
 							)}
 						</Button>
 					</form>
+				</div>
+				<div className="mt-5 mx-auto text-center">
+					<Link
+						href="/auth/sign-in"
+						className="dark:text-zinc-400 text-zinc-800 text-sm font-normal hover:no-underline dark:hover:text-zinc-200"
+					>
+						Voltar
+					</Link>
 				</div>
 			</div>
 		</>

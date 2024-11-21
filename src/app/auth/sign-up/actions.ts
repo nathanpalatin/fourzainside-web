@@ -1,7 +1,7 @@
 'use server'
 
-import { HTTPError } from 'ky'
 import { z } from 'zod'
+import { HTTPError } from 'ky'
 
 import { requestSignUp } from '@/http/request-signup'
 

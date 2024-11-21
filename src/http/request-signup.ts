@@ -2,16 +2,12 @@
 
 import { api } from './api-client'
 
-interface SignUpRequest {
+interface requestSignUpRequest {
 	name: string
 	email: string
 	phone: string
 	type: string
 	call: string
-}
-
-interface SignUpResponse {
-	userId: string
 }
 
 export async function requestSignUp({
@@ -20,7 +16,7 @@ export async function requestSignUp({
 	phone,
 	type,
 	call
-}: SignUpRequest): Promise<SignUpResponse> {
+}: requestSignUpRequest): Promise<void> {
 	const response = await api.post('users/request', {
 		json: {
 			name,
