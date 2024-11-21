@@ -10,12 +10,10 @@ export const metadata: Metadata = {
 }
 
 export default async function AppLayout({
-	children,
-	sheet
-}: Readonly<{
+	children
+}: {
 	children: React.ReactNode
-	sheet: React.ReactNode
-}>) {
+}) {
 	if (!isAuthenticated()) {
 		redirect('/auth/sign-in')
 	}
@@ -27,7 +25,6 @@ export default async function AppLayout({
 			</div>
 			<div className="flex-1">
 				{children}
-				{sheet}
 				<Toaster />
 			</div>
 		</div>

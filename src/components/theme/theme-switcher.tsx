@@ -26,7 +26,7 @@ export function ThemeSwitcher() {
 
 			<DropdownMenuContent
 				align="end"
-				className="dark:border-zinc-800 backdrop-blur-lg dark:bg-zinc-800/70"
+				className="dark:border-zinc-800 border-zinc-400 backdrop-blur-lg dark:bg-zinc-800/70"
 			>
 				<DropdownMenuItem className="gap-2" onClick={() => setTheme('light')}>
 					<Sun className="size-5" /> Light

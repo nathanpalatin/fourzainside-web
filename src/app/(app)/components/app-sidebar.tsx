@@ -8,11 +8,9 @@ import {
 	SidebarGroupLabel,
 	SidebarMenu,
 	SidebarMenuButton,
-	SidebarMenuItem,
-	SidebarTrigger
+	SidebarMenuItem
 } from '@/components/ui/sidebar'
 
-// Menu items.
 const items = [
 	{
 		title: 'Home',
@@ -44,8 +42,6 @@ const items = [
 export function AppSidebar() {
 	return (
 		<Sidebar className=" border-zinc-700">
-			<SidebarTrigger />
-
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarGroupLabel>Application</SidebarGroupLabel>

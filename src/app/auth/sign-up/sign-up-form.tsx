@@ -1,165 +1,161 @@
 'use client'
 
-import Link from 'next/link'
-import { signUpAction } from './actions'
-import { useRouter } from 'next/navigation'
+import { requestSignUpAction } from './actions'
 import { AlertTriangle, Loader2 } from 'lucide-react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-
+import Image from 'next/image'
 import { useFormState } from '@/hooks/use-form-state'
 import { PhoneInput } from '@/components/ui/phone-input'
-import { useState } from 'react'
-
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import backgroundHome from '@/assets/background-home.png'
+import logo from '@/assets/icon.png'
+import logoLight from '@/assets/icon-light.png'
+import { useTheme } from 'next-themes'
 export function SignUpForm() {
-	const router = useRouter()
+	const [{ errors, message, success }, handleSubmit, isPending] =
+		useFormState(requestSignUpAction)
 
-	const [email, setEmail] = useState('')
-
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-		signUpAction,
-		() => {
-			router.push(`/auth/email-validation?confirmation=${email}`)
-		}
-	)
+	const { theme } = useTheme()
 
 	return (
-		<div className=" z-50 w-[340px]">
-			<form onSubmit={handleSubmit} className="space-y-4">
-				{success === false && message && (
-					<Alert variant="destructive">
-						<AlertTriangle className="size-4" />
-						<AlertTitle>Op, algo deu errado!</AlertTitle>
-						<AlertDescription>
-							<p>{message}</p>
-						</AlertDescription>
-					</Alert>
-				)}
+		<>
+			<div
+				className={`h-screen w-screen absolute top-0 left-0 -z-0 dark:bg-zinc-900/95 bg-zinc-200/80
+				 backdrop-blur-sm`}
+			/>
+			<Image
+				alt="background"
+				className="h-screen absolute top-0 left-0 w-screen object-cover -z-10"
+				quality={100}
+				width={500}
+				height={500}
+				src={backgroundHome}
+			/>
 
-				<div className="space-y-1">
-					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
-						name="name"
-						disabled={isPending}
-						placeholder="Seu nome"
-						id="name"
-						aria-label="Nome completo"
-					/>
-					{errors?.name && (
-						<p className="text-xs font-medium text-red-500">{errors.name[0]}</p>
-					)}
-				</div>
-
-				<div className="space-y-1">
-					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
-						name="email"
-						disabled={isPending}
-						onChange={e => setEmail(e.target.value)}
-						placeholder="Seu melhor e-mail"
-						type="email"
-						id="email"
-						autoComplete="false"
-					/>
-					{errors?.email && (
-						<p className="text-xs font-medium text-red-500">
-							{errors.email[0]}
-						</p>
-					)}
-				</div>
-
-				<div className="space-y-1">
-					<PhoneInput
-						defaultCountry="BR"
-						maxLength={15}
-						disabled={isPending}
-						name="phone"
-						id="phone"
-						placeholder="Seu melhor telefone"
-						className="border-none"
-						aria-label="Telefone"
-					/>
-					{errors?.phone && (
-						<p className="text-xs font-medium text-red-500">
-							{errors.phone[0]}
-						</p>
-					)}
-				</div>
-
-				<div className="space-y-1">
-					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
-						name="password"
-						placeholder="Sua senha"
-						type="password"
-						disabled={isPending}
-						id="password"
-						aria-label="Senha"
-					/>
-					{errors?.password && (
-						<p className="text-xs font-medium text-red-500">
-							{errors.password[0]}
-						</p>
-					)}
-				</div>
-
-				<div className="space-y-1">
-					<Input
-						className="rounded-xl border-2 border-zinc-500/40 bg-zinc-200/60 px-4 py-5 text-zinc-700 dark:text-zinc-100 dark:bg-transparent"
-						name="password_confirmation"
-						type="password"
-						disabled={isPending}
-						placeholder="Confirmar sua senha"
-						id="password_confirmation"
-						aria-label="Confirmação da senha"
-					/>
-					{errors?.password_confirmation && (
-						<p className="text-xs font-medium text-red-500">
-							{errors.password_confirmation[0]}
-						</p>
-					)}
-				</div>
-
-				<p className="text-xs font-light text-zinc-400 py-4">
-					Ao criar sua conta, você confirma que leu e concorda com os{' '}
-					<a
-						href="/auth/terms-of-use"
-						className="text-zinc-200 font-semibold hover:underline"
-						target="_new"
-					>
-						termos de uso
-					</a>{' '}
-					da Vance.
+			<div className="z-50">
+				<Image
+					alt="logo vance"
+					width={160}
+					className="mx-auto mb-10 animate-pulse-slow"
+					height={100}
+					src={theme != 'light' ? logo : logoLight}
+				/>
+				<h1 className="font-semibold text-sm text-center">
+					Ficamos felizes que queira usar a Vance em seus negócios.
+				</h1>
+				<p className=" text-center text-sm font-normal">
+					Por favor, preencha os dados abaixo:
 				</p>
+				<div className="w-[340px] mt-4 mx-auto">
+					<form onSubmit={handleSubmit} className="space-y-4">
+						{success === false && message && (
+							<Alert variant="destructive">
+								<AlertTriangle className="size-4" />
+								<AlertTitle>Op, algo deu errado!</AlertTitle>
+								<AlertDescription>
+									<p>{message}</p>
+								</AlertDescription>
+							</Alert>
+						)}
 
-				<Button
-					className="w-full rounded-full bg-indigo-700 text-zinc-200 hover:bg-zinc-900 dark:hover:bg-indigo-900"
-					type="submit"
-					disabled={isPending}
-				>
-					{isPending ? (
-						<Loader2 className="size-4 animate-spin" />
-					) : (
-						'Criar conta'
-					)}
-				</Button>
+						<div className="space-y-1">
+							<Input
+								className="rounded-full text-center border-none dark:bg-zinc-100 bg-[#101010]/5 pt-6 pb-5 text-zinc-900 "
+								name="name"
+								disabled={isPending}
+								placeholder="Qual seu nome completo?"
+								id="name"
+								aria-label="Nome completo"
+							/>
+							{errors?.name && (
+								<p className="text-xs font-medium text-red-500">
+									{errors.name[0]}
+								</p>
+							)}
+						</div>
 
-				<Button
-					className="w-full rounded-lg hover:bg-transparent"
-					variant="link"
-					size="sm"
-					asChild
-				>
-					<Link
-						href="/auth/sign-in"
-						className=" text-zinc-100 hover:no-underline"
-					>
-						Já possui uma conta? Entrar
-					</Link>
-				</Button>
-			</form>
-		</div>
+						<div className="space-y-1">
+							<Input
+								className="rounded-full text-center border-none dark:bg-zinc-100 bg-[#101010]/5 pt-6 pb-5 text-zinc-900 "
+								name="email"
+								disabled={isPending}
+								placeholder="Qual seu e-mail principal?"
+								type="email"
+								id="email"
+								autoComplete="false"
+							/>
+							{errors?.email && (
+								<p className="text-xs font-medium text-red-500">
+									{errors.email[0]}
+								</p>
+							)}
+						</div>
+
+						<div className="space-y-1">
+							<PhoneInput
+								international
+								defaultCountry="BR"
+								disabled={isPending}
+								name="phone"
+								id="phone"
+								placeholder="Qual seu WhatsApp?"
+								aria-label="Telefone"
+							/>
+							{errors?.phone && (
+								<p className="text-xs font-medium text-red-500">
+									{errors.phone[0]}
+								</p>
+							)}
+						</div>
+						<p className="text-sm font-semibold text-center text-zinc-700 dark:text-zinc-100 py-3">
+							Qual tipo de conta você pretende criar?
+						</p>
+						<RadioGroup name="type" defaultValue="fisica">
+							<div className="flex items-center justify-around">
+								<div className="flex items-end space-x-2">
+									<RadioGroupItem value="fisica" />
+									<Label htmlFor="r1">Conta Pessoa Física</Label>
+								</div>
+
+								<div className="flex items-end space-x-2">
+									<RadioGroupItem value="juridica" />
+									<Label htmlFor="r3">Conta Pessoa Jurídica</Label>
+								</div>
+							</div>
+						</RadioGroup>
+						<div className="h-2 " />
+
+						<Input
+							className="rounded-full text-center border-none dark:bg-zinc-100 bg-[#101010]/5 pt-6 pb-5 text-zinc-900 "
+							name="call"
+							placeholder="E como você gostaria de ser chamado?"
+							disabled={isPending}
+							id="password"
+						/>
+						{errors?.password && (
+							<p className="text-xs font-medium text-red-500">
+								{errors.password[0]}
+							</p>
+						)}
+						<div className="h-2 " />
+						<Button
+							className="w-full rounded-full pt-6 pb-5 border-2 dark:text-zinc-200 bg-transparent dark:border-zinc-100 border-zinc-900 text-zinc-900"
+							type="submit"
+							disabled={isPending}
+						>
+							{isPending ? (
+								<Loader2 className="size-4 animate-spin" />
+							) : (
+								'Solicitar abertura de conta'
+							)}
+						</Button>
+					</form>
+				</div>
+			</div>
+		</>
 	)
 }

@@ -56,7 +56,10 @@ PhoneInput.displayName = 'PhoneInput'
 const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
 	({ className, ...props }, ref) => (
 		<Input
-			className={cn(' border-zinc-700 rounded-xl', className)}
+			className={cn(
+				' rounded-full text-center border-none dark:bg-zinc-100 bg-[#101010]/5 pt-6 pb-5 text-zinc-900',
+				className
+			)}
 			{...props}
 			ref={ref}
 		/>
@@ -98,7 +101,7 @@ const CountrySelect = ({
 					<FlagComponent country={value} countryName={value} />
 					<ChevronsUpDown
 						className={cn(
-							'-mr-2 h-4 w-4 opacity-50',
+							' h-4 w-4 opacity-50',
 							disabled ? 'hidden' : 'opacity-100'
 						)}
 					/>
@@ -155,7 +158,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
 	const Flag = flags[country]
 
 	return (
-		<span className="bg-foreground/20 flex h-4 w-6 overflow-hidden rounded-sm">
+		<span className="flex h-7 w-7 overflow-hidden rounded-sm">
 			{Flag && <Flag title={countryName} />}
 		</span>
 	)

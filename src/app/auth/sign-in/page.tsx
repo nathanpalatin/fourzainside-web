@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { SignInForm } from './sign-in-form'
 import { ThemeSwitcher } from '@/components/theme/theme-switcher'
 

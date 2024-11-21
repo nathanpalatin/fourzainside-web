@@ -165,7 +165,10 @@ export default function Home() {
 								</div>
 							</div>
 							<div className="flex items-center gap-3 mb-10">
-								<Progress className="h-1 flex-1" value={67} />
+								<Progress
+									className="h-1 flex-1 to-pink-600 from-black"
+									value={67}
+								/>
 								<h1 className="text-[10px] text-zinc-400">67%</h1>
 							</div>
 							<div className="flex items-center gap-2">

@@ -124,12 +124,20 @@ export function SignInForm() {
 					)}
 				</form>
 
-				<Link
-					href="/auth/forgot-password"
-					className="dark:text-zinc-400 text-zinc-700 text-sm font-light hover:no-underline dark:hover:text-zinc-200"
-				>
-					Esqueci minha senha
-				</Link>
+				<div className="flex items-center mx-auto justify-between gap-4">
+					<Link
+						href="/auth/forgot-password"
+						className="dark:text-zinc-400 text-zinc-700 text-sm font-light hover:no-underline dark:hover:text-zinc-200"
+					>
+						Esqueci minha senha
+					</Link>
+					<Link
+						href="/auth/sign-up"
+						className="dark:text-zinc-400 text-zinc-800 text-sm font-semibold hover:no-underline dark:hover:text-zinc-200"
+					>
+						Quero criar uma conta
+					</Link>
+				</div>
 			</div>
 		</>
 	)

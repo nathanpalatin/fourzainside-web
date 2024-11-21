@@ -67,6 +67,14 @@
 .custom-video-player .vjs-play-progress {
 	background-color: #f700b1 !important;
 }
+.scrollbar-hide {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, and Opera */
+}
 
 .custom-video-player .vjs-play-control .vjs-icon-play:before {
 	color: #ffffff !important;

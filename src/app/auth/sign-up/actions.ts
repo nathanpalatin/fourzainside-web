@@ -3,28 +3,23 @@
 import { HTTPError } from 'ky'
 import { z } from 'zod'
 
-import { signUp } from '@/http/sign-up'
+import { requestSignUp } from '@/http/request-signup'
 
-const signUpSchema = z
-	.object({
-		name: z.string().refine(value => value.split(' ').length > 1, {
-			message: 'Por favor, insira seu nome completo'
-		}),
-		email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
-		phone: z
-			.string()
-			.min(10, { message: 'Por favor, insira um telefone válido.' }),
-		password: z
-			.string()
-			.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
-		password_confirmation: z.string()
-	})
-	.refine(data => data.password === data.password_confirmation, {
-		message: 'As senhas não conferem.',
-		path: ['password_confirmation']
-	})
+const signUpSchema = z.object({
+	name: z.string().refine(value => value.split(' ').length > 1, {
+		message: 'Por favor, insira seu nome completo'
+	}),
+	email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
+	phone: z
+		.string()
+		.min(10, { message: 'Por favor, insira um telefone válido.' }),
+	type: z
+		.string()
+		.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
+	call: z.string().optional()
+})
 
-export async function signUpAction(data: FormData) {
+export async function requestSignUpAction(data: FormData) {
 	const result = signUpSchema.safeParse(Object.fromEntries(data))
 
 	if (!result.success) {
@@ -33,14 +28,15 @@ export async function signUpAction(data: FormData) {
 		return { success: false, message: null, errors }
 	}
 
-	const { name, email, phone, password } = result.data
+	const { name, email, phone, type, call } = result.data
 
 	try {
-		await signUp({
+		await requestSignUp({
 			name,
 			email,
 			phone,
-			password
+			type,
+			call
 		})
 	} catch (err) {
 		if (err instanceof HTTPError) {

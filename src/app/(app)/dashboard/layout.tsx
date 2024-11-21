@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default async function AppLayout({
 	children
-}: Readonly<{
+}: {
 	children: React.ReactNode
-}>) {
+}) {
 	const { user } = await auth()
 
 	if (user.role === 'USER') {
