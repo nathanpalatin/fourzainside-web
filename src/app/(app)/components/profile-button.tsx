@@ -4,14 +4,18 @@ import { auth } from '@/auth/auth'
 
 import { getGreeting, getInitials } from '@/lib/functions'
 
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage
+} from '../../../components/ui/avatar'
 
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger
-} from './ui/dropdown-menu'
+} from '../../../components/ui/dropdown-menu'
 import { env } from '@/env/env'
 
 export async function ProfileButton() {

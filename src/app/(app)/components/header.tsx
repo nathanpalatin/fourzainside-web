@@ -2,8 +2,8 @@ import { ProfileButton } from './profile-button'
 import { InfoHeader } from './info-header'
 
 import { NotificationsBadge } from './notifications-badge'
-import { Separator } from './ui/separator'
 import { SearchHeader } from './search-header'
+import { Separator } from '@/components/ui/separator'
 
 export function Header() {
 	return (

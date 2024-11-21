@@ -13,7 +13,7 @@ export default function Icon() {
 		(
 			<div
 				style={{
-					fontSize: 32,
+					fontSize: 30,
 					fontWeight: 'extrabold',
 					background: 'black',
 					width: '100%',
@@ -24,7 +24,7 @@ export default function Icon() {
 					color: 'white'
 				}}
 			>
-				F
+				V
 			</div>
 		),
 		{

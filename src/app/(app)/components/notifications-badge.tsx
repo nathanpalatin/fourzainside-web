@@ -7,16 +7,21 @@ import {
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuTrigger
-} from './ui/dropdown-menu'
-import { Button } from './ui/button'
-import { Avatar } from './ui/avatar'
+} from '../../../components/ui/dropdown-menu'
+import { Button } from '../../../components/ui/button'
+import { Avatar } from '../../../components/ui/avatar'
 import { AvatarFallback } from '@radix-ui/react-avatar'
 import { useQuery } from '@tanstack/react-query'
 import { getNotifications } from '@/http/get-notifications'
 import { LoadingNotificationsBadge } from './loading-notifications-badge'
 import { useRouter } from 'next/navigation'
-import { Separator } from './ui/separator'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
+import { Separator } from '../../../components/ui/separator'
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger
+} from '../../../components/ui/tabs'
 import {
 	Card,
 	CardHeader,
@@ -24,8 +29,8 @@ import {
 	CardDescription,
 	CardContent,
 	CardFooter
-} from './ui/card'
-import { Input } from './ui/input'
+} from '../../../components/ui/card'
+import { Input } from '../../../components/ui/input'
 
 export function NotificationsBadge() {
 	const router = useRouter()

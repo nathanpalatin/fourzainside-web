@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation'
 import { isAuthenticated } from '@/auth/auth'
-import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
+
+import { Header } from './components/header'
 
 export const metadata: Metadata = {
 	title: 'Vance'
@@ -20,15 +21,13 @@ export default async function AppLayout({
 	}
 
 	return (
-		<div className="flex h-screen">
+		<div className="h-screen">
+			<div className="border-b border-zinc-900 px-6 py-3">
+				<Header />
+			</div>
 			<div className="flex-1">
-				<div className="bg-zinc-900 border-b border-zinc-900 px-6 py-3">
-					<Header />
-				</div>
-				<>
-					{children}
-					{sheet}
-				</>
+				{children}
+				{sheet}
 				<Toaster />
 			</div>
 		</div>

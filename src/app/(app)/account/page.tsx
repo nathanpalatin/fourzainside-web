@@ -118,10 +118,11 @@ export default async function Account() {
 					<div className="w-9/12">
 						<div className="bg-zinc-900 border border-zinc-800  rounded">
 							<div className="p-4">
-								<h1 className="text-xl flex items-center gap-3">
+								<div className="flex items-center gap-3">
 									<EyeIcon size={20} />
-									Visão geral
-								</h1>
+									<h1 className="text-lg ">Visão geral</h1>
+								</div>
+
 								<div className="mt-4">
 									<h1 className="text-lg gap-3 text-zinc-300">
 										Assinaturas e compras{' '}
@@ -220,12 +221,16 @@ export default async function Account() {
 								</h1>
 								<div className="grid grid-cols-2">
 									<div className="mt-4 space-y-2">
-										<h1 className="text-lg flex items-center gap-2 text-zinc-400">
-											<PersonStanding size={20} /> {user.name}
-										</h1>
-										<h1 className="text-sm flex items-center gap-2 text-zinc-400">
-											<DockIcon size={18} /> CPF: {user.cpf ?? 'não definido'}
-										</h1>
+										<div className="flex items-center gap-1">
+											<PersonStanding className="pb-1" size={24} />
+											<h1 className="text-sm text-zinc-400">{user.name}</h1>
+										</div>
+										<div className="flex items-center gap-2">
+											<DockIcon size={18} />
+											<h1 className="text-sm  text-zinc-400">
+												CPF: {user.cpf ?? 'não definido'}
+											</h1>
+										</div>
 										<h1 className="text-sm flex items-center gap-2 text-zinc-400">
 											<BabyIcon size={18} /> Nascimento:{' '}
 											{user.birthdate
