@@ -95,6 +95,11 @@ export function NotificationsBadge() {
 					<TabsContent value="unread">
 						<Card className="mt-7">
 							<CardContent className="space-y-2">
+								{data.notifications.length === 0 && (
+									<p className="text-zinc-700 text-sm p-2">
+										Nenhuma notificação no momento.
+									</p>
+								)}
 								{data.notifications.map(notification => (
 									<DropdownMenuItem
 										key={notification.id}
