@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 import { Sidebar } from '../components/sidebar'
 import { auth } from '@/auth/auth'
+import { Header } from '../components/header'
 
 export const metadata: Metadata = {
 	title: 'Vance - Admin area'
@@ -20,7 +21,10 @@ export default async function AppLayout({
 	}
 
 	return (
-		<div className="flex h-screen">
+		<div className="h-screen">
+			<div className="border-b border-zinc-900 px-6 py-3">
+				<Header />
+			</div>
 			<div className="flex-1">
 				<div className="flex gap-3">
 					<Sidebar />

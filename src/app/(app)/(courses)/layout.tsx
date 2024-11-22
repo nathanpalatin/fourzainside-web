@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation'
-import { isAuthenticated } from '@/auth/auth'
 import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
 
@@ -17,15 +15,11 @@ export const metadata: Metadata = {
 	}
 }
 
-export default async function AppLayout({
+export default async function JourneyLayout({
 	children
 }: {
 	children: React.ReactNode
 }) {
-	if (!isAuthenticated()) {
-		redirect('/auth/sign-in')
-	}
-
 	return (
 		<div className="h-screen">
 			<div className="flex-1">

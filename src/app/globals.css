@@ -4,6 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Comforter:wght@400&family=Comforter:wght@400;700&display=swap');
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 40s ease-in-out 0s;
+	-webkit-text-fill-color: black;
+}
+
 @layer base {
 	:root {
 		--muted-foreground: 240 3.8% 46.1%;

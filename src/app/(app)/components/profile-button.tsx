@@ -57,7 +57,7 @@ export async function ProfileButton() {
 				)}
 
 				<DropdownMenuItem asChild>
-					<a href="/account" className="cursor-pointer">
+					<a href="/settings/account" className="cursor-pointer">
 						<Settings className="mr-2 size-4" />
 						Minha conta
 					</a>

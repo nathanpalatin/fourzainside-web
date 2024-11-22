@@ -1,7 +1,5 @@
 import { CoinsIcon } from 'lucide-react'
 import { CardInfo } from '../components/card-info'
-import { ChartWave } from '@/components/chart-wave'
-import { chartConfig, chartData } from './actions/students-charts'
 
 export default function Dashboard() {
 	return (
@@ -17,11 +15,6 @@ export default function Dashboard() {
 					<h1 className="mb-10 text-2xl font-semibold">
 						Desempenho dos alunos
 					</h1>
-					<ChartWave
-						width={100}
-						chartConfig={chartConfig}
-						chartData={chartData}
-					/>
 				</div>
 			</div>
 		</div>
