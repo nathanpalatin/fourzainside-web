@@ -5,17 +5,7 @@ const config = {
 	content: ['./components/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
 	prefix: '',
 	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
 		extend: {
-			transitionDuration: {
-				'2000': '2000ms'
-			},
 			colors: {
 				cardprimary: '#95ACA6',
 				border: 'hsl(var(--border))',
@@ -90,12 +80,14 @@ const config = {
 					}
 				}
 			},
-
 			animation: {
 				'pulse-slow': 'pulse 3s linear',
 				'border-spin': 'border-spin 7s linear infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			transitionDuration: {
+				'2000': '2000ms'
 			}
 		}
 	},

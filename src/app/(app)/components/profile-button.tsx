@@ -49,7 +49,7 @@ export async function ProfileButton() {
 			>
 				{user.role === 'MENTOR' && (
 					<DropdownMenuItem className="border-b border-zinc-800" asChild>
-						<a href="/dashboard/products" className="cursor-pointer">
+						<a href="/dashboard" className="cursor-pointer">
 							<Database className="mr-2 size-4" />
 							Dashboard
 						</a>

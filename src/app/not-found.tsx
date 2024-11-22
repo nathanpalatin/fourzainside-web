@@ -5,7 +5,7 @@ import hole from '@/assets/hole.svg'
 
 export default function GlobalError() {
 	return (
-		<div className="flex h-screen justify-center items-center">
+		<div className="flex bg-zinc-950 h-screen justify-center items-center">
 			<div className="flex gap-20">
 				<div>
 					<Image alt="" src={hole} width={500} height={500} />

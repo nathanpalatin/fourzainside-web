@@ -17,8 +17,8 @@ export function ChartWave({ chartConfig, chartData, width }) {
 					content={<ChartTooltipContent indicator="dot" />}
 				/>
 				<CartesianGrid
-					strokeDasharray="3 3"
-					stroke="#FFFFFF40"
+					strokeDasharray="2 2"
+					stroke="#FFFFFF30"
 					vertical={false}
 				/>
 				<XAxis

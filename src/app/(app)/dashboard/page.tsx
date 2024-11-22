@@ -2,11 +2,6 @@ import { CoinsIcon } from 'lucide-react'
 import { CardInfo } from '../components/card-info'
 import { ChartWave } from '@/components/chart-wave'
 import { chartConfig, chartData } from './actions/students-charts'
-import {
-	chartConfig as chart2,
-	chartData as chartdata2
-} from './actions/students-charts'
-import { ChartRounded } from '@/components/pie-chart'
 
 export default function Dashboard() {
 	return (
@@ -23,11 +18,10 @@ export default function Dashboard() {
 						Desempenho dos alunos
 					</h1>
 					<ChartWave
-						width={800}
+						width={100}
 						chartConfig={chartConfig}
 						chartData={chartData}
 					/>
-					<ChartRounded chartConfig={chart2} chartData={chartdata2} />
 				</div>
 			</div>
 		</div>
