@@ -75,7 +75,7 @@ export function SignUpForm() {
 								aria-label="Nome completo"
 							/>
 							{errors?.name && (
-								<p className="text-xs font-medium text-red-500">
+								<p className="text-xs font-medium text-center pt-1 text-red-500">
 									{errors.name[0]}
 								</p>
 							)}
@@ -92,7 +92,7 @@ export function SignUpForm() {
 								autoComplete="false"
 							/>
 							{errors?.email && (
-								<p className="text-xs font-medium text-red-500">
+								<p className="text-xs font-medium text-center pt-1 text-red-500">
 									{errors.email[0]}
 								</p>
 							)}
@@ -109,7 +109,7 @@ export function SignUpForm() {
 								aria-label="Telefone"
 							/>
 							{errors?.phone && (
-								<p className="text-xs font-medium text-red-500">
+								<p className="text-xs font-medium text-center pt-1 text-red-500">
 									{errors.phone[0]}
 								</p>
 							)}
@@ -140,7 +140,7 @@ export function SignUpForm() {
 							id="password"
 						/>
 						{errors?.password && (
-							<p className="text-xs font-medium text-red-500">
+							<p className="text-xs font-medium text-center pt-1 text-red-500">
 								{errors.password[0]}
 							</p>
 						)}

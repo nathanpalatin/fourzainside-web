@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-	title: 'Vance - Educação para a vida'
+	title: 'Vance'
 }
 
 const cambay = Cambay({

@@ -6,7 +6,7 @@ import { auth } from '@/auth/auth'
 import { Header } from '../components/header'
 
 export const metadata: Metadata = {
-	title: 'Vance - Admin area'
+	title: 'Vance - Dashboard Admin'
 }
 
 export default async function AppLayout({
