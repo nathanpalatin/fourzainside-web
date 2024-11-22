@@ -8,6 +8,8 @@ import { TopSidebar } from '../../../components/top-sidebar'
 import morgan from '@/assets/morgan.png'
 import jao from '@/assets/jao.png'
 
+import image2 from '@/assets/2.png'
+
 import { Progress } from '@/components/ui/progress'
 const comforter = Comforter({
 	weight: ['400'],
@@ -45,30 +47,24 @@ export default function Journey() {
 				<div className=" h-60 z-10 bg-gradient-to-t from-zinc-950 to-transparent" />
 				<div className="-mt-32 z-50">
 					<div className="flex items-center gap-5 mb-10">
-						<Image
-							alt=""
-							width={200}
-							height={320}
-							src="https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/maia-performa.png"
-						/>
-						<Image
-							alt=""
-							width={200}
-							height={320}
-							src="https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/maia-performa.png"
-						/>
-						<Image
-							alt=""
-							width={200}
-							height={320}
-							src="https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/maia-performa.png"
-						/>
-						<Image
-							alt=""
-							width={200}
-							height={320}
-							src="https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/maia-performa.png"
-						/>
+						<div className="w-[200px] group hover:-mt-5 transition-all duration-1000 rounded-2xl  overflow-hidden h-[300px]">
+							<Image
+								alt=""
+								className="object-cover w-full h-full opacity-80 hover:opacity-100 duration-700 transition-all"
+								width={300}
+								height={320}
+								src="https://pub-42106aea52b641a1b4180204ede5c2dd.r2.dev/maia-performa.png"
+							/>
+						</div>
+						<div className="w-[200px] group hover:-mt-5 transition-all duration-1000 rounded-2xl  overflow-hidden h-[300px]">
+							<Image
+								alt=""
+								className="object-cover w-full h-full opacity-80 hover:opacity-100 duration-700 transition-all"
+								width={300}
+								height={320}
+								src={image2}
+							/>
+						</div>
 					</div>
 				</div>
 				<div className="z-50">
@@ -80,12 +76,12 @@ export default function Journey() {
 									alt=""
 									width={337}
 									height={186}
-									className="object-cover w-full h-full opacity-80"
+									className="object-cover w-full h-full opacity-80 hover:opacity-100 transition-all duration-1000"
 									src={morgan}
 								/>
-								<div className="relative  w-[300px]  bottom-16 mx-auto ">
+								<div className="relative w-[300px] bottom-16 mx-auto ">
 									<h1 className=" text-center mx-auto text-2xl truncate font-bold">
-										Título do módulo
+										Título da aula
 									</h1>
 									<div className="w-[280px] mt-1 mx-auto">
 										<Progress
@@ -105,7 +101,7 @@ export default function Journey() {
 								/>
 								<div className="relative  w-[300px]  bottom-16 mx-auto ">
 									<h1 className=" text-center mx-auto text-2xl truncate font-bold">
-										Título do módulo
+										Título da aula
 									</h1>
 									<div className="mt-1 w-[280px] mx-auto">
 										<Progress

@@ -27,12 +27,13 @@ export function PasswordChangeDialog() {
 		useFormSecondState(ChangePasswordAction)
 
 	const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-		toast('Event has been created.')
 		try {
-			const result = await handleSubmit(event) // Captura o retorno aqui
+			const result = await handleSubmit(event)
 			if (result?.success) {
 				console.log('Senha alterada com sucesso:', result)
-				setIsOpen(false) // Fecha o diálogo em caso de sucesso
+				toast('Event has been created.')
+
+				setIsOpen(false)
 			} else {
 				setIsOpen(true)
 				console.log('Erro ao alterar a senha:', result)

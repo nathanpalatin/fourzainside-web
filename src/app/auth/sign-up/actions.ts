@@ -13,9 +13,7 @@ const signUpSchema = z.object({
 	phone: z
 		.string()
 		.min(10, { message: 'Por favor, insira um telefone válido.' }),
-	type: z
-		.string()
-		.min(6, { message: 'A senha deve conter no mínimo 6 caractéres.' }),
+	type: z.enum(['PERSONAL', 'COMPANY']),
 	call: z.string().optional()
 })
 

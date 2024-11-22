@@ -7,7 +7,7 @@ export function TopSidebar() {
 		<div className="w-full flex justify-between items-center pt-10 px-10">
 			<div className="flex-1 flex justify-center">
 				<nav className="z-50">
-					<ul className="flex gap-5 list-none">
+					<ul className="flex gap-8 list-none">
 						<li>
 							<a href="#">Início</a>
 						</li>
