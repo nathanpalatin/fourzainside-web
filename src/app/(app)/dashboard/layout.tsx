@@ -1,9 +1,11 @@
-import { redirect } from 'next/navigation'
-import { Toaster } from '@/components/ui/sonner'
 import { Metadata } from 'next'
-import { Sidebar } from '../components/sidebar'
+import { redirect } from 'next/navigation'
+
 import { auth } from '@/auth/auth'
-import { Header } from '../components/header'
+
+import { Toaster } from '@/components/ui/sonner'
+import { Sidebar } from '../components/sidebar'
+import { HeaderDashboard } from '../components/header-dashboard'
 
 export const metadata: Metadata = {
 	title: 'Vance - Dashboard Admin'
@@ -22,8 +24,8 @@ export default async function AppLayout({
 
 	return (
 		<div className="h-screen">
-			<div className="border-b border-zinc-900 px-6 py-3">
-				<Header />
+			<div className="p-8">
+				<HeaderDashboard />
 			</div>
 			<div className="flex-1">
 				<div className="flex gap-3">

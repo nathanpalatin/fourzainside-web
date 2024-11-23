@@ -1,76 +1,69 @@
 import {
-	CoinsIcon,
+	ChartColumnIncreasing,
 	LayoutDashboardIcon,
+	MessageCircleHeartIcon,
 	NetworkIcon,
-	NotebookTabs
+	NotebookTabs,
+	Settings
 } from 'lucide-react'
 
+import { NavLink } from './nav-links'
+
 export function Sidebar() {
+	const links = [
+		{ href: '/dashboard', label: 'Dashboard', Icon: LayoutDashboardIcon },
+		{ href: '/dashboard/sales', label: 'Vendas', Icon: ChartColumnIncreasing },
+		{ href: '/dashboard/products', label: 'Produtos', Icon: NotebookTabs },
+		{ href: '/dashboard/store', label: 'Store', Icon: NetworkIcon },
+		{ href: '/dashboard/finances', label: 'Finanças', Icon: NetworkIcon },
+		{ href: '/dashboard/webnario', label: 'Webnário', Icon: NetworkIcon },
+		{
+			href: '/dashboard/afiliados',
+			label: 'Meus afiliados',
+			Icon: NetworkIcon
+		},
+		{ href: '/dashboard/assinaturas', label: 'Assinaturas', Icon: NetworkIcon },
+		{ href: '/dashboard/arquivos', label: 'Meus arquivos', Icon: NetworkIcon },
+		{ href: '/dashboard/cobrancas', label: 'Cobranças', Icon: NetworkIcon },
+		{ href: '/dashboard/aplicacoes', label: 'Aplicações', Icon: NetworkIcon },
+		{ href: '/dashboard/relatorios', label: 'Relatórios', Icon: NetworkIcon },
+		{ href: '/dashboard/indique', label: 'Indique e ganhe', Icon: NetworkIcon }
+	]
+
+	const bottomLinks = [
+		{ href: '/suporte', label: 'Suporte', Icon: MessageCircleHeartIcon },
+		{ href: '/configuracoes', label: 'Configurações', Icon: Settings }
+	]
+
 	return (
-		<div className="h-screen mt-2 ml-4 w-[240px] overflow-y-hidden ">
-			<div className="flex flex-col items-center space-y-3 p-2">
-				<a
-					href="/dashboard"
-					className="bg-zinc-900 hover:border-indigo-700  transition-all flex justify-start items-center rounded border border-zinc-700 w-full h-16"
-				>
-					<div className="flex gap-2 m-2 ">
-						<LayoutDashboardIcon className="size-10" />
-						<div className="flex flex-col gap-px">
-							<h1 className="uppercase text-sm font-semibold">dashboard</h1>
-							<p className="uppercase text-zinc-600 font-thin text-xs">
-								visão geral
-							</p>
+		<div className="flex flex-col justify-between items-start ml-8 w-[280px] overflow-y-hidden">
+			<div className="flex flex-col items-start space-y-2">
+				{links.map(({ href, label, Icon }) => (
+					<NavLink
+						key={href}
+						href={href}
+						className="text-zinc-500 data-[current=true]:text-zinc-100"
+					>
+						<div className="flex gap-2">
+							<Icon className="size-4" />
+							<h1 className="text-sm font-semibold">{label}</h1>
 						</div>
-					</div>
-				</a>
-				<a
-					href="/dashboard"
-					className="bg-zinc-900 hover:border-indigo-700  transition-all hover:bg-zinc-900/90 flex justify-start items-center rounded border border-zinc-700 w-full h-16"
-				>
-					<div className="flex gap-2 m-2 ">
-						<CoinsIcon className="size-10" />
-						<div className="flex flex-col gap-px">
-							<h1 className="uppercase text-sm font-semibold">vendas</h1>
-							<p className="uppercase text-zinc-600 font-thin text-xs">
-								faturamento
-							</p>
+					</NavLink>
+				))}
+			</div>
+			<div className="mt-40 flex flex-col items-start space-y-2">
+				{bottomLinks.map(({ href, label, Icon }) => (
+					<NavLink
+						className="text-zinc-500 data-[current=true]:text-zinc-100"
+						key={href}
+						href={href}
+					>
+						<div className="flex gap-2">
+							<Icon className="size-4" />
+							<h1 className="text-sm font-semibold">{label}</h1>
 						</div>
-					</div>
-				</a>
-
-				<a
-					href="/dashboard"
-					className="bg-zinc-900 hover:border-indigo-700  transition-all hover:bg-zinc-900/90 flex justify-start items-center rounded border border-zinc-700 w-full h-16"
-				>
-					<div className="flex gap-2 m-2 ">
-						<NotebookTabs className="size-10" />
-						<div className="flex flex-col gap-px">
-							<h1 className="uppercase text-sm font-semibold">produtos</h1>
-							<p className="uppercase text-zinc-600 font-thin text-xs">
-								seus cursos
-							</p>
-						</div>
-					</div>
-				</a>
-
-				<a
-					href="/dashboard"
-					className="bg-zinc-900 hover:border-indigo-700  transition-all hover:bg-zinc-900/90 flex justify-start items-center rounded border border-zinc-700 w-full h-16"
-				>
-					<div className="bg-zinc-900 hover:bg-zinc-900/90 hover:border-indigo-700  transition-all flex justify-start items-center rounded border border-zinc-700 w-full h-16">
-						<div className="flex gap-2 m-2 ">
-							<NetworkIcon className="size-10" />
-							<div className="flex flex-col gap-px">
-								<h1 className="uppercase text-sm font-semibold">
-									indique e ganhe
-								</h1>
-								<p className="uppercase text-zinc-600 font-thin text-xs">
-									AFILIE-SE
-								</p>
-							</div>
-						</div>
-					</div>
-				</a>
+					</NavLink>
+				))}
 			</div>
 		</div>
 	)

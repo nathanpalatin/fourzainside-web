@@ -1,9 +1,10 @@
 'use client'
 import { FormEvent, useState } from 'react'
+import { Loader2 } from 'lucide-react'
+import { toast } from 'sonner'
 
 import {
 	AlertDialog,
-	AlertDialogAction,
 	AlertDialogCancel,
 	AlertDialogContent,
 	AlertDialogDescription,
@@ -12,17 +13,18 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { Loader2 } from 'lucide-react'
-import { ChangePasswordAction } from '../actions/change-password'
 import { Label } from '@/components/ui/label'
+
 import { useFormSecondState } from '@/hooks/use-form-second-state'
-import { toast } from 'sonner'
+import { ChangePasswordAction } from '../actions/change-password'
 
 export function PasswordChangeDialog() {
-	const [isOpen, setIsOpen] = useState(false)
+	const [isDialogOpen, setIsDialogOpen] = useState(false)
+
 	const { formState, handleSubmit, isPending, errorMessages } =
 		useFormSecondState(ChangePasswordAction)
 
@@ -30,13 +32,8 @@ export function PasswordChangeDialog() {
 		try {
 			const result = await handleSubmit(event)
 			if (result?.success) {
-				console.log('Senha alterada com sucesso:', result)
-				toast('Event has been created.')
-
-				setIsOpen(false)
-			} else {
-				setIsOpen(true)
-				console.log('Erro ao alterar a senha:', result)
+				toast('Senha alterada com sucesso.')
+				setIsDialogOpen(false)
 			}
 		} catch (error) {
 			console.error('Erro inesperado:', error)
@@ -44,9 +41,12 @@ export function PasswordChangeDialog() {
 	}
 
 	return (
-		<AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+		<AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 			<AlertDialogTrigger asChild>
-				<Button className="text-indigo-500 hover:text-indigo-600 ">
+				<Button
+					className="text-indigo-500 hover:text-indigo-600"
+					onClick={() => setIsDialogOpen(true)}
+				>
 					Alterar
 				</Button>
 			</AlertDialogTrigger>
@@ -58,14 +58,20 @@ export function PasswordChangeDialog() {
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 
-				<form onSubmit={onSubmit} className="space-y-4">
+				<form
+					onSubmit={event => {
+						event.preventDefault()
+						onSubmit(event)
+					}}
+					className="space-y-4"
+				>
 					{formState.message && (
 						<div className="text-red-500 text-sm">{formState.message}</div>
 					)}
 					<div className="flex flex-col gap-2">
-						<label htmlFor="currentPassword" className="text-sm text-gray-400">
+						<Label htmlFor="password" className="text-sm text-gray-400">
 							Senha atual
-						</label>
+						</Label>
 						<Input
 							id="password"
 							name="password"
@@ -81,9 +87,9 @@ export function PasswordChangeDialog() {
 					</div>
 					<Separator className="my-4 bg-zinc-800" />
 					<div className="flex flex-col gap-2">
-						<label htmlFor="newPassword" className="text-sm text-gray-400">
+						<Label htmlFor="newPassword" className="text-sm text-gray-400">
 							Nova senha
-						</label>
+						</Label>
 						<Input
 							id="newPassword"
 							name="newPassword"
@@ -91,13 +97,12 @@ export function PasswordChangeDialog() {
 							placeholder="Digite sua nova senha"
 							className="rounded-xl border-zinc-700 focus:border-indigo-600 text-white"
 						/>
-						{errorMessages?.newPassword && (
+						{errorMessages.newPassword && (
 							<span className="text-red-500 text-sm">
 								{errorMessages.newPassword}
 							</span>
 						)}
 					</div>
-
 					<div className="flex flex-col gap-2">
 						<Label htmlFor="confirmPassword" className="text-sm text-gray-400">
 							Confirme a nova senha
@@ -109,34 +114,32 @@ export function PasswordChangeDialog() {
 							placeholder="Confirme sua nova senha"
 							className="rounded-xl border-zinc-700 focus:border-indigo-600 text-white"
 						/>
-						{errorMessages?.confirmPassword && (
+						{errorMessages.confirmPassword && (
 							<span className="text-red-500 text-sm">
 								{errorMessages.confirmPassword}
 							</span>
 						)}
 					</div>
-
-					<Separator className="my-4 bg-zinc-800" />
-
-					<AlertDialogFooter>
+					<AlertDialogFooter className="border-t pt-3 border-zinc-800">
 						<AlertDialogCancel asChild>
-							<Button variant="ghost" className="rounded-xl text-gray-400">
+							<Button
+								className="rounded-xl border-none items-start text-gray-400"
+								onClick={() => setIsDialogOpen(false)}
+							>
 								Cancelar
 							</Button>
 						</AlertDialogCancel>
-						<AlertDialogAction asChild>
-							<Button
-								type="submit"
-								className="bg-indigo-600 hover:bg-indigo-700 rounded-xl text-white"
-								disabled={isPending}
-							>
-								{isPending ? (
-									<Loader2 className="mr-2 h-4 w-4 animate-spin" />
-								) : (
-									'Salvar'
-								)}
-							</Button>
-						</AlertDialogAction>
+						<Button
+							type="submit"
+							className="bg-indigo-600 items-start hover:bg-indigo-700 rounded-xl text-white"
+							disabled={isPending}
+						>
+							{isPending ? (
+								<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+							) : (
+								'Salvar'
+							)}
+						</Button>
 					</AlertDialogFooter>
 				</form>
 			</AlertDialogContent>

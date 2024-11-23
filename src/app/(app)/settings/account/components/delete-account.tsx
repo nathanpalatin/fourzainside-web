@@ -30,7 +30,7 @@ export function DeleteAccount() {
 
 			<AlertDialog>
 				<AlertDialogTrigger asChild>
-					<Button className="flex mt-5 bg-red-700 rounded gap-2 text-xs hover:bg-red-800 transition-all">
+					<Button className="flex mt-5 bg-red-700 rounded text-sm hover:bg-red-800 transition-all">
 						Excluir conta
 					</Button>
 				</AlertDialogTrigger>

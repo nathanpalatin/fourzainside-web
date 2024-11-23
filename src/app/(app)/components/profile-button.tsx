@@ -24,13 +24,13 @@ export async function ProfileButton() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger className="flex group items-center gap-3 outline-none">
-				<div className="flex flex-col items-end">
-					<span className="text-xs leading-4 text-muted-foreground">
+				<div className="flex flex-col items-end gap-1">
+					<span className="text-xs leading-3 text-muted-foreground">
 						{getGreeting()},
 					</span>
-					<span className="text-xs font-medium">{user.name}</span>
+					<span className="text-xs">{user.name}</span>
 				</div>
-				<Avatar className="size-8">
+				<Avatar className="size-10">
 					<AvatarImage
 						src={`${env.NEXT_PUBLIC_CLOUDFLARE_URL}${user.avatar}`}
 					/>
@@ -39,7 +39,7 @@ export async function ProfileButton() {
 					</AvatarFallback>
 				</Avatar>
 				<ChevronDown
-					className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
+					className="relative h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
 					aria-hidden="true"
 				/>
 			</DropdownMenuTrigger>

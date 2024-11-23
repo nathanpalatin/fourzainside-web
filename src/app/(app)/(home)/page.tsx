@@ -169,11 +169,12 @@ export default function Home() {
 								<h1 className="text-[10px] text-zinc-400">67%</h1>
 							</div>
 							<div className="flex items-center gap-2">
-								<Button className="bg-zinc-700 rounded gap-2 text-xs w-1/2 hover:bg-zinc-600 transition-all">
-									<GiftIcon size={16} /> Indique e ganhe
+								<Button className="bg-zinc-700 flex items-center rounded gap-2 text-xs w-1/2 hover:bg-zinc-600 transition-all">
+									<GiftIcon size={16} />{' '}
+									<h1 className="pt-1">Indique e ganhe</h1>
 								</Button>
 								<Button className="bg-indigo-700 rounded gap-2 text-xs w-1/2 hover:bg-indigo-600 transition-all">
-									<Users2Icon size={16} /> Comunidade
+									<Users2Icon size={16} /> <h1 className="pt-1">Comunidade</h1>
 								</Button>
 							</div>
 						</div>

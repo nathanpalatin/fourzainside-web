@@ -6,16 +6,16 @@ interface UploadFileResponse {
 }
 
 export async function uploadFile({
-	image
+	file
 }: {
-	image: File
+	file: File
 }): Promise<UploadFileResponse> {
 	const formData = new FormData()
-	formData.append('file', image)
+	formData.append('file', file)
 
 	const response = await api.post('uploads', {
 		body: formData
 	})
 
-	return response
+	return response.json()
 }

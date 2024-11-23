@@ -57,10 +57,6 @@ input:-webkit-autofill:active {
 	}
 }
 
-.text-comforter {
-	font-family: 'Comforter';
-}
-
 .custom-video-player iframe {
 	width: 300% !important;
 	height: 100% !important;

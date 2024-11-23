@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 }
 
 const cambay = Cambay({
-	weight: ['400', '700'],
-	display: 'swap',
-	subsets: ['latin']
+	subsets: ['latin'],
+	weight: ['400', '700']
 })
 
 export default function RootLayout({

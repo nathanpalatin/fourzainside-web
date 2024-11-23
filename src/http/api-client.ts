@@ -20,6 +20,7 @@ function onRefreshed(token: string) {
 
 export const api = ky.create({
 	prefixUrl: env.NEXT_PUBLIC_API_URL,
+	timeout: 6000,
 	hooks: {
 		beforeRequest: [
 			async request => {

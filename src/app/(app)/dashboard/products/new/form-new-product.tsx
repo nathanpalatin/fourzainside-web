@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import { cn } from '@/lib/utils'
 import { useFormState } from '@/hooks/use-form-state'
 import { AlertTriangle, Check, ChevronsUpDown, Loader2 } from 'lucide-react'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
-import { registerNewProduct } from './actions'
 import { Textarea } from '@/components/ui/textarea'
+import { Switch } from '@/components/ui/switch'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 import {
 	Command,
@@ -22,14 +23,14 @@ import {
 	PopoverContent,
 	PopoverTrigger
 } from '@/components/ui/popover'
-import { cn } from '@/lib/utils'
-import { Switch } from '@/components/ui/switch'
+
+import { registerNewProduct } from './actions'
+import { UploadFile } from './upload-file'
 
 export function FormNewProduct() {
 	const [{ errors, message, success }, handleSubmit, isPending] =
 		useFormState(registerNewProduct)
 
-	const [imagePreview, setImagePreview] = useState<string | null>(null)
 	const [tags, setTags] = useState<string[]>([])
 	const [tagInput, setTagInput] = useState<string>('')
 	const [open, setOpen] = useState(false)
@@ -50,16 +51,6 @@ export function FormNewProduct() {
 			label: 'Avançado'
 		}
 	]
-
-	const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const file = event.target.files?.[0]
-		if (file) {
-			const previewUrl = URL.createObjectURL(file)
-			setImagePreview(previewUrl)
-		} else {
-			setImagePreview(null)
-		}
-	}
 
 	const handleTagInput = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setTagInput(event.target.value)
@@ -233,26 +224,7 @@ export function FormNewProduct() {
 						/>
 						<h1 className="text-sm">{switchT ? 'Privado' : 'Público'}</h1>
 					</div>
-					<Input
-						name="image"
-						type="file"
-						accept="image/jpeg,image/png"
-						onChange={handleImageChange}
-						className="rounded-xl w-full border-2 text-sm border-zinc-500/40 bg-zinc-200/60 px-3 file:text-green-500 dark:bg-transparent dark:text-zinc-400"
-					/>
-					{errors?.image && (
-						<p className="text-xs text-left w-full font-medium text-red-500 dark:text-red-400">
-							{errors.image[0]}
-						</p>
-					)}
-					{imagePreview && (
-						<div className="w-full flex justify-center">
-							<img
-								src={imagePreview}
-								className="rounded-xl w-full max-w-md h-52 object-cover"
-							/>
-						</div>
-					)}
+					<UploadFile />
 				</div>
 			</div>
 		</form>

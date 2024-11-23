@@ -1,6 +1,6 @@
 'use client'
 
-import { DropdownMenu, Label } from '@radix-ui/react-dropdown-menu'
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
 import { BellIcon, CheckCheckIcon, Settings } from 'lucide-react'
 import {
 	DropdownMenuContent,
@@ -22,21 +22,14 @@ import {
 	TabsList,
 	TabsTrigger
 } from '../../../components/ui/tabs'
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardDescription,
-	CardContent,
-	CardFooter
-} from '../../../components/ui/card'
-import { Input } from '../../../components/ui/input'
+import { Card, CardContent } from '../../../components/ui/card'
 
 export function NotificationsBadge() {
 	const router = useRouter()
 
 	const { data, isLoading } = useQuery({
-		refetchIntervalInBackground: true,
+		refetchOnWindowFocus: false,
+		staleTime: 1000 * 60 * 5,
 		queryKey: ['notifications'],
 		queryFn: () => getNotifications()
 	})
