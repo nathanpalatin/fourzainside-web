@@ -1,6 +1,9 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
+import Image from 'next/image'
+import bgGrid from '@/assets/header-thumb.png'
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { File, FileQuestion, PlayCircleIcon, ScrollText } from 'lucide-react'
@@ -14,6 +17,13 @@ import { ClassLesson } from '@/app/(app)/components/class-lesson'
 export default function ClassHome() {
 	return (
 		<div className="space-y-4 py-4">
+			<Image
+				alt=""
+				className="absolute right-10 top-0 object-cover"
+				src={bgGrid}
+				width={600}
+				height={300}
+			/>
 			<div className="flex items-start justify-between gap-4">
 				<div className="w-9/12 flex flex-col gap-4 ">
 					<ClassLesson />

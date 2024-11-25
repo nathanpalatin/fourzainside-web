@@ -1,10 +1,19 @@
+import Link from 'next/link'
 import { FormNewProduct } from './form-new-product'
+import { Button } from '@/components/ui/button'
 
 export default function NewProduct() {
 	return (
-		<div className="mt-4 flex flex-col gap-3 items-start">
-			<h1 className="text-xl font-semibold">Cadastrar novo produto</h1>
+		<section>
+			<div className="flex w-full justify-between items-center">
+				<h1>Cadastrar novo produto</h1>
+				{/* 	<Link href="/dashboard/products">
+					<Button variant="outline" className="rounded-full items-start">
+						Voltar
+					</Button>
+				</Link> */}
+			</div>
 			<FormNewProduct />
-		</div>
+		</section>
 	)
 }

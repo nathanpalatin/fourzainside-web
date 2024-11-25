@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
 import { Textarea } from '@/components/ui/textarea'
+import { Switch } from '@/components/ui/switch'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 import {
@@ -23,27 +24,22 @@ import {
 	PopoverTrigger
 } from '@/components/ui/popover'
 
-import { registerNewProduct } from './actions'
-import { toast } from 'sonner'
+import { editProduct } from './actions'
+import { UploadFile } from './upload-file'
 
-export function FormNewProduct() {
-	const [{ errors, message, success }, handleSubmit, isPending] = useFormState(
-		registerNewProduct,
-		onSuccess
-	)
+export function FormEditProduct() {
+	const [{ errors, message, success }, handleSubmit, isPending] =
+		useFormState(editProduct)
 
 	const [tags, setTags] = useState<string[]>([])
 	const [tagInput, setTagInput] = useState<string>('')
 	const [open, setOpen] = useState(false)
+	const [switchT, setSwitch] = useState(false)
 	const [value, setValue] = useState('')
-
-	function onSuccess() {
-		toast('Novo produto cadastrado com sucesso!')
-	}
 
 	const options = [
 		{
-			value: 'beginner',
+			value: 'easy',
 			label: 'Iniciante'
 		},
 		{
@@ -91,7 +87,7 @@ export function FormNewProduct() {
 			)}
 
 			<div className="grid grid-cols-2 gap-8 w-full">
-				<div className="w-[500px] space-y-4">
+				<div className="w-[550px] space-y-4">
 					<Input
 						name="title"
 						placeholder="Nome do produto"
@@ -172,7 +168,7 @@ export function FormNewProduct() {
 							{errors.level[0]}
 						</p>
 					)}
-					<input type="hidden" id="level" name="level" value={value} />
+					<input type="hidden" name="level" value={value} />
 					<Input
 						id="tags"
 						name="tags"
@@ -196,7 +192,7 @@ export function FormNewProduct() {
 								>
 									&times;
 								</button>
-								<input type="hidden" name="tags" value={JSON.stringify(tags)} />
+								<input type="hidden" name="tags" value={tag} />
 							</span>
 						))}
 						{errors?.tags && (
@@ -217,6 +213,18 @@ export function FormNewProduct() {
 							'Cadastrar'
 						)}
 					</Button>
+				</div>
+
+				<div className="flex flex-col space-y-4">
+					<div className="flex items-center space-x-3">
+						<Switch
+							name="private"
+							checked={switchT}
+							onCheckedChange={() => setSwitch(!switchT)}
+						/>
+						<h1 className="text-sm">{switchT ? 'Privado' : 'Público'}</h1>
+					</div>
+					<UploadFile />
 				</div>
 			</div>
 		</form>

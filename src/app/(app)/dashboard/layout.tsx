@@ -23,17 +23,15 @@ export default async function AppLayout({
 	}
 
 	return (
-		<div className="h-screen">
-			<div className="p-8">
+		<div className="h-screen flex flex-col">
+			<div className="p-8 flex-1 flex flex-col">
 				<HeaderDashboard />
-			</div>
-			<div className="flex-1">
-				<div className="flex gap-3">
+				<div className="mt-10 flex flex-1">
 					<Sidebar />
-					{children}
+					<div className="flex-1">{children}</div>
 				</div>
-				<Toaster />
 			</div>
+			<Toaster />
 		</div>
 	)
 }

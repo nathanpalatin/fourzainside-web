@@ -28,8 +28,7 @@ export function NotificationsBadge() {
 	const router = useRouter()
 
 	const { data, isLoading } = useQuery({
-		refetchOnWindowFocus: false,
-		staleTime: 1000 * 60 * 5,
+		refetchOnWindowFocus: true,
 		queryKey: ['notifications'],
 		queryFn: () => getNotifications()
 	})

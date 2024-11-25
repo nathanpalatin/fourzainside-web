@@ -36,7 +36,7 @@ export function Sidebar() {
 	]
 
 	return (
-		<div className="flex flex-col justify-between items-start ml-8 w-[280px] overflow-y-hidden">
+		<div className="flex flex-col justify-between mb-10 items-start w-[240px] overflow-y-hidden">
 			<div className="flex flex-col items-start space-y-2">
 				{links.map(({ href, label, Icon }) => (
 					<NavLink
@@ -51,7 +51,7 @@ export function Sidebar() {
 					</NavLink>
 				))}
 			</div>
-			<div className="mt-40 flex flex-col items-start space-y-2">
+			<div className=" flex flex-col items-start space-y-2">
 				{bottomLinks.map(({ href, label, Icon }) => (
 					<NavLink
 						className="text-zinc-500 data-[current=true]:text-zinc-100"

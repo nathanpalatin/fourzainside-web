@@ -1,6 +1,7 @@
 'use server'
 
-import { registerProduct } from '@/http/dashboard/products/register-product'
+import { saveProduct } from '@/http/dashboard/products/save-product'
+import { uploadFile } from '@/http/upload-file'
 import { HTTPError } from 'ky'
 import { z } from 'zod'
 
@@ -15,30 +16,31 @@ const newProductSchema = z.object({
 	type: z.string({
 		message: 'Por favor, insira uma categoria do seu produto.'
 	}),
-	tags: z.array(
-		z.string().min(1, { message: 'Por favor, insira pelo menos uma tag.' })
-	)
+	tags: z.any(),
+	image: z.string({
+		message: 'Por favor, insira uma imagem.'
+	})
 })
 
-export async function registerNewProduct(data: FormData) {
-	const formDataObject = Object.fromEntries(data)
+export async function editProduct(data: FormData) {
+	const validationResult = newProductSchema.safeParse(Object.fromEntries(data))
 
-	formDataObject.tags = formDataObject.tags
-		? //@ts-ignore
-		  JSON.parse(formDataObject.tags)
-		: []
-
-	const result = newProductSchema.safeParse(formDataObject)
-
-	if (!result.success) {
-		const errors = result.error.flatten().fieldErrors
+	if (!validationResult.success) {
+		const errors = validationResult.error.flatten().fieldErrors
 		return { success: false, message: null, errors }
 	}
 
-	const { title, description, type, level, tags } = result.data
+	const { title, description, type, level, tags, image } = validationResult.data
 
 	try {
-		await registerProduct({ title, description, level, tags, type })
+		await saveProduct({
+			title,
+			description,
+			level,
+			tags,
+			image,
+			type
+		})
 
 		return {
 			success: true,

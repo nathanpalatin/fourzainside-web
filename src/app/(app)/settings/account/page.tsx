@@ -194,7 +194,7 @@ export default async function Account() {
 											<Phone size={16} /> {user.phone}
 										</h1>
 										<h1 className="text-sm flex items-center gap-2 text-zinc-400">
-											<MapPinIcon size={16} /> {user.address.zipCode ?? ''}
+											<MapPinIcon size={16} />
 										</h1>
 									</div>
 								</div>

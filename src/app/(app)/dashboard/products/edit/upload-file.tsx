@@ -1,7 +1,7 @@
 'use client'
+import { useState } from 'react'
 
 import { Input } from '@/components/ui/input'
-import { useState } from 'react'
 import { uploadFile } from '@/http/upload-file'
 
 export function UploadFile() {
@@ -87,8 +87,7 @@ export function UploadFile() {
 					/>
 				</div>
 			)}
-
-			{urlImage && <input name="image" value={urlImage} hidden />}
+			<h1 className="text-white">{urlImage}</h1>
 
 			{isUploading && (
 				<div className="w-full max-w-md mx-auto">

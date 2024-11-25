@@ -30,6 +30,7 @@ export async function ProfileButton() {
 					</span>
 					<span className="text-xs">{user.name}</span>
 				</div>
+
 				<Avatar className="size-10">
 					<AvatarImage
 						src={`${env.NEXT_PUBLIC_CLOUDFLARE_URL}${user.avatar}`}
@@ -38,6 +39,7 @@ export async function ProfileButton() {
 						{getInitials(user.name)}
 					</AvatarFallback>
 				</Avatar>
+
 				<ChevronDown
 					className="relative h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
 					aria-hidden="true"

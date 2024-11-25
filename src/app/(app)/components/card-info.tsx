@@ -1,5 +1,3 @@
-import { Skeleton } from '@/components/ui/skeleton'
-
 interface BoxProps {
 	title: string
 	today: string
