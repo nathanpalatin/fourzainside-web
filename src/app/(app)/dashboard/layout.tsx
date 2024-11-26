@@ -8,7 +8,7 @@ import { Sidebar } from '../components/sidebar'
 import { HeaderDashboard } from '../components/header-dashboard'
 
 export const metadata: Metadata = {
-	title: 'Vance - Dashboard Admin'
+	title: 'Vance - Dashboard'
 }
 
 export default async function AppLayout({

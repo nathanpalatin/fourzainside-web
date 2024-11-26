@@ -1,8 +1,7 @@
-import { EyeIcon } from 'lucide-react'
-import { CardInfo } from '../components/card-info'
-import { ChartDashboard } from '../components/chart-dashboard'
-import { CardInfoSmall } from '../components/card-info-small'
-import { Separator } from '@/components/ui/separator'
+import { Crown, EyeIcon } from 'lucide-react'
+import { CardInfo } from '../../components/card-info'
+import { ChartDashboard } from '../../components/chart-dashboard'
+import { CardInfoSmall } from '../../components/card-info-small'
 
 export default function Dashboard() {
 	return (
@@ -18,15 +17,19 @@ export default function Dashboard() {
 					month="R$ 9.653,76"
 					title="Vendas realizadas hoje"
 				/>
-				<div className="flex flex-col gap-3">
+				<div className="flex flex-col gap-2">
 					<CardInfoSmall
 						today="R$ 2.529,71"
 						title="Saldo disponível em carteira"
 					/>
 					<CardInfoSmall today="R$ 2.529,71" title="Valor pendente" />
-					<CardInfoSmall today="R$ 2.529,71" title="Gerados para o Reino" />
+					<CardInfoSmall
+						today="R$ 2.529,71"
+						icon={<Crown className="size-4 text-zinc-400" />}
+						title={`Gerados para o Reino`}
+					/>
 				</div>
-				<div className="flex flex-col gap-3 border-l border-zinc-700 pl-3">
+				<div className="flex flex-col gap-2 border-l border-zinc-700 pl-4">
 					<CardInfoSmall note today="" title="Conversões dos pagamentos" />
 					<CardInfoSmall note today="" title="Status das vendas" />
 				</div>

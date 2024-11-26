@@ -5,7 +5,7 @@ import defaultImage from '@/assets/jao.png'
 
 export function ProductCard({ product }) {
 	return (
-		<Link href={`products/edit/${product.slug}`}>
+		<Link href={`products/${product.id}`}>
 			<div className="bg-zinc-900 border hover:border-zinc-600 transition-all border-zinc-800 rounded-xl ">
 				<div className="py-4 px-6 ">
 					<div className="flex items-start gap-4">
