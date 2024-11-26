@@ -18,7 +18,7 @@ export function Sidebar() {
 		{ href: '/dashboard/finances', label: 'Finanças', Icon: NetworkIcon },
 		{ href: '/dashboard/webnario', label: 'Webnário', Icon: NetworkIcon },
 		{
-			href: '/dashboard/afiliados',
+			href: '/dashboard/afiliates',
 			label: 'Meus afiliados',
 			Icon: NetworkIcon
 		},

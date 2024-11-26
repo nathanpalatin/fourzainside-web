@@ -18,11 +18,19 @@ export default async function ProductsPage() {
 					</Button>
 				</Link>
 			</div>
-			<div className="mt-6 grid grid-cols-3 gap-4">
-				{courses.map(product => (
-					<ProductCard key={product.id} product={product} />
-				))}
-			</div>
+			{courses.length === 0 ? (
+				<div className="mt-6 ">
+					<h1 className="text-zinc-400">
+						Nenhum produto cadastrado, adicione o seu primeiro.
+					</h1>
+				</div>
+			) : (
+				<div className="mt-6 grid grid-cols-3 gap-4">
+					{courses.map(product => (
+						<ProductCard key={product.id} product={product} />
+					))}
+				</div>
+			)}
 		</section>
 	)
 }

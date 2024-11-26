@@ -3,7 +3,7 @@ import { CardInfo } from '../../components/card-info'
 import { ChartDashboard } from '../../components/chart-dashboard'
 import { CardInfoSmall } from '../../components/card-info-small'
 
-export default function Dashboard() {
+export default async function Dashboard() {
 	return (
 		<div className="overflow-y-auto">
 			<h1 className="flex text-lg items-start gap-3 font-semibold">
