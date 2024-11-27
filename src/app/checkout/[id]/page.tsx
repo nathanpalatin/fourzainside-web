@@ -14,8 +14,8 @@ import { ProductCart } from './components/product-cart'
 
 export default function Checkout() {
 	return (
-		<div className="h-screen w-screen flex justify-between px-10 items-center bg-white">
-			<div className="w-1/2 h-[800px]">
+		<div className="h-screen w-screen flex justify-between px-10 items-center bg-white ">
+			<div className="w-1/2 h-[850px]">
 				<Image alt="logopay" src={logopay} width={150} height={80} />
 				<div className="mt-32 px-16">
 					<div className="flex items-end gap-3 mb-10">
@@ -31,22 +31,22 @@ export default function Checkout() {
 					<ProductCart />
 				</div>
 			</div>
-			<div className="w-1/2  border border-zinc-400 rounded-xl h-[800px]">
-				<div className="p-10 mx-auto text-center">
+			<div className="w-1/2 h-[870px] border border-zinc-400 rounded-xl">
+				<div className="p-4 mx-auto text-center">
 					<h1 className="text-zinc-400 text-xs">Pague mais fácil com:</h1>
-					<div className="my-6 flex justify-center items-center gap-2">
+					<div className="my-4 flex justify-center items-center gap-2">
 						<PaymentThird link="" img={gpay} />
 						<PaymentThird link="" img={applepay} />
 						<PaymentThird link="" img={nupay} />
 						<PaymentThird link="" img={picpay} />
 					</div>
-					<div className="flex w-96 mx-auto items-center justify-center my-6 space-x-4">
-						<div className="h-px bg-gray-300 flex-1"></div>
+					<div className="flex w-96 mx-auto items-center justify-center my- space-x-4">
+						<div className="h-px bg-gray-300 flex-1" />
 						<span className="text-zinc-400 text-xs font-medium">
 							ou pague abaixo:
 						</span>
 
-						<div className="h-px bg-gray-300 flex-1"></div>
+						<div className="h-px bg-gray-300 flex-1" />
 					</div>
 
 					<CheckoutForm />
