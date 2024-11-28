@@ -3,13 +3,15 @@ interface BoxProps {
 	today: string
 	note?: boolean
 	icon?: React.ReactNode
+	children?: React.ReactNode
 }
 
 export function CardInfoSmall({
 	title,
 	today,
 	note = false,
-	icon = false
+	icon = false,
+	children
 }: BoxProps) {
 	return (
 		<div
@@ -22,6 +24,7 @@ export function CardInfoSmall({
 					{title} {icon}
 				</h1>
 				<p className="text-2xl font-bold text-green-600">{today}</p>
+				{children}
 			</div>
 		</div>
 	)

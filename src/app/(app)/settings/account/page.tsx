@@ -1,5 +1,6 @@
 import { auth } from '@/auth/auth'
 import dayjs from 'dayjs'
+
 import {
 	BabyIcon,
 	DockIcon,
@@ -14,12 +15,15 @@ import {
 	Shell,
 	User2
 } from 'lucide-react'
+
 import { SocialIcon } from 'react-social-icons'
 
-import { DeleteAccount } from './components/delete-account'
 import { Ensign } from './components/ensigns'
+import { DeleteAccount } from './components/delete-account'
 import { PasswordChangeDialog } from './components/change-password'
 import { SocialLinksDialog } from './components/change-social-links'
+import { UpdateAccountDialog } from './components/update-account'
+import Link from 'next/link'
 
 export default async function Account() {
 	const { user } = await auth()
@@ -27,9 +31,9 @@ export default async function Account() {
 	return (
 		<>
 			<div className="px-6 pt-4 pb-14">
-				<div className="flex justify-between gap-4">
-					<div className="w-3/12">
-						<div className="flex flex-col space-y-2">
+				<div className="flex flex-col sm:flex-row justify-between gap-4">
+					<div className="lg:w-3/12">
+						<div className="flex flex-col space-y-4">
 							<div className="bg-zinc-900 border border-zinc-800 rounded ">
 								<div className="px-4 py-4">
 									<div className="flex justify-between items-center">
@@ -42,6 +46,7 @@ export default async function Account() {
 											bgColor="transparent"
 											className="rounded-full bg-zinc-700"
 											network="instagram"
+											rel="noopener"
 											url="https://instagram.com"
 											target="_new"
 										/>
@@ -50,6 +55,7 @@ export default async function Account() {
 											bgColor="transparent"
 											className="rounded-full bg-zinc-700"
 											network="facebook"
+											rel="noopener"
 											url="https://facebook.com"
 											target="_new"
 										/>
@@ -58,6 +64,7 @@ export default async function Account() {
 											bgColor="transparent"
 											className="rounded-full bg-zinc-700"
 											network="youtube"
+											rel="noopener"
 											url="https://youtube.com"
 											target="_new"
 										/>
@@ -66,6 +73,7 @@ export default async function Account() {
 											bgColor="transparent"
 											className="rounded-full bg-zinc-700"
 											network="tiktok"
+											rel="noopener"
 											url="https://tiktok.com"
 											target="_new"
 										/>
@@ -83,9 +91,17 @@ export default async function Account() {
 									</div>
 								</div>
 							</div>
+							<div className="bg-zinc-900 border border-zinc-800 rounded">
+								<div className="p-4">
+									<h1 className="flex items-center gap-2 text-sm">
+										Comunidade
+									</h1>
+									<div className="flex items-center gap-3 mt-3"></div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div className="w-9/12">
+					<div className="lg:w-9/12">
 						<div className="bg-zinc-900 border border-zinc-800  rounded">
 							<div className="p-4">
 								<div className="flex items-center gap-3">
@@ -96,23 +112,27 @@ export default async function Account() {
 								<div className="mt-4">
 									<h1 className="text-lg gap-3 text-zinc-300">
 										Assinaturas e compras{' '}
-										<a href="" className="text-indigo-500 text-sm pl-5">
+										<Link
+											href="/settings/account/purchases"
+											className="text-indigo-500 text-sm pl-5"
+										>
 											Gerenciar
-										</a>
+										</Link>
 									</h1>
 								</div>
-								<div className="w-full mt-5 h-32 bg-zinc-900 rounded border flex border-zinc-800">
+								<div className="w-full mt-2 h-28 bg-zinc-900 rounded border flex border-zinc-800">
 									<div className="flex flex-1 items-center px-6">
 										<img
 											className="rounded shadow-sm size-20 object-contain border border-zinc-600"
 											src="https://static.wixstatic.com/media/86af11_d5d0dd5675824516862756f3617a806b~mv2.png/v1/fill/w_260,h_144,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Apresenta%C3%A7%C3%A3o%20Maia%20Giacomelli%20(2).png"
 										/>
 										<div className="ml-4 flex flex-col">
-											<h1 className="font-semibold">
+											<h1 className="font-semibold truncate w-32 lg:w-full">
 												Reset Intestino - Assinatura anual
 											</h1>
-											<p className="text-indigo-300 text-sm">
-												Renovação automática
+											<p className="text-green-500 text-xs inline-flex items-start gap-2">
+												<span className="w-2.5 h-2.5 bg-green-500 rounded-full" />
+												ASSINATURA ATIVA
 											</p>
 										</div>
 									</div>
@@ -133,9 +153,9 @@ export default async function Account() {
 								<div className="mt-4">
 									<h1 className="text-sm gap-3 text-zinc-400">
 										Não há certificados disponíveis. Consulte o{' '}
-										<a href="" className="text-indigo-500">
+										<Link href="/" className="text-indigo-500">
 											catálogo
-										</a>{' '}
+										</Link>{' '}
 										para começar algo novo ou continuar de onde parou.
 									</h1>
 								</div>
@@ -163,9 +183,7 @@ export default async function Account() {
 							<div className="p-4">
 								<h1 className="text-xl flex items-center gap-3">
 									<User2 size={20} /> Dados pessoais
-									<a href="" className="text-indigo-500 text-sm pt-1 pl-4">
-										Alterar
-									</a>
+									<UpdateAccountDialog />
 								</h1>
 								<div className="grid grid-cols-2">
 									<div className="mt-4 space-y-2">
@@ -193,9 +211,13 @@ export default async function Account() {
 										<h1 className="text-sm flex items-center gap-2 text-zinc-400">
 											<Phone size={16} /> {user.phone}
 										</h1>
-										<h1 className="text-sm flex items-center gap-2 text-zinc-400">
-											<MapPinIcon size={16} />
+										<h1 className="text-sm flex items-start gap-2 text-zinc-400">
+											<MapPinIcon size={16} /> {user.address}{' '}
+											{user.complement ?? ''}
 										</h1>
+										<p className="text-sm flex items-center gap-2 text-zinc-500">
+											{user.city} - {user.uf}. CEP: {user.zipCode}
+										</p>
 									</div>
 								</div>
 							</div>

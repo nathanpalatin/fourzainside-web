@@ -15,7 +15,7 @@ export default function ProductLayout({
 }) {
 	return (
 		<div className="h-screen flex">
-			<div className=" flex flex-col flex-1">
+			<div className=" flex gap-3">
 				<TopbarProduct />
 				<div className="flex-1">{children}</div>
 			</div>

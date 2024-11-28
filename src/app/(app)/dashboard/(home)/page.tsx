@@ -2,6 +2,7 @@ import { Crown, EyeIcon } from 'lucide-react'
 import { CardInfo } from '../../components/card-info'
 import { ChartDashboard } from '../../components/chart-dashboard'
 import { CardInfoSmall } from '../../components/card-info-small'
+import { PieChartSales } from '../components/pie-chart-sales'
 
 export default async function Dashboard() {
 	return (
@@ -31,7 +32,9 @@ export default async function Dashboard() {
 				</div>
 				<div className="flex flex-col gap-2 border-l border-zinc-700 pl-4">
 					<CardInfoSmall note today="" title="Conversões dos pagamentos" />
-					<CardInfoSmall note today="" title="Status das vendas" />
+					<CardInfoSmall note today="" title="Status das vendas">
+						<PieChartSales />
+					</CardInfoSmall>
 				</div>
 			</div>
 

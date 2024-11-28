@@ -1,7 +1,7 @@
 'use client'
 
 import { EyeIcon } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 import 'videojs-youtube'
@@ -9,9 +9,16 @@ import 'videojs-youtube'
 interface VideoProps {
 	video: string
 	autoplay?: boolean
+	webinar?: boolean
 }
 
-export function VideoPlayerYT({ video, autoplay = false }: VideoProps) {
+export function VideoWebinar({
+	video,
+	autoplay = false,
+	webinar = false
+}: VideoProps) {
+	const [online, setOnline] = useState(1000)
+
 	const videoJsOptions = {
 		autoplay,
 		controls: true,
@@ -36,17 +43,37 @@ export function VideoPlayerYT({ video, autoplay = false }: VideoProps) {
 	const videoRef = useRef(null)
 	const playerRef = useRef(null)
 
+	// Alternador de números
+	useEffect(() => {
+		function createRandomNumber(callback: (number: number) => void) {
+			function toggleNumber() {
+				const randomNumber =
+					Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000
+				callback(randomNumber)
+				setTimeout(toggleNumber, 2000)
+			}
+
+			toggleNumber()
+		}
+
+		createRandomNumber(setOnline)
+	}, [])
+
+	// Inicialização do player
 	useEffect(() => {
 		if (!playerRef.current) {
 			const videoElement = document.createElement('video-js')
 			videoElement.classList.add('vjs-big-play-centered')
 			videoRef.current.appendChild(videoElement)
+
 			playerRef.current = videojs(videoElement, videoJsOptions, () => {
 				console.log('Player is ready')
 			})
 
+			// Remover menu de contexto
 			playerRef.current.el().oncontextmenu = e => e.preventDefault()
 
+			// Cleanup ao desmontar
 			return () => {
 				if (playerRef.current) {
 					playerRef.current.dispose()
@@ -54,8 +81,11 @@ export function VideoPlayerYT({ video, autoplay = false }: VideoProps) {
 				}
 			}
 		}
-	}, [videoJsOptions])
+		// Evitar dependências desnecessárias para não recriar o player
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
+	// Alternar play/pause
 	const togglePlayPause = () => {
 		const player = playerRef.current
 		if (player) {
@@ -73,6 +103,14 @@ export function VideoPlayerYT({ video, autoplay = false }: VideoProps) {
 			className="custom-video-player"
 			style={{ position: 'relative' }}
 		>
+			{webinar && (
+				<div className="absolute z-50 h-7 rounded-full bg-red-500 -top-3 left-4">
+					<h1 className="inline-flex items-center gap-1 px-4">
+						<EyeIcon /> <span className="pt-1">{online}</span>
+					</h1>
+				</div>
+			)}
+
 			<div ref={videoRef} className="bg-black rounded-xl overflow-hidden" />
 			<div
 				onMouseDownCapture={togglePlayPause}

@@ -1,15 +1,34 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { ComponentProps } from 'react'
 
-interface NavLinkProps extends ComponentProps<typeof Link> {}
+interface NavLinkProps extends ComponentProps<typeof Link> {
+	matchQueryParams?: boolean
+}
 
-export function NavLink(props: NavLinkProps) {
+export function NavLink({
+	href,
+	className,
+	matchQueryParams = false,
+	...props
+}: NavLinkProps) {
 	const pathname = usePathname()
+	const searchParams = useSearchParams()
 
-	const isCurrent = props.href.toString() === pathname
+	const isCurrent = matchQueryParams
+		? `${pathname}?${searchParams.toString()}` === href
+		: pathname === href
 
-	return <Link data-current={isCurrent} {...props} />
+	return (
+		<Link
+			href={href}
+			data-current={isCurrent}
+			className={`${className} ${
+				isCurrent ? 'text-zinc-100 font-bold' : 'text-zinc-500'
+			}`}
+			{...props}
+		/>
+	)
 }

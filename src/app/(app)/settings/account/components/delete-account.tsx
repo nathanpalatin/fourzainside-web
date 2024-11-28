@@ -16,7 +16,7 @@ import { Skull } from 'lucide-react'
 export function DeleteAccount() {
 	return (
 		<>
-			<h1 className="text-lg flex items-center gap-2 text-zinc-100">
+			<h1 className="text-lg flex items-start gap-2 text-zinc-100">
 				<Skull className="text-zinc-500" size={24} /> Excluir conta
 			</h1>
 			<p className="pt-4">

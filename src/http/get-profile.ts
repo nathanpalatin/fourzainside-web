@@ -13,12 +13,11 @@ interface GetProfileResponse {
 		name: string
 		role: 'ADMIN' | 'MENTOR' | 'USER'
 		avatar: string | null
-		address: {
-			city: string
-			state: string
-			country: string
-			zipCode: string | null
-		}
+		complement: string | null
+		address: string
+		city: string
+		uf: string
+		zipCode: string | null
 	}
 }
 

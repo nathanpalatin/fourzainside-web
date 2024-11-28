@@ -14,11 +14,15 @@ const cambay = Cambay({
 	subsets: ['latin']
 })
 
-export default function CheckoutLayout({
+export default async function CheckoutLayout({
 	children
 }: {
 	children: React.ReactNode
 }) {
+	if (await isAuthenticated()) {
+		redirect('/')
+	}
+
 	return (
 		<html lang="pt-br">
 			<body className={`${cambay.className} antialiased`}>{children}</body>
