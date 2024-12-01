@@ -10,6 +10,13 @@ export interface ModulesPropsResponse {
 		available: string
 		visibility: boolean
 		courseId: string
+		lessons: {
+			id: string
+			title: string
+			description: string
+			slug: string
+			cover?: string
+		}[]
 	}[]
 }
 

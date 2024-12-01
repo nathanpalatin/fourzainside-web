@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { DrawerNewModule } from '../../../components/drawer-new-module'
-import { getModules } from '@/http/dashboard/products/modules/get-modules'
 import { Skeleton } from '@/components/ui/skeleton'
+import { getModules } from '@/http/dashboard/products/modules/get-modules'
+
 import {
 	Accordion,
 	AccordionContent,
@@ -19,6 +20,7 @@ export default function Modules({ idProduct }: ModuleProps) {
 		queryKey: ['modules', idProduct],
 		queryFn: async () => await getModules(idProduct)
 	})
+
 	return (
 		<div className="w-full">
 			<div className="flex items-center justify-between mb-3 ">
@@ -60,7 +62,20 @@ export default function Modules({ idProduct }: ModuleProps) {
 												</h1>
 											</div>
 										</AccordionTrigger>
-										<AccordionContent className="pl-6"></AccordionContent>
+										<AccordionContent className="pl-6">
+											{module.lessons.map((lesson, index) => {
+												return (
+													<div
+														key={index}
+														className="py-2 px-2 border-b border-zinc-800"
+													>
+														<h1 className="text-sm pt-1 font-semibold">
+															{lesson.title}
+														</h1>
+													</div>
+												)
+											})}
+										</AccordionContent>
 									</AccordionItem>
 								</Accordion>
 							</div>
