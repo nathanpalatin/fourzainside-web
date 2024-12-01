@@ -1,7 +1,6 @@
 'use server'
 
 import { saveProduct } from '@/http/dashboard/products/save-product'
-import { uploadFile } from '@/http/upload-file'
 import { HTTPError } from 'ky'
 import { z } from 'zod'
 

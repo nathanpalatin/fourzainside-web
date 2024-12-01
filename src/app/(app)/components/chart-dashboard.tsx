@@ -94,7 +94,7 @@ const chartData = [
 	{ date: '2024-06-14', desktop: 426, mobile: 380 },
 	{ date: '2024-06-15', desktop: 307, mobile: 350 },
 	{ date: '2024-06-16', desktop: 371, mobile: 310 },
-	{ date: '2024-06-17', desktop: 475, mobile: 520 },
+	{ date: '2024-06-17', desktop: 475, mobile: 320 },
 	{ date: '2024-06-18', desktop: 107, mobile: 170 },
 	{ date: '2024-06-19', desktop: 341, mobile: 290 },
 	{ date: '2024-06-20', desktop: 408, mobile: 450 },
@@ -131,7 +131,7 @@ export function ChartDashboard() {
 	const total = React.useMemo(
 		() => ({
 			desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-			mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0)
+			mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0) + 1051245
 		}),
 		[]
 	)
@@ -158,7 +158,7 @@ export function ChartDashboard() {
 								<span className="text-xs text-muted-foreground">
 									{chartConfig[chart].label}
 								</span>
-								<span className="text-lg w-32 font-bold leading-none sm:text-3xl">
+								<span className="text-lg w-52 font-bold leading-none sm:text-3xl">
 									R$ {total[key as keyof typeof total].toLocaleString()}
 								</span>
 							</button>

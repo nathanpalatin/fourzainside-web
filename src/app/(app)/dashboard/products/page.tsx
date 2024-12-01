@@ -14,7 +14,7 @@ export default async function ProductsPage() {
 				<h1 className="text-2xl font-semibold">Produtos cadastrados</h1>
 				<Link href="/dashboard/products/new">
 					<Button className="bg-green-700 pt-3 hover:bg-green-600 rounded-full">
-						Adicionar novo
+						Adicionar
 					</Button>
 				</Link>
 			</div>
